@@ -150,3 +150,22 @@ hr.home-divider {
   border-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
+
+/* Résumé page — single-sheet image */
+.resume-display {
+  margin: 0 auto;
+  max-width: 900px;
+  background: #f6f7f9;
+  border: 1px solid #e2e4e8;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.resume-display img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background: #fff;
+}

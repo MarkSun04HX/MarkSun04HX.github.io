@@ -29,7 +29,7 @@ I am **Haoxuan (Mark) Sun**, a senior at [Wake Forest University](https://www.wf
 
 ### Contact
 
-Reach me through the links in the footer (email, LinkedIn, GitHub, U.S. phone). You can also use **(+86) 138-1744-1278** or **(+1) 704-502-9225**. A **PDF résumé** and CV-style summary are on the [Résumé]({{ '/resume' | relative_url }}) page. For **Wake Forest Economics**, I am affiliated with the [Department of Economics](https://economics.wfu.edu/).
+Reach me through the links in the footer (email, LinkedIn, GitHub, U.S. phone). You can also use **(+86) 138-1744-1278** or **(+1) 704-502-9225**. My **résumé** is on the [Résumé]({{ '/resume' | relative_url }}) page as an on-screen image (March 2026). For **Wake Forest Economics**, I am affiliated with the [Department of Economics](https://economics.wfu.edu/).
 
 ### This site
 
