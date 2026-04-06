@@ -98,6 +98,9 @@ share-links-active:
 # Remove this if you don't want a link in the footer
 url-pretty: "sunhaoxuan.com"
 
+# Canonical site URL (RSS, sitemap, absolute links). Must match your live domain once DNS works.
+url: "https://sunhaoxuan.com"
+
 # Add the website title to the title of every page
 title-on-all-pages: true
 
