@@ -4,6 +4,16 @@ title: Projects
 subtitle: Research, coursework, and applied data science
 ---
 
+### DataFest — ER visits & Type 1 diabetes (team Bit Dance)
+
+**Wake Forest DataFest · March 2026 · Tommy Shen, Haoxuan (Mark) Sun, Jack Zhong**
+
+Weekend competition project on **patient-level drivers of emergency room use** among Type 1 diabetes patients. We defined a **care fragmentation** score (distinct visit types over total visits), showed it lines up with **higher ER utilization**, and estimated a **quasi-Poisson** count model with a **log(total visits) offset** and controls for visit type, marital status, and urban/rural settlement. We did not place in the judging, but the analysis suggested targeting **single patients with high fragmentation** for care coordination (advisors, check-ins, group support).
+
+**Write-up:** [blog post]({% post_url 2026-03-30-datafest-type1-diabetes-er-visits %}) · *Deck available on request (not hosted here).*
+
+---
+
 ### NBA player salary prediction
 
 **Statistics learning · R · Feb 2026 – present**

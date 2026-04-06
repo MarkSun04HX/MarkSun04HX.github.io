@@ -12,6 +12,8 @@ Built with [Beautiful Jekyll](https://beautifuljekyll.com/) and hosted on [GitHu
 | `_config.yml` | Site title, author, nav links, colors, social links, SEO keywords |
 | `index.html` | Home page (intro + blog feed) |
 | `aboutme.md` | Bio, education, experience, contact |
+| `resume.md` | Résumé / CV page (links to `assets/files/haoxuan-sun-resume-2026-03.pdf`) |
+| `assets/files/haoxuan-sun-resume-2026-03.pdf` | PDF résumé for download |
 | `projects.md` | Project highlights |
 | `_posts/` | Blog posts — use `tags: [research]` or `tags: [sports]` (see **Blog** in the nav) |
 | `blog/` | Blog hub and category listing pages (`/blog/`, `/blog/research/`, `/blog/sports/`) |

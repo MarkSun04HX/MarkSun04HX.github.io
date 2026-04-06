@@ -21,6 +21,7 @@ author: Haoxuan (Mark) Sun
 
 navbar-links:
   About Me: "aboutme"
+  Résumé: "resume"
   Projects: "projects"
   Blog:
     - Overview: "blog"
