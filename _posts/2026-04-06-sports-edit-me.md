@@ -3,6 +3,7 @@ layout: post
 title: "Sports: edit this post"
 subtitle: Template for opinions and match reactions
 tags: [sports]
+hide_from_home: true
 ---
 
 This is a **starter sports post**. Replace this with your take — tactics, transfers, race weekend reactions, whatever fits.

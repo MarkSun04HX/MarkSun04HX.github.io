@@ -20,6 +20,8 @@ tags: [research]   # or [sports]
 
 Then write the body in Markdown below the second `---`.
 
+To keep a **template post** out of the **home page** feed (but still on `/blog/research/` etc.), add `hide_from_home: true` to its front matter.
+
 <div class="row mt-4">
   <div class="col-md-6 mb-4">
     <div class="project-card">

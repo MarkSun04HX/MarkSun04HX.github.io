@@ -3,6 +3,7 @@ layout: post
 title: "Research: edit this post"
 subtitle: Template for econometrics, RA notes, or paper drafts
 tags: [research]
+hide_from_home: true
 ---
 
 This is a **starter research post**. Replace this text with your note, literature summary, or results draft.

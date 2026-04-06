@@ -23,4 +23,5 @@ jobs:
       - name: Build site
         env:
           JEKYLL_ENV: production
-        run: bundle exec appraisal jekyll build --future --config _config_ci.yml,_config.yml
+        # Only jekyll-4 (Ruby 3.3 + this site); jekyll-3 appraisal often fails and is not used on Pages.
+        run: bundle exec appraisal jekyll-4 jekyll build --future --config _config_ci.yml,_config.yml
