@@ -22,6 +22,10 @@ author: Haoxuan (Mark) Sun
 navbar-links:
   About Me: "aboutme"
   Projects: "projects"
+  Blog:
+    - Overview: "blog"
+    - Research: "blog/research"
+    - Sports opinions: "blog/sports"
   Resources:
     - GitHub: "https://github.com/MarkSun04HX"
     - LinkedIn: "https://www.linkedin.com/in/haoxuan-sun-129b8b267/"

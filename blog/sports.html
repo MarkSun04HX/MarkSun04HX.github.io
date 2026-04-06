@@ -1,0 +1,25 @@
+---
+layout: page
+title: Sports opinions
+subtitle: Takes on the games I follow
+permalink: /blog/sports/
+---
+
+<p class="blog-category-hint">Posts use <code>tags: [sports]</code> in their front matter. <a href="{{ '/blog/' | relative_url }}">← Blog overview</a></p>
+
+{% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+{% assign posts = site.tags["sports"] | sort: "date" | reverse %}
+
+<ul class="list-unstyled blog-category-list">
+{% for post in posts %}
+  <li class="mb-4 pb-3 border-bottom">
+    <a href="{{ post.url | relative_url }}" class="h5 d-block">{{ post.title | strip_html }}</a>
+    {% if post.subtitle %}<p class="text-muted mb-1 small">{{ post.subtitle | strip_html }}</p>{% endif %}
+    <time class="text-muted small" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: date_format }}</time>
+  </li>
+{% endfor %}
+</ul>
+
+{% if posts.size == 0 %}
+<p class="text-muted">No sports posts yet. Add a file under <code>_posts/</code> with <code>tags: [sports]</code> in the YAML header.</p>
+{% endif %}

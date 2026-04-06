@@ -139,3 +139,14 @@ hr.home-divider {
 .ra-figure figcaption .pdf-link {
   white-space: nowrap;
 }
+
+.blog-category-hint {
+  font-size: 0.92rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.blog-category-list li:last-child {
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
