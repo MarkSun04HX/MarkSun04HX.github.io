@@ -30,7 +30,7 @@ An **AutoML-style ensemble** pipeline that scores multiple named models with **i
 
 ![TBDE pipeline: inner CV, coalition selection, ensemble prediction]({{ '/assets/images/tbde-logic.png' | relative_url }})
 
-**Write-up:** [research blog post]({% post_url 2026-04-07-tbde-threshold-dynamic-ensemble %}) · **Repository:** [MarkSun04HX/Threshold-Based-Dynamic-Ensemble-Model](https://github.com/MarkSun04HX/Threshold-Based-Dynamic-Ensemble-Model) (MIT).
+**Write-up:** [research blog post]({% post_url 2026-04-05-tbde-threshold-dynamic-ensemble %}) · **Repository:** [MarkSun04HX/Threshold-Based-Dynamic-Ensemble-Model](https://github.com/MarkSun04HX/Threshold-Based-Dynamic-Ensemble-Model) (MIT).
 
 ---
 
