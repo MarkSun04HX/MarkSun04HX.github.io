@@ -17,9 +17,19 @@ I am **Haoxuan (Mark) Sun**, a senior at [Wake Forest University](https://www.wf
 - **Project intern, Global Production Planning** — Dell Technologies (June – Aug 2025), Xiamen, China. **ESD / lead-time** simulation for factory ship planning: **XGBoost** pipeline with **CFS vs. non-CFS** splits for shippable orders and **friction** segmentation (customer vs. supply vs. other). Presentation metrics: average weekly "attention" from about **109%** toward **~102%**, more weeks inside the **98–105%** target band, and large gains in simulation runtime. [Write-up]({% post_url 2025-08-20-dell-gpp-esd-simulation-internship %}).
 - **Field sales and operations support intern** — DB Schenker Greater China (July – Aug 2024), Shanghai. Assisted the field sales team with quotes, proposals, and presentations tailored to customer requirements; maintained and updated customer databases for interactions, contracts, and account details.
 
-### Data science project
+### Data science and applied projects
 
-- **NBA player salary prediction** (statistics learning group project; Feb 2026 – present) — Built a predictive model in **R** for 2022–2023 NBA player salaries from on-court performance metrics, with final prediction error of roughly **12%**. Used exploratory analysis, log transformations for variance stability, and **k-fold cross-validation** with **KNN**; extending the pipeline with penalized regression.
+Brief summaries (aligned with **[Projects]({{ '/projects' | relative_url }})**):
+
+- **DataFest — Type 1 diabetes & ER visits** (March 2026, team Bit Dance) — Weekend analytics sprint: **care fragmentation** score, **quasi-Poisson** modeling of ER counts with an offset, and a story about who might benefit from care-coordination outreach. [Blog write-up]({% post_url 2026-03-30-datafest-type1-diabetes-er-visits %}).
+- **NBA player salary prediction** (Feb 2026 – present) — **R** pipeline predicting 2022–23 salaries from performance stats (~**12%** error); EDA, log transforms, **k-fold CV** with **KNN**; moving toward penalized regression.
+- **Threshold-Based Dynamic Ensemble (TBDE)** (2026, in progress) — **Python**/**R** prototype that uses **inner cross-validation** to score models, forms a **coalition** (**top‑k** or **RMSE threshold**), then averages predictions; stubs today for a testable AutoML-style loop. [Research note]({% post_url 2026-04-05-tbde-threshold-dynamic-ensemble %}) · [GitHub](https://github.com/MarkSun04HX/Threshold-Based-Dynamic-Ensemble-Model).
+- **Dell GPP — ESD simulation & ML** (internship, summer 2025) — **XGBoost**-centered **estimated ship date** workflow for factory planning with governed train data and friction splits; large accuracy and runtime gains vs. prior logic. [Reflection post]({% post_url 2025-08-20-dell-gpp-esd-simulation-internship %}).
+- **TV advertising pipelines (RA)** (2025–2026) — **Python** jobs over **multi-terabyte** TV ad panels; extract and consolidate in **Jupyter/Colab** for econometric work. [Sample figures](/#ra-visuals).
+
+### Earlier writing
+
+- **“Build Back Better” and the US economy** — **High school research paper** (policy review from secondary sources), published **22 Nov 2022** in *BCP Business & Management* ([journal page](https://bcpublication.org/index.php/BM/article/view/2897), [DOI](https://doi.org/10.54691/bcpbm.v32i.2897)). [Context and PDF]({% post_url 2022-11-22-aftem-build-back-better-act %}).
 
 ### Skills, languages, and interests
 
