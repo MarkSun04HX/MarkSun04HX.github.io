@@ -30,7 +30,7 @@ To keep a **template** off the home **research feed** only, add `hide_from_home:
   </div>
   <div class="col-md-4 mb-4">
     <div class="project-card">
-      <h2 class="h4 mt-0"><a href="{{ '/blog/sports/' | relative_url }}">Sports opinions</a></h2>
+      <h2 class="h4 mt-0"><a href="{{ '/blog/sports/' | relative_url }}">Sports</a></h2>
       <p class="mb-3 small">Soccer, F1, basketball, etc.</p>
       <a class="btn btn-outline-primary btn-sm" href="{{ '/blog/sports/' | relative_url }}">View posts</a>
     </div>

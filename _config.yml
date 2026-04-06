@@ -26,7 +26,7 @@ navbar-links:
   Blog:
     - Overview: "blog"
     - Research: "blog/research"
-    - Sports opinions: "blog/sports"
+    - Sports: "blog/sports"
     - Journal: "blog/journal"
   Resources:
     - GitHub: "https://github.com/MarkSun04HX"
