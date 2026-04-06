@@ -22,6 +22,18 @@ Predictive model for 2022–2023 NBA player salaries from on-court performance m
 
 ---
 
+### Threshold-Based Dynamic Ensemble (TBDE)
+
+**Personal software · Python & R · 2026 — work in progress**
+
+An **AutoML-style ensemble** pipeline that scores multiple named models with **inner cross-validation**, then builds a **coalition** either from the **top performers** or from models that beat an **RMSE threshold**; predictions are an **unweighted mean** (or weighted when specified). I am actively developing this—stub estimators ship today so the full CV → selection → predict loop is testable without heavy ML dependencies; real model backends and documentation will evolve in the repo.
+
+![TBDE pipeline: inner CV, coalition selection, ensemble prediction]({{ '/assets/images/tbde-logic.png' | relative_url }})
+
+**Write-up:** [research blog post]({% post_url 2026-04-07-tbde-threshold-dynamic-ensemble %}) · **Repository:** [MarkSun04HX/Threshold-Based-Dynamic-Ensemble-Model](https://github.com/MarkSun04HX/Threshold-Based-Dynamic-Ensemble-Model) (MIT).
+
+---
+
 ### Dell GPP — order ESD simulation & ML (internship)
 
 **Dell Technologies · Global Production Planning · Xiamen · July–August 2025**

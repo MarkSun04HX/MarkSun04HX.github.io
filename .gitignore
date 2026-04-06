@@ -1,4 +1,5 @@
 # project
+.venv-diagram
 _site
 .sass-cache
 .vagrant
