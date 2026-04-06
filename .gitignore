@@ -3,6 +3,9 @@ _site
 .sass-cache
 .vagrant
 
+# Avoid committing large decks (summaries live in _posts/ instead)
+*.pptx
+
 # general
 .DS_Store
 Thumbs.db

@@ -22,11 +22,15 @@ Predictive model for 2022–2023 NBA player salaries from on-court performance m
 
 ---
 
-### Production lead-time simulation (internship)
+### Dell GPP — order ESD simulation & ML (internship)
 
-**Dell Technologies · Global Production Planning · Summer 2025**
+**Dell Technologies · Global Production Planning · Xiamen · July–August 2025**
 
-End-to-end **order-to-delivery** lead-time simulation using **XGBoost** to forecast customer order timelines. Improved simulation accuracy from **109%** (manual / distribution-based) to **104%** by separating supplier- vs. customer-driven factors and grouping products by **CFS** levels.
+Undergraduate intern project on **estimated ship date (ESD)** simulation for **APJ** factory planning. Built a **machine-learning** path (centered on **XGBoost**) on top of **standardized, governed** training data: **CFS vs. non-CFS** splits for **shippable** orders, and **customer- / supply- / other-friction** splits for problem orders—mirroring different **production lead-time** distributions.
+
+End-of-summer deck metrics (internal targets **98–105%** “attention”): **~109.44% → ~101.61%** average weekly accuracy, **7/13 → 9/13** weeks in band, less extreme week-to-week variance, and **~83%** faster simulation runtime vs. prior manual logic. Compared many algorithms (RF, KNN, CatBoost, GBMs, linear models) before converging on the production-style **XGBoost** workflow.
+
+**Write-up:** [internship reflection post]({% post_url 2025-08-20-dell-gpp-esd-simulation-internship %}) · *Original PowerPoint not published here.*
 
 ---
 
