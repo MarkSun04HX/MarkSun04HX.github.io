@@ -96,10 +96,10 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "sunhaoxuan.com"
+url-pretty: "MarkSun04HX.github.io"
 
-# Canonical site URL (RSS, sitemap, absolute links). Must match your live domain once DNS works.
-url: "https://sunhaoxuan.com"
+# Canonical site URL (RSS, sitemap, absolute links). Use github.io unless custom DNS is configured.
+url: "https://marksun04hx.github.io"
 
 # Add the website title to the title of every page
 title-on-all-pages: true
