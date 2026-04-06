@@ -21,8 +21,10 @@ author: Haoxuan (Mark) Sun
 
 navbar-links:
   About Me: "aboutme"
+  Projects: "projects"
   Resources:
     - GitHub: "https://github.com/MarkSun04HX"
+    - LinkedIn: "https://www.linkedin.com/in/haoxuan-sun-129b8b267/"
     - Learn markdown: "https://www.markdowntutorial.com/"
 
 ################
@@ -125,7 +127,7 @@ edit_page_button: true
 navbar-var-length: false
 
 # The keywords to associate with your website, for SEO purposes
-#keywords: "my,list,of,keywords"
+keywords: "Haoxuan Sun, Mark Sun, economics, statistics, data science, Wake Forest University, NUS, econometrics, machine learning"
 
 ######################################
 # --- Colours / background image --- #
@@ -135,8 +137,8 @@ navbar-var-length: false
 
 page-col: "#FFFFFF"
 text-col: "#404040"
-link-col: "#008AFF"
-hover-col: "#0085A1"
+link-col: "#1e4d7b"
+hover-col: "#143a5c"
 navbar-col: "#EAEAEA"
 navbar-text-col: "#404040"
 navbar-border-col: "#DDDDDD"
@@ -153,11 +155,11 @@ footer-hover-col: "#0085A1"
 #page-img: "/assets/img/bgimage.png"
 
 # Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
-#mobile-theme-col: "#0085A1"
+mobile-theme-col: "#1e4d7b"
 
 # For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
-#site-css:
-#  - "/assets/css/custom-styles.css"
+site-css:
+  - "/assets/css/sunhaoxuan.css"
 
 # If you have common JavaScript files that should be included in every page, list them here
 #site-js:
@@ -279,11 +281,19 @@ defaults:
       layout: "post"
       comments: true  # add comments to all blog posts
       social-share: true # add social media sharing buttons to all blog posts
+      head-extra:
+        - favicon-extra.html
+      footer-extra:
+        - footer-cta.html
   -
     scope:
       path: "" # any file that's not a post will be a "page" layout by default
     values:
       layout: "page"
+      head-extra:
+        - favicon-extra.html
+      footer-extra:
+        - footer-cta.html
 
 # Exclude these files from production site
 exclude:

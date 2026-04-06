@@ -1,0 +1,141 @@
+/* Personal site accents — Haoxuan (Mark) Sun */
+:root {
+  --sun-accent: #1e4d7b;
+  --sun-accent-soft: rgba(30, 77, 123, 0.08);
+  --sun-border: rgba(30, 77, 123, 0.2);
+}
+
+.home-intro {
+  background: var(--sun-accent-soft);
+  border: 1px solid var(--sun-border);
+  border-radius: 8px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.home-intro .lead {
+  font-size: 1.15rem;
+  color: #303030;
+  margin-bottom: 0.75rem;
+}
+
+.home-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+}
+
+.home-actions .btn {
+  border-radius: 6px;
+}
+
+.home-highlights {
+  font-size: 0.95rem;
+  color: #505050;
+  margin-top: 1rem;
+  padding-left: 1.1rem;
+}
+
+.home-highlights li {
+  margin-bottom: 0.35rem;
+}
+
+.home-section-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+hr.home-divider {
+  margin: 2rem 0 1.75rem;
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer-cta {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.footer-cta a {
+  font-weight: 500;
+}
+
+.project-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  background: #fafafa;
+}
+
+.project-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.project-meta {
+  font-size: 0.88rem;
+  color: #777;
+  margin-bottom: 0.75rem;
+}
+
+/* RA / TV advertising figure gallery */
+.ra-visuals {
+  margin-bottom: 2.25rem;
+}
+
+.ra-visuals-intro {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1.25rem;
+  max-width: 48rem;
+}
+
+.ra-figure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1.5rem;
+}
+
+.ra-figure {
+  margin: 0;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
+}
+
+.ra-figure a.img-wrap {
+  display: block;
+  line-height: 0;
+  background: #f6f7f9;
+}
+
+.ra-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ra-figure figcaption {
+  padding: 0.8rem 1rem;
+  font-size: 0.86rem;
+  color: #555;
+  line-height: 1.45;
+  border-top: 1px solid #eee;
+}
+
+.ra-figure figcaption .pdf-link {
+  white-space: nowrap;
+}
