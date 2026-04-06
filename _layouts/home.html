@@ -10,6 +10,7 @@ layout: page
 <ul class="posts-list list-unstyled" role="list">
   {% for post in posts %}
   {% unless post.hide_from_home %}
+  {% unless post.tags contains 'journal' %}
   <li class="post-preview">
     <article>
 
@@ -98,6 +99,7 @@ layout: page
 
     </article>
   </li>
+  {% endunless %}
   {% endunless %}
   {% endfor %}
 </ul>

@@ -140,6 +140,34 @@ hr.home-divider {
   white-space: nowrap;
 }
 
+.home-journal {
+  margin-bottom: 2.25rem;
+}
+
+.home-journal-intro {
+  margin-bottom: 1rem;
+  max-width: 40rem;
+}
+
+.journal-preview-list {
+  max-width: 42rem;
+}
+
+.journal-preview-title {
+  font-weight: 600;
+  display: inline;
+}
+
+.journal-preview-date {
+  display: inline-block;
+  margin-left: 0.35rem;
+}
+
+.journal-preview-item:last-child {
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 .blog-category-hint {
   font-size: 0.92rem;
   color: #666;

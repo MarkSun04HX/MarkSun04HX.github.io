@@ -15,8 +15,8 @@ Built with [Beautiful Jekyll](https://beautifuljekyll.com/) and hosted on [GitHu
 | `resume.md` | Résumé / CV page (PDF download only — no duplicate text) |
 | `assets/files/haoxuan-sun-resume.pdf` | Résumé PDF linked from `/resume` |
 | `projects.md` | Project highlights |
-| `_posts/` | Blog posts — use `tags: [research]` or `tags: [sports]` (see **Blog** in the nav) |
-| `blog/` | Blog hub and category listing pages (`/blog/`, `/blog/research/`, `/blog/sports/`) |
+| `_posts/` | Blog posts — `tags: [research]`, `[sports]`, or `[journal]` (journal = casual; see **Blog** in the nav) |
+| `blog/` | Blog hub and category pages (`/blog/`, `/blog/research/`, `/blog/sports/`, `/blog/journal/`) |
 | `assets/css/sunhaoxuan.css` | Custom layout and accent styles |
 | `assets/img/favicon.svg` | Site icon |
 | `assets/img/ra/*.png` | RA research figures (exported from PDF for the web) |
