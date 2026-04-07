@@ -12,6 +12,12 @@ Public expenditure, taxation, and fiscal policy.
 
 <p class="mb-4"><a class="btn btn-primary" href="{{ '/assets/files/notes/ecn-321-public-finance.pdf' | relative_url }}">Open notes (PDF)</a></p>
 
+### STA 279 — Statistical Computing
+
+Statistical computing (course notes).
+
+<p class="mb-4"><a class="btn btn-primary" href="{{ '/assets/files/notes/sta-279-statistical-computing.pdf' | relative_url }}">Open notes (PDF)</a></p>
+
 ### STA 310 — Probability
 
 Probability theory (course notes).
