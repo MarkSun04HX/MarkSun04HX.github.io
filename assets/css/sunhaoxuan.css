@@ -179,3 +179,139 @@ hr.home-divider {
   border-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
+
+/* --- Calendar page (month grids) --- */
+.cal-intro {
+  max-width: 40rem;
+  margin-bottom: 1.75rem;
+}
+
+.site-cal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 2.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.cal-month {
+  flex: 1 1 280px;
+  max-width: 100%;
+}
+
+.cal-month-heading {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+  color: #1a365d;
+}
+
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+  margin-bottom: 4px;
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #64748b;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.cal-cell {
+  min-height: 3.75rem;
+  border: 1px solid rgba(30, 77, 123, 0.15);
+  border-radius: 6px;
+  padding: 0.35rem 0.3rem 0.25rem;
+  background: #fafbfc;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cal-cell--pad {
+  background: transparent;
+  border-color: transparent;
+  min-height: 0;
+  padding: 0;
+}
+
+.cal-day-num {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.88rem;
+}
+
+.cal-cell--event {
+  background: var(--sun-accent-soft);
+  border-color: var(--sun-accent);
+  box-shadow: inset 0 0 0 1px rgba(30, 77, 123, 0.06);
+}
+
+.cal-cell--event .cal-day-num {
+  color: var(--sun-accent);
+}
+
+.cal-event-label {
+  margin-top: 0.2rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.25;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+
+.cal-events-list-wrap {
+  max-width: 36rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.cal-events-summary {
+  cursor: pointer;
+  font-size: 0.92rem;
+  color: var(--sun-accent);
+  font-weight: 500;
+}
+
+.cal-events-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.92rem;
+  color: #444;
+}
+
+.cal-events-list li {
+  margin-bottom: 0.4rem;
+}
+
+.cal-footnote {
+  max-width: 40rem;
+}
+
+@media (max-width: 480px) {
+  .cal-cell {
+    min-height: 3.1rem;
+    padding: 0.25rem 0.2rem;
+    font-size: 0.75rem;
+  }
+
+  .cal-event-label {
+    font-size: 0.58rem;
+  }
+
+  .cal-weekdays span:nth-child(odd) {
+    font-size: 0.62rem;
+  }
+}
