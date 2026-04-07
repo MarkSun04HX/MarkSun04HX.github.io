@@ -1,8 +1,11 @@
 ---
 layout: page
-title: Notes
-subtitle: Course notes (PDF)
+title: Class notes
+subtitle: Course PDFs and coursework list
+permalink: /notes/class-notes/
 ---
+
+<p class="mb-4"><a href="{{ '/notes/' | relative_url }}">← Back to Notes</a></p>
 
 Personal lecture and study notes from coursework at Wake Forest. Links open the PDF in the browser or trigger a download depending on your settings.
 

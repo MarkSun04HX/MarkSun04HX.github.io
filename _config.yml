@@ -23,7 +23,10 @@ navbar-links:
   About Me: "aboutme"
   Résumé: "resume"
   Projects: "projects"
-  Notes: "notes"
+  Notes:
+    - Overview: "notes"
+    - Class notes: "notes/class-notes"
+    - Personal notes: "notes/personal-notes"
   Calendar: "calendar"
   Blog:
     - Overview: "blog"
