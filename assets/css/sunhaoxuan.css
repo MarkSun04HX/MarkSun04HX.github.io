@@ -258,6 +258,43 @@ hr.home-divider {
   box-shadow: inset 0 0 0 1px rgba(30, 77, 123, 0.06);
 }
 
+/* “Today” — applied by assets/js/calendar-today.js from the browser’s local date */
+.cal-cell--today {
+  position: relative;
+  z-index: 1;
+  background: #cfd9e8 !important;
+  border-color: #153a5c !important;
+  box-shadow:
+    0 0 0 2px rgba(21, 58, 92, 0.55),
+    inset 0 0 0 1px rgba(21, 58, 92, 0.12) !important;
+}
+
+.cal-cell--event.cal-cell--today {
+  background: #b8c9de !important;
+}
+
+.cal-cell--today .cal-day-num {
+  color: #0f2844;
+  font-weight: 700;
+}
+
+.cal-today-msg {
+  max-width: 44rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  background: rgba(21, 58, 92, 0.06);
+  border: 1px solid rgba(21, 58, 92, 0.15);
+}
+
+.cal-events-list li.cal-list-item--today {
+  background: rgba(21, 58, 92, 0.08);
+  margin-left: -0.35rem;
+  padding: 0.35rem 0.5rem 0.35rem 0.35rem;
+  border-radius: 6px;
+  border-left: 3px solid #153a5c;
+}
+
 .cal-cell--event .cal-day-num {
   color: var(--sun-accent);
 }
