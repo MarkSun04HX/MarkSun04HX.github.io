@@ -7,7 +7,7 @@ share-description: "Personal site of Haoxuan (Mark) Sun — economics, statistic
 
 <div class="home-intro" markdown="0">
   <p class="lead">Welcome. I work at the intersection of <strong>economics</strong>, <strong>statistics</strong>, and <strong>data-driven research</strong>.</p>
-  <p>I am finishing my B.S. in Economics at <a href="https://www.wfu.edu/">Wake Forest</a> and starting an M.Sc. in Statistics at <a href="https://www.nus.edu.sg/">NUS</a> in August 2026. This site holds my <a href="{{ '/aboutme' | relative_url }}">bio</a>, <a href="{{ '/projects' | relative_url }}">project highlights</a>, a <a href="#journal">journal</a> for casual notes, and longer <a href="#posts">posts</a> below.</p>
+  <p>I am finishing my B.S. in Economics at <a href="https://www.wfu.edu/">Wake Forest</a> and starting an M.Sc. in Statistics at <a href="https://www.nus.edu.sg/">NUS</a> in August 2026. This site holds my <a href="{{ '/aboutme' | relative_url }}">bio</a>, <a href="{{ '/projects' | relative_url }}">project highlights</a>, <a href="#sports">recent sports writing</a> up front, and longer <a href="#posts">posts</a> below.</p>
   <div class="home-actions">
     <a class="btn btn-outline-primary btn-sm" href="{{ '/aboutme' | relative_url }}">About me</a>
     <a class="btn btn-outline-primary btn-sm" href="{{ '/projects' | relative_url }}">Projects</a>
@@ -54,24 +54,26 @@ share-description: "Personal site of Haoxuan (Mark) Sun — economics, statistic
   </div>
 </section>
 
-<section class="home-journal" id="journal" aria-labelledby="journal-heading">
-  <p class="home-section-label" id="journal-heading">Journal</p>
-  <p class="home-journal-intro text-muted small">Informal notes — day-to-day thoughts, links, and anything that isn’t a “proper” research or sports post. <a href="{{ '/blog/journal/' | relative_url }}">All journal entries</a></p>
-  {% assign journal_posts = site.tags["journal"] | sort: "date" | reverse %}
-  {% if journal_posts.size > 0 %}
+<section class="home-journal home-sports-spotlight" id="sports" aria-labelledby="sports-heading">
+  <p class="home-section-label" id="sports-heading">Sports</p>
+  <p class="home-journal-intro text-muted small">Match previews, takes, and transfer notes. <a href="{{ '/blog/sports/' | relative_url }}">All sports posts</a> · <a href="{{ '/blog/journal/' | relative_url }}">Journal</a> (includes cross-tagged pieces).</p>
+  {% assign sports_posts = site.tags["sports"] | sort: "date" | reverse %}
+  {% if sports_posts.size > 0 %}
   <ul class="list-unstyled journal-preview-list">
-    {% for post in journal_posts limit: 6 %}
+    {% for post in sports_posts limit: 6 %}
+    {% unless post.hide_from_home %}
     <li class="journal-preview-item mb-3 pb-3 border-bottom">
       <a href="{{ post.url | relative_url }}" class="journal-preview-title">{{ post.title | strip_html }}</a>
       <time class="text-muted small journal-preview-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
       <p class="small text-muted mb-0 mt-1 journal-preview-excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
     </li>
+    {% endunless %}
     {% endfor %}
   </ul>
   {% else %}
-  <p class="text-muted small mb-0">No journal entries yet. Add a post under <code>_posts/</code> with <code>tags: [journal]</code> (see the <a href="{{ '/blog/' | relative_url }}">blog hub</a>).</p>
+  <p class="text-muted small mb-0">No sports posts yet. Add a file under <code>_posts/</code> with <code>tags: [sports]</code> (see the <a href="{{ '/blog/' | relative_url }}">blog hub</a>).</p>
   {% endif %}
 </section>
 
 <p class="home-section-label" id="posts">Blog &amp; writing</p>
-<p class="small text-muted mb-3">Research-style posts: <a href="{{ '/blog/research/' | relative_url }}">Research</a> · <a href="{{ '/blog/sports/' | relative_url }}">Sports</a> · <a href="{{ '/blog/' | relative_url }}">Blog hub</a>. Casual notes live in <a href="#journal">Journal</a> above.</p>
+<p class="small text-muted mb-3">Research-style posts: <a href="{{ '/blog/research/' | relative_url }}">Research</a> · <a href="{{ '/blog/sports/' | relative_url }}">Sports</a> · <a href="{{ '/blog/journal/' | relative_url }}">Journal</a> · <a href="{{ '/blog/' | relative_url }}">Blog hub</a>. Sports highlights sit in <a href="#sports">Sports</a> above. The feed below lists <strong>research</strong> and <strong>journal-only</strong> posts (entries tagged <code>sports</code> stay in the Sports block so they are not duplicated).</p>

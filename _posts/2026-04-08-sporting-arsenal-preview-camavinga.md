@@ -2,7 +2,7 @@
 layout: post
 title: "Sporting vs Arsenal preview | Camavinga rumours"
 subtitle: "Away-leg control, a predicted XI, and summer window noise"
-tags: [sports]
+tags: [sports, journal]
 ---
 
 Arsenal head into their clash with **Sporting CP** under increasing pressure. With a crucial league fixture against **Bournemouth** looming this weekend, the ideal scenario for Mikel Arteta’s side would be to put the tie in a commanding position early—allowing them to approach the second leg with far less intensity.

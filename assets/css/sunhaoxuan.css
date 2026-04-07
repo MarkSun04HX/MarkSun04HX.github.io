@@ -140,7 +140,8 @@ hr.home-divider {
   white-space: nowrap;
 }
 
-.home-journal {
+.home-journal,
+.home-sports-spotlight {
   margin-bottom: 2.25rem;
 }
 
