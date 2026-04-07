@@ -353,3 +353,10 @@ hr.home-divider {
     font-size: 0.62rem;
   }
 }
+
+/* MathJax 3 (SVG): keep wide equations inside the content column */
+mjx-container {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
