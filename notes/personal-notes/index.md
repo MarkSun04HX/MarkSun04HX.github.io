@@ -3,6 +3,7 @@ layout: page
 title: Personal notes
 subtitle: Intuition-first methods, and careful paper walk-throughs
 permalink: /notes/personal-notes/
+mathjax: true
 ---
 
 <p class="mb-4"><a href="{{ '/notes/' | relative_url }}">← Back to Notes</a></p>
