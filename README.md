@@ -9,48 +9,63 @@ Built with [Beautiful Jekyll](https://beautifuljekyll.com/) and hosted on [GitHu
 
 | Path | Purpose |
 |------|---------|
-| `_config.yml` | Site title, author, nav links, colors, social links, SEO keywords |
+| `_config.yml` | Site title, author, nav (`navbar-links`), footer social links, colors, SEO |
 | `index.html` | Home page (intro + blog feed) |
 | `aboutme.md` | Bio, education, experience, contact |
-| `resume.md` | Résumé / CV page (PDF download only — no duplicate text) |
-| `assets/files/haoxuan-sun-resume.pdf` | Résumé PDF linked from `/resume` |
+| `resume.md` | Résumé / CV page (PDF download; avoids duplicating CV text on the page) |
 | `projects.md` | Project highlights |
-| `_posts/` | Blog posts — `tags: [research]`, `[sports]`, or `[journal]` (journal = casual; see **Blog** in the nav) |
+| `notes/` | **Notes** section: [`notes/index.md`](notes/index.md) hub, [`notes/class-notes.md`](notes/class-notes.md) (course PDFs + coursework list), [`notes/personal-notes/`](notes/personal-notes/) (ML / stats write-ups) |
+| `calendar.html` | Calendar page linked from the nav |
+| `tags.html` | Tag index for posts |
 | `blog/` | Blog hub and category pages (`/blog/`, `/blog/research/`, `/blog/sports/`, `/blog/journal/`) |
+| `_posts/` | Blog posts — use `tags: [research]`, `[sports]`, or `[journal]` (journal = casual; see **Blog** in the nav) |
 | `assets/css/sunhaoxuan.css` | Custom layout and accent styles |
 | `assets/img/favicon.svg` | Site icon |
-| `assets/img/ra/*.png` | RA research figures (exported from PDF for the web) |
-| `assets/files/ra/*.pdf` | Original figure PDFs (linked from captions) |
-| `.github/workflows/` | CI build check + optional Pages deploy workflow |
+| `assets/img/ra/*.png` | RA research figures (web); paired PDFs in `assets/files/ra/` |
+| `assets/files/haoxuan-sun-resume.pdf` | Résumé PDF linked from `/resume` |
+| `assets/files/notes/*.pdf` | Course note PDFs linked from class notes |
+| `assets/images/` | Images for posts or diagrams (e.g. TBDE figures) |
+| `scripts/` | Optional utilities (e.g. diagram generation) |
+| `.github/workflows/ci.yml` | Verifies Jekyll builds on every push and PR |
+| `.github/workflows/pages.yml` | Builds and deploys the site when **Pages → Source** is **GitHub Actions** |
 
-The default branch **`master`** is what GitHub Pages builds from (unless you switch the source in repo settings).
+Navigation matches `_config.yml` (`About Me`, `Résumé`, `Projects`, `Notes`, `Calendar`, `Blog`, `Resources`).
+
+The default branch **`master`** is what GitHub Pages uses (either as the published branch or as the branch that triggers the Actions deploy workflow, depending on your Pages source setting).
 
 ## Edit the site
 
-1. Change copy in **`aboutme.md`**, **`projects.md`**, or **`index.html`**.
-2. Add a post under **`_posts/`** using the name pattern `YYYY-MM-DD-title.md` and YAML front matter (see existing post).
+1. Change copy in **`aboutme.md`**, **`projects.md`**, **`index.html`**, or under **`notes/`**.
+2. Add a post under **`_posts/`** using the name pattern `YYYY-MM-DD-title.md` and YAML front matter (see an existing post).
 3. Adjust **navigation** or **footer social links** in **`_config.yml`** (`navbar-links`, `social-network-links`).
 4. Tweak **colors** in **`_config.yml`** or **`assets/css/sunhaoxuan.css`**.
 
-After you push to GitHub, the site rebuilds in about one to two minutes.
+After you push to GitHub, the site updates within about one to two minutes (Actions deploy) or after the next Pages build (branch publishing).
 
 ## Local preview (optional)
 
-Requires Ruby and Bundler:
+Requires Ruby **3.2+** (3.3 matches CI) and Bundler:
 
 ```bash
 bundle install
 bundle exec appraisal install
-bundle exec appraisal jekyll serve
+bundle exec appraisal jekyll-4 jekyll serve --future --config _config_ci.yml,_config.yml
 ```
 
-Then open `http://localhost:4000`. On Apple Silicon or older Ruby versions, use a recent Ruby (e.g. 3.2+) via `rbenv` or `mise` if `bundle install` fails.
+If `_config_ci.yml` is missing locally, create it so the user site serves at the repo root (same as CI):
+
+```bash
+printf '%s\n' '---' 'baseurl: ""' > _config_ci.yml
+```
+
+Then open `http://localhost:4000`. On Apple Silicon or older system Rubies, use a recent Ruby via `rbenv` or `mise` if `bundle install` fails.
 
 ## GitHub Pages settings
 
-- **Settings → Pages:** publishing source should match how you deploy (e.g. **Deploy from branch** → `master`, `/ (root)`).
-- **Custom domain:** only add a domain you control (e.g. after DNS is set). Do **not** enter `*.github.io` in the custom domain field.
-- If pushes that change **`.github/workflows/`** are rejected, your Personal Access Token needs the **`workflow`** scope, or use **SSH** remotes.
+- **Deploy with Actions:** **Settings → Pages → Build and deployment → Source:** **GitHub Actions** (uses `.github/workflows/pages.yml` on pushes to `master`).
+- **Deploy from a branch:** alternatively **Source** → branch **`master`**, folder **`/ (root)`** — then the `pages.yml` workflow is optional; you can disable it to avoid duplicate deploys.
+- **Custom domain:** only add a domain you control (after DNS). Do **not** put `*.github.io` in the custom domain field.
+- If pushes that change **`.github/workflows/`** are rejected, your token needs the **`workflow`** scope, or use **SSH** remotes.
 
 ## License / theme
 
