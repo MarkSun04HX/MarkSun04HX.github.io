@@ -46,4 +46,36 @@ a **hinge loss** plus $L_2$ penalty—convex but non-smooth at kinks; solved via
 
 SVMs shine in **medium** $n$, **carefully tuned** kernels; training can be $O(n^2)$–$O(n^3)$ for exact solvers. **Less** common as default in huge sparse tabular data than **gradient boosting**, but still standard for **text** (linear SVM on high-dim sparse features) and some bio applications.
 
-<p class="text-muted small">ESL, Ch. 12; Cortes & Vapnik (1995); Schölkopf & Smola for kernels.</p>
+### References and attribution
+
+- Cortes, C., & Vapnik, V. (1995). Support-vector networks. *Machine Learning*, 20(3), 273–297. [DOI 10.1007/BF00994018](https://doi.org/10.1007/BF00994018)
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer, Ch. 12. [Link](https://hastie.su.domains/ElemStatLearn/).
+- Schölkopf, B., & Smola, A. J. (2002). *Learning with Kernels*. MIT Press.
+
+**Copyright / use:** Explanatory summary only; no reproduced copyrighted prose.
+
+### Sample code (minimal)
+
+**Python** — `pip install scikit-learn`
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+
+X, y = load_iris(return_X_y=True)
+X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.25, random_state=0)
+clf = SVC(kernel="rbf", C=1.0, gamma="scale").fit(X_tr, y_tr)
+print("accuracy:", round(clf.score(X_te, y_te), 3))
+```
+
+**R** — `install.packages("e1071")`
+
+```r
+library(e1071)
+idx <- sample(seq_len(nrow(iris)), size = 0.75 * nrow(iris))
+tr <- iris[idx, ]
+te <- iris[-idx, ]
+fit <- svm(Species ~ ., data = tr, kernel = "radial", cost = 1)
+mean(predict(fit, te) == te$Species)
+```

@@ -37,4 +37,31 @@ No universally correct $K$—use **domain knowledge**, **elbow** heuristic on wi
 - **Scale** features consistently.
 - Complexity is roughly $O(n \cdot K \cdot p \cdot \text{iterations})$—cheap for moderate data.
 
-<p class="text-muted small">ESL, Ch. 14; MacQueen (1967); Arthur & Vassilvitskii, k-means++.</p>
+### References and attribution
+
+- MacQueen, J. (1967). Some methods for classification and analysis of multivariate observations. In *Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability*.
+- Arthur, D., & Vassilvitskii, S. (2007). k-means++: The advantages of careful seeding. In *SODA*.
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer, Ch. 14. [Link](https://hastie.su.domains/ElemStatLearn/)
+
+**Copyright / use:** Explanatory summary only.
+
+### Sample code (minimal)
+
+**Python** — `pip install scikit-learn`
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.cluster import KMeans
+
+X, _ = load_iris(return_X_y=True)
+km = KMeans(n_clusters=3, n_init="auto", random_state=0).fit(X)
+print("within-cluster SS (inertia):", round(km.inertia_, 2))
+print("first labels:", km.labels_[:12].tolist())
+```
+
+**R** — base `stats`
+
+```r
+km <- kmeans(scale(iris[, 1:4]), centers = 3, nstart = 25)
+table(km$cluster, iris$Species)
+```

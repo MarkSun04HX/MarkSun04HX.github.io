@@ -30,4 +30,34 @@ PCA gives the **best** (in a precise least-squares sense) **linear** $k$-dimensi
 - **Linear:** only **linear** manifolds; nonlinear structure needs **kernel PCA**, autoencoders, etc.
 - **Interpretation:** PCs are **mixtures** of original features—harder to explain than original variables unless loadings are sparse (sparse PCA methods exist).
 
-<p class="text-muted small">ESL, Ch. 14; Jolliffe, <em>Principal Component Analysis</em>.</p>
+### References and attribution
+
+- Jolliffe, I. T., & Cadima, J. (2016). Principal component analysis: a review and recent developments. *Philosophical Transactions of the Royal Society A*, 374(2065), 20150202.
+- Jolliffe, I. T. (2002). *Principal Component Analysis* (2nd ed.). Springer.
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer, Ch. 14. [Link](https://hastie.su.domains/ElemStatLearn/)
+
+**Copyright / use:** Explanatory summary; no reproduced material from texts.
+
+### Sample code (minimal)
+
+**Python** — `pip install scikit-learn`
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+
+X, _ = load_iris(return_X_y=True)
+X = StandardScaler().fit_transform(X)
+Z = PCA(n_components=2).fit_transform(X)
+print("shape after PCA:", Z.shape)
+```
+
+**R** — base `stats`
+
+```r
+X <- scale(iris[, 1:4])
+pc <- prcomp(X, center = FALSE, scale. = FALSE)  # already scaled
+head(pc$x[, 1:2])
+summary(pc)$importance[, 1:3]
+```

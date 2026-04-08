@@ -34,4 +34,35 @@ RF trees are often **deep** and **parallel**; **boosting** grows trees **sequent
 - Less sensitive to hyperparameters than boosting, but tune **number of trees**, **mtry** (feature subset size), and **min node size** / depth.
 - **Variable importance**: mean decrease in impurity or **permutation importance** (shuffle feature, measure drop in OOB or CV performance)—interpret with care (correlation, bias toward high-cardinality features).
 
-<p class="text-muted small">Breiman (2001), “Random Forests”; ESL, Ch. 15.</p>
+### References and attribution
+
+- Breiman, L. (2001). Random forests. *Machine Learning*, 45(1), 5–32. [DOI 10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer, Ch. 15. [Link](https://hastie.su.domains/ElemStatLearn/).
+
+**Copyright / use:** Explanatory summary; no reproduced copyrighted material.
+
+### Sample code (minimal)
+
+**Python** — `pip install scikit-learn`
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+
+X, y = load_iris(return_X_y=True)
+X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.25, random_state=0)
+clf = RandomForestClassifier(n_estimators=100, max_features="sqrt", random_state=0).fit(X_tr, y_tr)
+print("accuracy:", round(clf.score(X_te, y_te), 3))
+```
+
+**R** — `install.packages("randomForest")`
+
+```r
+library(randomForest)
+idx <- sample(seq_len(nrow(iris)), size = 0.75 * nrow(iris))
+tr <- iris[idx, ]
+te <- iris[-idx, ]
+fit <- randomForest(Species ~ ., data = tr, ntree = 100, mtry = 2)
+mean(predict(fit, te) == te$Species)
+```

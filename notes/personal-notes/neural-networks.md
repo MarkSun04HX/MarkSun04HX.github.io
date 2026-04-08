@@ -38,4 +38,36 @@ Historically **sigmoid/tanh**; now **ReLU** family $\max(0,z)$ is common (faster
 
 For **structured/tabular** data, **gradient-boosted trees** often remain very strong baselines; NNs dominate **vision, speech, language** where **representation learning** from raw inputs pays off. The line blurs with large pretrained models and better architectures for tabular data.
 
-<p class="text-muted small">Goodfellow, Bengio & Courville, <em>Deep Learning</em>; ESL neural-net sections.</p>
+### References and attribution
+
+- Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press. [deeplearningbook.org](https://www.deeplearningbook.org/)
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer (neural network sections).
+
+**Copyright / use:** Explanatory summary; no reproduced text from *Deep Learning* or other sources.
+
+### Sample code (minimal)
+
+**Python** — `pip install scikit-learn` (MLP) *or* `pip install torch` for deeper nets
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPClassifier
+
+X, y = load_iris(return_X_y=True)
+X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.25, random_state=0)
+mlp = MLPClassifier(hidden_layer_sizes=(32, 16), max_iter=500, random_state=0).fit(X_tr, y_tr)
+print("accuracy:", round(mlp.score(X_te, y_te), 3))
+```
+
+**R** — `install.packages("nnet")`
+
+```r
+library(nnet)
+idx <- sample(seq_len(nrow(iris)), size = 0.75 * nrow(iris))
+tr <- iris[idx, ]
+te <- iris[-idx, ]
+fit <- nnet(Species ~ ., data = tr, size = 8, decay = 0.01, maxit = 200, trace = FALSE)
+pred <- predict(fit, newdata = te, type = "class")
+mean(pred == te$Species)
+```

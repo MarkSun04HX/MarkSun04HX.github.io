@@ -114,4 +114,13 @@ Open the [personal notes index]({{ '/notes/personal-notes/' | relative_url }}) a
 
 **Free outside resources (not mine):** 3Blue1Brown’s “Essence of linear algebra” series (YouTube) builds excellent pictures for vectors and matrices; Khan Academy has short modules on dot products and matrix multiplication if you want practice.
 
-<p class="text-muted small">This primer is informal and only meant to support the other notes on this site.</p>
+### References and attribution
+
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer. [Author page](https://hastie.su.domains/ElemStatLearn/).
+- James, G., et al. (2021). *An Introduction to Statistical Learning* (2nd ed.). [statlearning.com](https://www.statlearning.com/).
+- Grant Sanderson (3Blue1Brown). *Essence of linear algebra* (YouTube series)—independent educational videos, not affiliated with this site.
+- Khan Academy. Linear algebra modules (free online)—third-party resource.
+
+**Copyright / use:** This primer is **original explanatory text** by the site author. It does not reproduce prose or diagrams from textbooks or videos. Notation conventions follow common statistics / ML literature (as in ESL/ISL). For rigorous treatment, see ESL/ISL or a dedicated linear algebra text.
+
+*(No sample code on this page—it is notation-only.)*

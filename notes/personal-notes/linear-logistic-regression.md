@@ -52,4 +52,45 @@ You fit $\beta$ by **maximum likelihood**: choose weights that make the observed
 
 Everything else on this list is either **nonlinear**, **nonparametric**, **regularized** in a richer way, or **combinatorial** (trees, ensembles). Linear and logistic models are the **baseline**: interpretable coefficients, fast, and the starting point for **regularized** variants (ridge, lasso, elastic net on the next pages).
 
-<p class="text-muted small">Study companions: any applied regression text; Hastie, Tibshirani & Friedman, <em>Elements of Statistical Learning</em> (ESL).</p>
+### References and attribution
+
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer. [Author page / PDF](https://hastie.su.domains/ElemStatLearn/).
+- James, G., Witten, D., Hastie, T., & Tibshirani, R. (2021). *An Introduction to Statistical Learning* (2nd ed.). Springer. [statlearning.com](https://www.statlearning.com/).
+
+**Copyright / use:** This page is my own **explanatory summary** of standard material (OLS, logistic regression). It does **not** quote or reproduce passages from copyrighted books. For authoritative treatment, see the references.
+
+### Sample code (minimal)
+
+**Python** — install: `pip install scikit-learn`
+
+```python
+from sklearn.datasets import make_regression, load_iris
+from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.model_selection import train_test_split
+
+# Linear regression (simulated data)
+X, y = make_regression(n_samples=300, n_features=4, noise=8, random_state=0)
+lin = LinearRegression().fit(X, y)
+print("coef:", lin.coef_.round(3), "intercept:", round(lin.intercept_, 3))
+
+# Logistic regression (two iris species)
+iris = load_iris()
+mask = iris.target != 2
+Xb, yb = iris.data[mask], iris.target[mask]
+X_tr, X_te, y_tr, y_te = train_test_split(Xb, yb, test_size=0.25, random_state=0)
+log = LogisticRegression(max_iter=200).fit(X_tr, y_tr)
+print("accuracy:", round(log.score(X_te, y_te), 3))
+```
+
+**R** — uses **base** `stats` (no extra packages required for these examples)
+
+```r
+# OLS
+fit_lm <- lm(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, data = iris)
+summary(fit_lm)$coefficients
+
+# Logistic (two-class iris)
+ir <- subset(iris, Species != "virginica")
+fit_glm <- glm(Species ~ Sepal.Length + Sepal.Width, data = ir, family = binomial())
+summary(fit_glm)
+```

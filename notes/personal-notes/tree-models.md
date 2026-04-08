@@ -32,4 +32,35 @@ A **decision tree** is a **flowchart of yes/no rules** on your inputs. **Axis-al
 
 **Pruning**, **minimum leaf size**, **maximum depth**, and **cost-complexity** pruning control complexity. Trees are the **building block** of random forests and boosting.
 
-<p class="text-muted small">ESL, Ch. 9; Breiman et al., <em>Classification and Regression Trees</em>.</p>
+### References and attribution
+
+- Breiman, L., Friedman, J., Olshen, R., & Stone, C. (1984). *Classification and Regression Trees*. Wadsworth.
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer, Ch. 9. [Link](https://hastie.su.domains/ElemStatLearn/).
+
+**Copyright / use:** Explanatory summary of standard methods; no reproduced text from CART/ESL.
+
+### Sample code (minimal)
+
+**Python** — `pip install scikit-learn`
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+
+X, y = load_iris(return_X_y=True)
+X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.25, random_state=0)
+clf = DecisionTreeClassifier(max_depth=3, random_state=0).fit(X_tr, y_tr)
+print("accuracy:", round(clf.score(X_te, y_te), 3))
+```
+
+**R** — `install.packages("rpart")`
+
+```r
+library(rpart)
+idx <- sample(seq_len(nrow(iris)), size = 0.75 * nrow(iris))
+tr <- iris[idx, ]
+te <- iris[-idx, ]
+fit <- rpart(Species ~ ., data = tr, method = "class", control = rpart.control(maxdepth = 3))
+mean(predict(fit, te, type = "class") == te$Species)
+```

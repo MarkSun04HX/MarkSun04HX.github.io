@@ -8,7 +8,9 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-<p class="text-muted small">These notes summarize a working paper for my own learning. They are <strong>not</strong> the authors’ words, not peer review, and not a substitute for reading the original. Full citation: Daron Acemoglu, Tianyi Lin, Asuman Ozdaglar, and James Siderius, &ldquo;How AI Aggregation Affects Knowledge,&rdquo; March 25, 2026.</p>
+<p class="text-muted small"><strong>Use &amp; copyright:</strong> The bullet below is the <strong>canonical citation</strong> for the underlying work. Everything else on this page is my <strong>own summary and paraphrase</strong> for study—it is <strong>not</strong> copied text from the paper, <strong>not</strong> the authors’ endorsement, and <strong>not</strong> a substitute for reading their PDF. Obtain the official manuscript from the authors or their institutions.</p>
+
+<p class="text-muted small"><strong>Full citation (APA-style):</strong> Acemoglu, D., Lin, T., Ozdaglar, A., &amp; Siderius, J. (2026). <em>How AI aggregation affects knowledge</em> (Working paper, 25 March 2026 version). <em>Cite the venue / series when formally published if applicable.</em></p>
 
 ---
 
@@ -292,6 +294,23 @@ Think **local expertise**: health conditions in one region vs. labor market cond
 - **Persistence $\rho$** — memory of past AI output; **small $\rho$** ⇒ faster tracking of current society.  
 - **Robust improvement** — better than no-AI for **all** environments in a chosen family (homophily range + adoption patterns).  
 - **Model collapse (informal)** — quality drops when models train too much on **model-shaped** data.
+
+---
+
+### References, citation, and copyright
+
+**Primary source (read this, not only my notes):**
+
+- Acemoglu, D., Lin, T., Ozdaglar, A., & Siderius, J. (2026). *How AI aggregation affects knowledge* (working paper, dated 25 March 2026 on the copy summarized here).
+
+**Background models cited inside their paper (examples—consult the paper’s reference list for full bibliography):**
+
+- DeGroot, M. H. (1974). Reaching a consensus. *Journal of the American Statistical Association*, 69(345), 118–121.
+- Golub, B., & Jackson, M. O. (2010). Naïve learning in social networks and the wisdom of crowds. *American Economic Journal: Microeconomics*, 2(1), 112–149.
+
+**Copyright / plagiarism:** This web page is an **original student-style digest**: ideas are **attributed** to Acemoglu et al., but **sentences are mine**. I do **not** paste extended quotations or reproduce figures from their PDF. If you reuse **their** theorems or wording in coursework, cite **their** paper directly. If you cite **my** summary, you can link this page and still credit the original authors for the underlying research.
+
+**No code:** The paper is theoretical; there is no standard “sample implementation” section here.
 
 ---
 

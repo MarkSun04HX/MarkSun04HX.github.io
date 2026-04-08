@@ -28,4 +28,37 @@ CatBoost can use **symmetric** (oblivious) trees: same split structure across al
 
 For **heavy categorical** tabular data, CatBoost is often a **top baseline** next to LightGBM and XGBoost. As always: **cross-validate**, compare on a **holdout**, and watch **training time** vs. accuracy.
 
-<p class="text-muted small">Prokhorenkova et al., “CatBoost: unbiased boosting with categorical features”; [XGBoost note]({{ '/notes/personal-notes/xgboost/' | relative_url }}).</p>
+### References and attribution
+
+- Prokhorenkova, L., et al. (2018). CatBoost: unbiased boosting with categorical features. *NeurIPS*. [arXiv:1706.09516](https://arxiv.org/abs/1706.09516)
+- Companion: [XGBoost note]({{ '/notes/personal-notes/xgboost/' | relative_url }}) on this site.
+
+**Copyright / use:** Explanatory summary only.
+
+### Sample code (minimal)
+
+**Python** — `pip install catboost scikit-learn`
+
+```python
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from catboost import CatBoostClassifier
+
+X, y = load_breast_cancer(return_X_y=True)
+X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.25, random_state=0)
+clf = CatBoostClassifier(iterations=80, depth=4, verbose=False, random_state=0)
+clf.fit(X_tr, y_tr)
+print("accuracy:", round(clf.score(X_te, y_te), 3))
+```
+
+**R** — `install.packages("catboost")` (see [CatBoost R docs](https://catboost.ai/en/docs/concepts/r-reference))
+
+```r
+library(catboost)
+data(iris)
+y <- as.integer(iris$Species) - 1L
+pool <- catboost.load_pool(data = iris[, 1:4], label = y)
+fit <- catboost.train(pool, params = list(loss_function = "MultiClass", depth = 4, iterations = 80))
+pred <- catboost.predict(fit, pool, prediction_type = "Class")
+mean(as.integer(pred) - 1L == y)
+```

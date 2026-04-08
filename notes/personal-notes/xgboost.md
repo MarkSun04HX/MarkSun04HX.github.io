@@ -172,4 +172,40 @@ Avoiding a Markdown table here so math symbols and pipes do not fight the table 
 
 ---
 
-<p class="text-muted small">References for going deeper: Friedman (2001) on gradient boosting; Chen & Guestrin (2016), <em>XGBoost: A Scalable Tree Boosting System</em>. This page is a study note, not a substitute for those sources.</p>
+### References and attribution
+
+- Friedman, J. H. (2001). Greedy function approximation: a gradient boosting machine. *Annals of Statistics*, 29(5), 1189–1232.
+- Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. In *KDD* ’16. [arXiv:1603.02754](https://arxiv.org/abs/1603.02754)
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer (boosting chapters). [Link](https://hastie.su.domains/ElemStatLearn/)
+
+**Copyright / use:** Original explanatory text; formulas are standard mathematics. Not a substitute for the papers above.
+
+### Sample code (minimal)
+
+**Python** — `pip install xgboost scikit-learn`
+
+```python
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+import xgboost as xgb
+
+X, y = load_breast_cancer(return_X_y=True)
+X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.25, random_state=0)
+clf = xgb.XGBClassifier(n_estimators=80, max_depth=4, random_state=0, n_jobs=-1)
+clf.fit(X_tr, y_tr)
+print("accuracy:", round(clf.score(X_te, y_te), 3))
+```
+
+**R** — `install.packages("xgboost")`
+
+```r
+library(xgboost)
+data(iris)
+y <- as.integer(iris$Species) - 1L
+X <- as.matrix(iris[, 1:4])
+dtrain <- xgb.DMatrix(data = X, label = y)
+params <- list(objective = "multi:softmax", num_class = 3, max_depth = 4)
+bst <- xgb.train(params, dtrain, nrounds = 50, verbose = 0)
+pred <- predict(bst, newdata = dtrain)
+mean(pred == y)
+```

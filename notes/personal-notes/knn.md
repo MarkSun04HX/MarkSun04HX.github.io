@@ -32,4 +32,36 @@ Choose $K$ by **cross-validation**. **Curse of dimensionality (intuition):** in 
 
 KNN is **nonparametric**: it does **not** boil down to one short equation like a **weighted sum of features** ($x^\top\beta$ in [linear regression]({{ '/notes/personal-notes/linear-logistic-regression/' | relative_url }})); the “model” is literally the **stored training set**. Prediction can be **slow** when $n$ is huge (engineers use k-d trees or approximate nearest neighbors).
 
-<p class="text-muted small">ESL, Ch. 13; James et al., <em>Introduction to Statistical Learning</em>.</p>
+### References and attribution
+
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer, Ch. 13. [Link](https://hastie.su.domains/ElemStatLearn/).
+- James, G., et al. (2021). *An Introduction to Statistical Learning* (2nd ed.). [statlearning.com](https://www.statlearning.com/).
+
+**Copyright / use:** Explanatory notes only; no reproduced copyrighted text.
+
+### Sample code (minimal)
+
+**Python** — `pip install scikit-learn`
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+
+X, y = load_iris(return_X_y=True)
+X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.25, random_state=0)
+clf = KNeighborsClassifier(n_neighbors=5).fit(X_tr, y_tr)
+print("accuracy:", round(clf.score(X_te, y_te), 3))
+```
+
+**R** — `install.packages("class")`
+
+```r
+library(class)
+idx <- sample(seq_len(nrow(iris)), size = 0.75 * nrow(iris))
+train <- iris[idx, 1:4]
+test <- iris[-idx, 1:4]
+true <- iris$Species[-idx]
+pred <- knn(train = train, test = test, cl = iris$Species[idx], k = 5)
+mean(pred == true)
+```

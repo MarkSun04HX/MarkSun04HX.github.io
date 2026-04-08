@@ -36,4 +36,31 @@ Start with one cluster and **split** recursively (less common; can be costly).
 - **Strength:** any **distance** (not only Euclidean); **nested** structure for exploration.
 - **Cost:** agglomerative naive implementations are **$O(n^3)$** or $O(n^2 \log n)$; expensive for huge $n$ (approximate methods exist).
 
-<p class="text-muted small">ESL, Ch. 14; Müllner (2011) on linkage and implementation notes.</p>
+### References and attribution
+
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer, Ch. 14. [Link](https://hastie.su.domains/ElemStatLearn/)
+- Müllner, D. (2011). Modern hierarchical, agglomerative clustering algorithms. *arXiv:1109.2378*.
+
+**Copyright / use:** Explanatory summary only.
+
+### Sample code (minimal)
+
+**Python** — `pip install scikit-learn`
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.cluster import AgglomerativeClustering
+
+X, _ = load_iris(return_X_y=True)
+hc = AgglomerativeClustering(n_clusters=3, linkage="ward").fit(X)
+print("labels (first 10):", hc.labels_[:10].tolist())
+```
+
+**R** — base `stats`
+
+```r
+d <- dist(scale(iris[, 1:4]), method = "euclidean")
+hc <- hclust(d, method = "ward.D2")
+ct <- cutree(hc, k = 3)
+table(ct, iris$Species)
+```

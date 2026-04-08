@@ -52,4 +52,33 @@ The same penalties attach to the **negative log-likelihood** instead of squared 
 
 Use **cross-validation** on a grid of $\lambda$ (and $\alpha$ for elastic net). **Standardize** predictors before penalizing so scale does not arbitrary drive penalties.
 
-<p class="text-muted small">ESL, Ch. 3–4; original elastic net: Zou & Hastie (2005).</p>
+### References and attribution
+
+- Zou, H., & Hastie, T. (2005). Regularization and variable selection via the elastic net. *Journal of the Royal Statistical Society: Series B*, 67(2), 301–320.
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer, Ch. 3–4. [Link](https://hastie.su.domains/ElemStatLearn/).
+- Friedman, J., Hastie, T., & Tibshirani, R. (2010). Regularization paths for generalized linear models via coordinate descent. *Journal of Statistical Software*, 33(1), 1–22. (`glmnet`)
+
+**Copyright / use:** Explanatory summary; no reproduced copyrighted prose.
+
+### Sample code (minimal)
+
+**Python** — `pip install scikit-learn` (includes `ElasticNet`, `LogisticRegression` with `penalty="elasticnet"` + `solver="saga"`)
+
+```python
+from sklearn.datasets import make_regression
+from sklearn.linear_model import ElasticNet
+
+X, y = make_regression(n_samples=200, n_features=20, noise=5, random_state=0)
+m = ElasticNet(alpha=0.1, l1_ratio=0.5, random_state=0).fit(X, y)
+print("nonzero coef count:", (m.coef_ != 0).sum())
+```
+
+**R** — `install.packages("glmnet")`
+
+```r
+library(glmnet)
+X <- matrix(rnorm(200 * 20), 200, 20)
+y <- X %*% rnorm(20) + rnorm(200)
+fit <- cv.glmnet(X, y, alpha = 0.5)
+coef(fit, s = "lambda.min")
+```
