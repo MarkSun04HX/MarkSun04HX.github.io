@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Personal notes
-subtitle: Intuition-first statistics and machine learning
+subtitle: Intuition-first methods, and careful paper walk-throughs
 permalink: /notes/personal-notes/
 ---
 
@@ -30,3 +30,9 @@ Topics below are ordered by **rough conceptual complexity**—from classical lin
 12. **[Principal Component Analysis (PCA)]({{ '/notes/personal-notes/pca/' | relative_url }})** — variance directions, SVD, low-rank approximation.
 13. **[K-means clustering]({{ '/notes/personal-notes/k-means/' | relative_url }})** — Lloyd’s algorithm, choosing $K$, geometry assumptions.
 14. **[Hierarchical clustering]({{ '/notes/personal-notes/hierarchical-clustering/' | relative_url }})** — linkages, dendrograms, agglomerative vs. divisive.
+
+### Paper walk-throughs (economics)
+
+Longer narrative summaries of individual papers—geared toward **intro-level micro/macro** and readers **new to research**, with section-by-section maps and plain-language intuition.
+
+- **[How AI aggregation affects knowledge]({{ '/notes/personal-notes/paper-ai-aggregation-knowledge/' | relative_url }})** — Acemoglu, Lin, Ozdaglar & Siderius (2026, working paper): social learning on networks (DeGroot), a global AI that trains on people’s beliefs and feeds answers back, **learning gaps**, when **fast updating** destroys **robust** improvements, majority vs. minority training weights, and **local vs. global** aggregators over multiple topics.
