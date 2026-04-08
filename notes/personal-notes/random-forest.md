@@ -8,16 +8,18 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Assumes you know what a <a href="{{ '/notes/personal-notes/tree-models/' | relative_url }}">decision tree</a> is. $\sqrt{p}$ means “square root of the number of features”—a common default for how many features to try per split.</p>
+
 **Random Forest (RF)** is an **ensemble** of many **deep decision trees**, each trained on a **bootstrap sample** of the data (**bagging** = bootstrap aggregating). The final prediction is the **average** of tree predictions (regression) or a **vote** (classification).
 
 ### Key extra idea beyond bagging
 
-At each split, consider only a **random subset** of features (e.g. $\sqrt{p}$ features for classification, $p/3$ for regression in common defaults). This **decorrelates** trees: if one strong feature dominates, bagging alone still produces correlated trees; **random subspace** at splits forces other variables to contribute, **reducing variance** of the average.
+At each split, consider only a **random subset** of features (e.g. about $\sqrt{p}$ out of $p$ features for classification, about $p/3$ for regression in common defaults—$p$ = **how many columns** you could split on). This **decorrelates** trees: if one strong feature dominates, bagging alone still produces correlated trees; **random subspace** at splits forces other variables to contribute, **reducing variance** of the average.
 
 ### Intuition
 
 - Single deep tree: low bias, high variance.
-- Average of many **i.i.d.-ish** low-bias models: variance shrinks roughly as $1/B$ for $B$ trees (correlation between trees weakens the gain but RF still helps strongly).
+- Average of many **roughly independent** low-bias models: if they were perfectly independent, averaging would cut **variance** about like $1/B$ for $B$ trees; in practice trees are **correlated**, so the gain is smaller—but still often large. **i.i.d.** = independent and identically distributed (idealized coin-flip intuition).
 
 ### Out-of-bag (OOB) error
 

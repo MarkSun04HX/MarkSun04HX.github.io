@@ -8,13 +8,15 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> $\|x_i - \mu_k\|^2$ is **squared Euclidean distance** from point $x_i$ to center $\mu_k$ (Pythagoras in many dimensions). See <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">norms in the primer</a>.</p>
+
 **K-means** partitions $n$ points into **$K$ clusters** by minimizing **within-cluster sum of squares**:
 
 $$
 \min_{\text{assignments } C,\; \text{centroids } \mu} \sum_{k=1}^K \sum_{i \in C_k} \|x_i - \mu_k\|^2,
 $$
 
-where $\mu_k$ is the **mean** of points assigned to cluster $k$.
+where $\mu_k$ is the **mean** (average) of all points currently assigned to cluster $k$—the **centroid** of that group.
 
 ### Lloyd’s algorithm (iterative)
 

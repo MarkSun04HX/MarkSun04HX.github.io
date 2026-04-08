@@ -9,9 +9,13 @@ permalink: /notes/personal-notes/
 
 These pages are informal write-ups for my own understanding. They are **not** peer-reviewed or guaranteed error-free. If something is unclear or you spot a mistake, I am happy to hear from you via the footer links.
 
+**New to the notation?** The supervised ML pages use short formulas (weighted sums, sums of squares). If you have **not** taken linear algebra, start with **[Math intuition for ML notes]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }})**—it explains vectors, dot products, $\sum$, and symbols like $x^\top \beta$ in plain language, then come back here.
+
 Topics below are ordered by **rough conceptual complexity**—from classical linear models and local methods, through trees and ensembles, margins and kernels, neural nets, then gradient-boosting variants. **Unsupervised** methods are grouped at the end (dimension reduction, then partitioning, then hierarchical structure).
 
 ### Supervised learning
+
+**Optional warm-up (notation):** [Math intuition for ML notes]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}) — vectors, weighted sums $x^\top\beta$, $\sum$, norms; written for readers **without** a linear algebra course.
 
 1. **[Linear & logistic regression]({{ '/notes/personal-notes/linear-logistic-regression/' | relative_url }})** — OLS, logits, maximum likelihood.
 2. **[K-nearest neighbors (KNN)]({{ '/notes/personal-notes/knn/' | relative_url }})** — local averaging / voting, bias–variance with $K$.

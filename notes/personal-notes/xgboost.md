@@ -8,6 +8,8 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a> · <a href="{{ '/notes/' | relative_url }}">Notes home</a></p>
 
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> This page has more formulas than the others. For **sums**, **derivatives as slopes**, and **vectors**, read <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a> and <a href="{{ '/notes/personal-notes/tree-models/' | relative_url }}">tree models</a> first.</p>
+
 This note builds **boosting** from a simple idea, then **gradient boosting**, then **XGBoost** (eXtreme Gradient Boosting). The goal is intuition first; notation shows up when it shortens the story.
 
 **Inline formulas** use dollar delimiters; **display** formulas are on their own lines between `$$` pairs so they scale and wrap more reliably in the browser.
@@ -54,6 +56,8 @@ where each $f_t$ is small (often a **shallow regression tree**, sometimes called
 
 ### 4. Gradient boosting: follow the negative gradient
 
+**Vocabulary:** $(x_i, y_i)$ = features and **true outcome** for row $i$. $\ell(y_i, \hat{y})$ = **loss** = penalty when prediction is $\hat{y}$ but truth is $y_i$ (e.g. squared error for regression). $F(x_i)$ = model’s **current** prediction for that row.
+
 Suppose you have training data $(x_i, y_i)$, a differentiable loss $\ell(y_i, \hat{y})$ for a single prediction $\hat{y}$, and you want to learn $F$ that maps $x_i$ to predictions $F(x_i)$.
 
 At stage $t-1$ you already have $F_{t-1}$. You want to add $f_t$ so that
@@ -68,7 +72,7 @@ $$
 \mathcal{L}(F) = \sum_{i=1}^{n} \ell\bigl(y_i, F(x_i)\bigr).
 $$
 
-**Key trick:** treat the vector of current predictions $\bigl(F_{t-1}(x_1),\ldots,F_{t-1}(x_n)\bigr)$ as a point in $\mathbb{R}^n$. To improve, move in the direction of **steepest descent** of $\mathcal{L}$ with respect to those $n$ outputs. The **pseudo-residuals** (negative gradients) for observation $i$ are
+**Key trick (plain words):** list the model’s **current prediction for every training row**—that is $n$ numbers. Imagine **wiggling** prediction $i$ a tiny bit: how much does total loss change? That sensitivity is a **partial derivative**. Stack those $n$ sensitivities: you get a **direction** in $n$-dimensional space ($\mathbb{R}^n$ means “$n$ numbers”). **Steepest descent** = step in the direction that **reduces** total loss fastest. The **pseudo-residuals** (negative gradients) for observation $i$ are
 
 $$
 r_{it} = -\left.\frac{\partial \, \ell(y_i, \hat{y})}{\partial \hat{y}}\right|_{\hat{y} = F_{t-1}(x_i)}.
@@ -117,6 +121,8 @@ $$
 
 #### 6.2 Second-order (Newton) approximation
 
+**Plain words:** besides **slope** (first derivative), use **curvature** (second derivative) of the loss at the current prediction—like approximating a hill with a **parabola** instead of a **line** so steps are better sized.
+
 For many losses, XGBoost expands $\ell$ to **second order** in the small update $f_t(x_i)$:
 
 $$
@@ -132,7 +138,7 @@ h_i &= \left.\frac{\partial^2 \, \ell(y_i, \hat{y})}{\partial \hat{y}^2}\right|_
 \end{aligned}
 $$
 
-Using **both** $g_i$ and $h_i$ is a **Newton-style** step: more accurate local curvature than using gradients alone, which helps optimization when the loss is not close to quadratic.
+Here $g_i$ = **first** derivative (slope) of loss w.r.t. prediction for row $i$; $h_i$ = **second** derivative (curvature). Using **both** is a **Newton-style** step: more accurate local model than slope-only (**gradient**) steps—helpful when the loss is **not** simple quadratic.
 
 If leaf $j$ contains index set $I_j$ and predicts constant $w_j$, the **optimal leaf weight** (for the approximated objective with L2 on leaves) has a closed form in terms of $\sum_{i\in I_j} g_i$ and $\sum_{i\in I_j} h_i$, and the **gain** from a candidate split compares **left/right** sums of $g$ and $h$ against the $\gamma$ penalty. That is how XGBoost scores splits **very fast** during tree growth.
 

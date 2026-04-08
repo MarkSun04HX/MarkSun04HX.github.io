@@ -8,6 +8,8 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Mostly words; read <a href="{{ '/notes/personal-notes/xgboost/' | relative_url }}">boosting → XGBoost</a> first for “gradients” and sequential trees.</p>
+
 **CatBoost** (Prokhorenkova et al., Yandex) is another high-performance **gradient boosting** library. Two themes stand out: **reducing prediction shift** from target leakage in categorical encoding / boosting, and **strong defaults** for **high-cardinality categoricals**.
 
 ### Prediction shift and ordered boosting

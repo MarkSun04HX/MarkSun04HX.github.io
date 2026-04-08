@@ -8,7 +8,9 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-A **decision tree** partitions the input space with **axis-aligned splits** (“if $x_j \le t$ go left, else right”) until each region (leaf) gets a **constant prediction**: mean $y$ in that leaf (regression) or majority class / class proportions (classification).
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Almost no linear algebra—just $x_j$ for “feature $j$.” For feature rows vs. columns, see <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a>.</p>
+
+A **decision tree** is a **flowchart of yes/no rules** on your inputs. **Axis-aligned** means each question is about **one** feature at a time: “if $x_j \le t$ go left, else right,” where $x_j$ is the value of **feature $j$** (e.g. age) and $t$ is a **threshold** the algorithm learns. Repeat until you stop at a **leaf**: mean $y$ in that leaf (regression) or majority class / class proportions (classification).
 
 ### Impurity and split search
 

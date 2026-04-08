@@ -8,13 +8,15 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-A **feedforward neural network** stacks **layers** of **affine maps** plus **elementwise nonlinearities** (“activations”). Layer $l$:
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Uses **matrices** $W$ as “big tables of weights.” Start with <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a> (vectors, dot products) if needed.</p>
+
+A **feedforward neural network** stacks **layers**. Each layer: take the previous layer’s numbers, form **many different weighted sums** (that is what multiplying by a **weight matrix** $W^{(l)}$ does), **add biases** $b^{(l)}$, then apply a **nonlinearity** $\sigma$ **to each number separately** (e.g. squash negative values to zero). **Affine** = linear combo + shift.
 
 $$
 a^{(l)} = \sigma\bigl( W^{(l)} a^{(l-1)} + b^{(l)} \bigr),
 $$
 
-with input $a^{(0)} = x$ and final layer producing predictions (e.g. linear head for regression, softmax for classification).
+**Plain read:** $a^{(l-1)}$ is the **vector of activations** from the previous layer; $a^{(l)}$ is the new vector after this layer. Input $a^{(0)} = x$. The **final** layer may skip $\sigma$ or use **softmax** for probabilities (multi-class).
 
 ### Universal approximation
 
@@ -22,7 +24,7 @@ Even **one wide hidden layer** can approximate many continuous functions on comp
 
 ### Training: loss and backprop
 
-Define a loss $\mathcal{L}$ on outputs vs. targets. **Gradient descent** (or Adam, etc.) updates weights using $\partial \mathcal{L}/\partial W$, $\partial \mathcal{L}/\partial b$. **Backpropagation** is **reverse-mode automatic differentiation** through the computation graph—efficient application of the chain rule.
+Define a loss $\mathcal{L}$ (“how wrong are we?”) on outputs vs. targets. **Gradient descent** (or Adam, etc.) nudges every weight a little bit in the direction that **reduces** $\mathcal{L}$—slopes $\partial \mathcal{L}/\partial W$, $\partial \mathcal{L}/\partial b$ as in the [primer]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}). **Backpropagation** is an **efficient recipe** (chain rule from calculus) to compute those slopes through many layers; you use software, not pen and paper.
 
 ### Activations
 

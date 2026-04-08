@@ -8,11 +8,13 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-**LightGBM** (Ke et al., Microsoft) is **gradient boosting** with trees, like **XGBoost**, but with implementation choices that favor **speed** and **memory efficiency** on **large** datasets—especially when $n$ or $p$ is big.
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Continues <a href="{{ '/notes/personal-notes/xgboost/' | relative_url }}">XGBoost / boosting</a>. Here $n$ = number of **rows** (examples), $p$ = number of **features** (columns).</p>
+
+**LightGBM** (Ke et al., Microsoft) is **gradient boosting** with trees, like **XGBoost**, but with implementation choices that favor **speed** and **memory efficiency** on **large** datasets—especially when $n$ (sample size) or $p$ (feature count) is big.
 
 ### Histogram-based splits
 
-Continuous features are **binned** into discrete buckets (histograms). Splits are chosen by **aggregating gradients** into bins rather than sorting every feature at every node—**much faster** and lower memory than exact pre-sorted algorithms on massive data.
+Continuous features are **binned** into discrete buckets (like a **histogram**). Splits are chosen by **aggregating gradients** (see [boosting note]({{ '/notes/personal-notes/xgboost/' | relative_url }}): slopes of the loss) into bins rather than sorting every feature at every node—**much faster** and lower memory than exact pre-sorted algorithms on massive data.
 
 ### Leaf-wise (best-first) growth
 

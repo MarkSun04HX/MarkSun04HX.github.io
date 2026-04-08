@@ -8,7 +8,9 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-**Hierarchical clustering** builds a **tree** (dendrogram) of nested clusters—**no need to choose $K$ upfront** (you cut the tree at a height to get $K$ groups).
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Compare to <a href="{{ '/notes/personal-notes/k-means/' | relative_url }}">k-means</a> (fix $K$ first). Little linear algebra—mostly **distance** between groups.</p>
+
+**Hierarchical clustering** builds a **tree** (dendrogram) of nested clusters—**no need to choose $K$ upfront** (you **cut** the tree at a height to get $K$ groups when you are ready).
 
 ### Agglomerative (bottom-up)
 

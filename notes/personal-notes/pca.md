@@ -8,19 +8,21 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-**PCA** finds **orthogonal directions** in feature space along which the data vary the **most** (after centering). It is **unsupervised**: no labels—only the **covariance structure** of $X$.
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Uses **variance**, **orthogonal** (at right angles), and **eigen**-words. For vectors and matrices as spreadsheets, see <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a>.</p>
+
+**PCA** (principal component analysis) finds a **new set of axes** for your data. **First axis** = direction along which the cloud of points **spreads out the most** (largest variance). **Second axis** = next direction, **perpendicular** to the first, with the **next** most spread—and so on. **No labels** (**unsupervised**): you only use the **numeric columns** $X$.
 
 ### Population view
 
-For random $X \in \mathbb{R}^p$ with mean zero, the **first principal direction** $v_1$ maximizes $\mathrm{Var}(v_1^\top X)$ subject to $\|v_1\|=1$. Successive components $v_2, v_3, \ldots$ are **orthogonal** and capture **remaining** variance in order. These are **eigenvectors** of the covariance matrix $\Sigma = \mathbb{E}[XX^\top]$; eigenvalues are the **variances** along each component.
+For random $X \in \mathbb{R}^p$ with mean zero, the **first principal direction** $v_1$ maximizes $\mathrm{Var}(v_1^\top X)$ subject to $\|v_1\|=1$. **Translation:** pick a **direction** in feature space (unit length); project every data point onto that line; measure how **spread out** those projections are; PCA picks the direction with **maximum** spread. Successive components $v_2, v_3, \ldots$ are **orthogonal** (90°) and capture **remaining** variance in order. **Eigenvector / eigenvalue** (advanced label): those directions solve a standard matrix equation for the **covariance** of features; **eigenvalue** = variance along that component. First pass: **PC1** = “main axis of the cloud,” **PC2** = perpendicular “secondary axis.”
 
 ### Sample PCA
 
-With data matrix $X$ (rows = observations, columns centered), PCA = **SVD** of $X$ or eigendecomposition of $X^\top X$ (up to scaling). **Scores** $X V_k$ project data onto the top $k$ eigenvectors—**dimension reduction** from $p$ to $k \ll p$.
+With data matrix $X$ (rows = people/examples, columns = features, **subtract column means** first), software computes PCA via **SVD** or **eigendecomposition**—you do **not** need to implement this. **Scores** $X V_k$ = **coordinates** of each row on the first $k$ new axes—**dimension reduction** from $p$ features to $k \ll p$ numbers per row (compression / visualization).
 
 ### Best low-rank approximation
 
-PCA gives the **best rank-$k$ linear approximation** of centered $X$ in **Frobenius norm** (Eckart–Young). Useful for **denoising**, **compression**, and **visualization** (PC1 vs PC2 plots).
+PCA gives the **best** (in a precise least-squares sense) **linear** $k$-dimensional summary of centered $X$—**Eckart–Young** theorem. **Frobenius norm** ≈ “root sum of squares of all matrix entries” as a measure of error. Useful for **denoising**, **compression**, and **2D plots** (PC1 vs PC2).
 
 ### Caveats
 
