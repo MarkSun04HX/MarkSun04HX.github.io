@@ -8,7 +8,7 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Light math below. For <em>vectors</em> and <em>distance</em> as length, see <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a>.</p>
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Light math below. For <em>vectors</em> and <em>distance</em> as length, see <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a>. For **metrics beyond Euclidean**, scaling, and **kernels** (comparison with SVM geometry), see <a href="{{ '/notes/personal-notes/kernels-distances-feature-maps/' | relative_url }}">Kernels, distances & feature maps</a>. For **bias–variance** with $K$, <a href="{{ '/notes/personal-notes/bias-variance-tradeoff/' | relative_url }}">Bias–variance tradeoff</a>.</p>
 
 **KNN** stores the training set and predicts by looking at the **$K$ closest** training points to a new input $x$. Here $x$ is just the **feature list for the new case** (same columns as training). **Closest** usually means **Euclidean distance** in feature space: treat features as coordinates and measure straight-line distance—like distance on a map, but with more than two axes. Software can **scale** features first so one giant unit (e.g. income in dollars) does not drown out a small unit (e.g. years).
 

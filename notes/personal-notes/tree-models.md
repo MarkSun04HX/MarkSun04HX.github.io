@@ -16,7 +16,7 @@ A **decision tree** is a **flowchart of yes/no rules** on your inputs. **Axis-al
 
 **Regression:** common loss is **squared error** within leaves; each split minimizes **sum of squared deviations** from leaf means (equivalently, maximize **variance reduction**).
 
-**Classification:** split using **Gini index** or **cross-entropy** (deviance)—measures how “mixed” classes are in each child node. Greedy algorithms try candidate features and thresholds and pick the best **local** improvement.
+**Classification:** split using **Gini index** or **cross-entropy** (deviance)—measures how “mixed” classes are in each child node. For **entropy, Gini, and information gain** in plain language, see **[Entropy, information & tree impurity]({{ '/notes/personal-notes/entropy-information-tree-splits/' | relative_url }})**. Greedy algorithms try candidate features and thresholds and pick the best **local** improvement.
 
 ### Why trees are attractive
 

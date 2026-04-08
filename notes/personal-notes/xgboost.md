@@ -8,7 +8,7 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a> · <a href="{{ '/notes/' | relative_url }}">Notes home</a></p>
 
-<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> This page has more formulas than the others. For **sums**, **derivatives as slopes**, and **vectors**, read <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a> and <a href="{{ '/notes/personal-notes/tree-models/' | relative_url }}">tree models</a> first.</p>
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> This page has more formulas than the others. For **sums**, **derivatives as slopes**, and **vectors**, read <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a> and <a href="{{ '/notes/personal-notes/gradients-optimization-for-ml/' | relative_url }}">Gradients & optimization</a>; for **bagging vs boosting**, <a href="{{ '/notes/personal-notes/ensembles-bagging-boosting/' | relative_url }}">Ensembles</a>. You should know <a href="{{ '/notes/personal-notes/tree-models/' | relative_url }}">tree models</a> first.</p>
 
 This note builds **boosting** from a simple idea, then **gradient boosting**, then **XGBoost** (eXtreme Gradient Boosting). The goal is intuition first; notation shows up when it shortens the story.
 

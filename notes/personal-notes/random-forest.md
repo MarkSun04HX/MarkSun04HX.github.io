@@ -8,7 +8,7 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Assumes you know what a <a href="{{ '/notes/personal-notes/tree-models/' | relative_url }}">decision tree</a> is. $\sqrt{p}$ means “square root of the number of features”—a common default for how many features to try per split.</p>
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Assumes you know what a <a href="{{ '/notes/personal-notes/tree-models/' | relative_url }}">decision tree</a> is. For **bagging vs boosting** and **why averaging trees cuts variance**, see <a href="{{ '/notes/personal-notes/ensembles-bagging-boosting/' | relative_url }}">Ensembles: bagging vs boosting</a> and <a href="{{ '/notes/personal-notes/bias-variance-tradeoff/' | relative_url }}">Bias–variance tradeoff</a>. $\sqrt{p}$ means “square root of the number of features”—a common default for how many features to try per split.</p>
 
 **Random Forest (RF)** is an **ensemble** of many **deep decision trees**, each trained on a **bootstrap sample** of the data (**bagging** = bootstrap aggregating). The final prediction is the **average** of tree predictions (regression) or a **vote** (classification).
 

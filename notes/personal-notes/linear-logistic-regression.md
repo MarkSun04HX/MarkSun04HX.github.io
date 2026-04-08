@@ -44,7 +44,7 @@ $$
 \log \frac{\Pr(y=1 \mid x)}{1 - \Pr(y=1 \mid x)} = x^\top \beta.
 $$
 
-You fit $\beta$ by **maximum likelihood**: choose weights that make the observed 0/1 outcomes **most plausible** under the model (software uses IRLS / Newton / gradient methods). **Softmax** is the multi-class cousin (“pick among several categories” instead of binary).
+You fit $\beta$ by **maximum likelihood**: choose weights that make the observed 0/1 outcomes **most plausible** under the model (software uses IRLS / Newton / gradient methods)—see [Gradients & optimization for ML]({{ '/notes/personal-notes/gradients-optimization-for-ml/' | relative_url }}) for the **loss minimization** view. **Softmax** is the multi-class cousin (“pick among several categories” instead of binary).
 
 **Modeling vs. causation:** These equations describe **association** between $x$ and $y$ for prediction; they do **not** by themselves prove $x$ *causes* $y$.
 

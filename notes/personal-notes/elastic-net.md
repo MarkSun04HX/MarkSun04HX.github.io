@@ -8,7 +8,7 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Builds on <a href="{{ '/notes/personal-notes/linear-logistic-regression/' | relative_url }}">linear regression</a>. For $\sum$, norms $\|\cdot\|$, see <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a>.</p>
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Builds on <a href="{{ '/notes/personal-notes/linear-logistic-regression/' | relative_url }}">linear regression</a>. For $\sum$, norms $\|\cdot\|$, see <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a>. For **why we minimize penalized loss** (gradients, convexity), see <a href="{{ '/notes/personal-notes/gradients-optimization-for-ml/' | relative_url }}">Gradients & optimization</a>.</p>
 
 **Big picture:** You still predict with a **weighted sum of features** (linear model), but you **penalize** large weights so the model is **simpler** and **less jumpy** on new data—especially when you have **many** features or **correlated** predictors.
 

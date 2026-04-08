@@ -17,11 +17,22 @@ These pages are informal write-ups for my own understanding. They are **not** pe
 - **[Machine learning concepts]({{ '/notes/personal-notes/machine-learning-concepts/' | relative_url }})** — supervised vs unsupervised, empirical vs population risk, prediction vs association, RMSE / accuracy / $F_1$ / G-mean, and how to choose metrics.
 - **[Math intuition for ML notes]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }})** — what $x^\top\beta$, vectors, and $\sum$ mean without a linear algebra course.
 
+### Foundations (before or alongside the algorithm notes)
+{: #foundations}
+
+Short pages on ideas that **many models share**—skim what you need, then jump into the method you care about.
+
+- **[Gradients & optimization for ML]({{ '/notes/personal-notes/gradients-optimization-for-ml/' | relative_url }})** — slopes, gradient descent, convex vs non-convex, link to log-likelihood loss; supports [logistic / linear]({{ '/notes/personal-notes/linear-logistic-regression/' | relative_url }}), [elastic net]({{ '/notes/personal-notes/elastic-net/' | relative_url }}), [neural nets]({{ '/notes/personal-notes/neural-networks/' | relative_url }}), [boosting]({{ '/notes/personal-notes/xgboost/' | relative_url }}).
+- **[Bias–variance tradeoff]({{ '/notes/personal-notes/bias-variance-tradeoff/' | relative_url }})** — irreducible error, bias vs variance, how $K$ in [KNN]({{ '/notes/personal-notes/knn/' | relative_url }}), tree depth, [forests]({{ '/notes/personal-notes/random-forest/' | relative_url }}), and [boosting]({{ '/notes/personal-notes/xgboost/' | relative_url }}) fit the picture.
+- **[Entropy, information & tree impurity]({{ '/notes/personal-notes/entropy-information-tree-splits/' | relative_url }})** — entropy, cross-entropy / deviance, Gini, information gain; read before [tree models]({{ '/notes/personal-notes/tree-models/' | relative_url }}) if impurity is new.
+- **[Ensembles: bagging vs boosting]({{ '/notes/personal-notes/ensembles-bagging-boosting/' | relative_url }})** — bootstrap aggregation vs sequential correction, OOB intuition, map to [Random Forest]({{ '/notes/personal-notes/random-forest/' | relative_url }}) and [XGBoost / LightGBM / CatBoost]({{ '/notes/personal-notes/xgboost/' | relative_url }}).
+- **[Kernels, distances & feature maps]({{ '/notes/personal-notes/kernels-distances-feature-maps/' | relative_url }})** — Euclidean vs $L_1$, scaling, RBF / polynomial kernels, “implicit” feature space; pairs with [KNN]({{ '/notes/personal-notes/knn/' | relative_url }}) and [SVM]({{ '/notes/personal-notes/svm/' | relative_url }}).
+
 Topics below are ordered by **rough conceptual complexity**—from classical linear models and local methods, through trees and ensembles, margins and kernels, neural nets, then gradient-boosting variants. **Unsupervised** methods are grouped at the end (dimension reduction, then partitioning, then hierarchical structure).
 
 ### Supervised learning
 
-**Optional warm-up (notation):** [Math intuition for ML notes]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}) — vectors, weighted sums $x^\top\beta$, $\sum$, norms; written for readers **without** a linear algebra course.
+**Optional warm-up:** [Math intuition for ML notes]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}) (notation) and the **[Foundations](#foundations)** section above (gradients, bias–variance, entropy, ensembles, kernels).
 
 1. **[Linear & logistic regression]({{ '/notes/personal-notes/linear-logistic-regression/' | relative_url }})** — OLS, logits, maximum likelihood.
 2. **[K-nearest neighbors (KNN)]({{ '/notes/personal-notes/knn/' | relative_url }})** — local averaging / voting, bias–variance with $K$.

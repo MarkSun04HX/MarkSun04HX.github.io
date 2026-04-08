@@ -8,7 +8,7 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Uses <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">dot products</a> and <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">norms</a>. If that is new, skim the primer first.</p>
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Uses <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">dot products</a> and <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">norms</a>. For **feature maps, RBF kernels, and distance intuition**, read <a href="{{ '/notes/personal-notes/kernels-distances-feature-maps/' | relative_url }}">Kernels, distances & feature maps</a> alongside this page.</p>
 
 ### Linear separable case (hard margin)
 

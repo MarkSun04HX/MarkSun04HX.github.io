@@ -24,7 +24,7 @@ Even **one wide hidden layer** can approximate many continuous functions on comp
 
 ### Training: loss and backprop
 
-Define a loss $\mathcal{L}$ (“how wrong are we?”) on outputs vs. targets. **Gradient descent** (or Adam, etc.) nudges every weight a little bit in the direction that **reduces** $\mathcal{L}$—slopes $\partial \mathcal{L}/\partial W$, $\partial \mathcal{L}/\partial b$ as in the [primer]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}). **Backpropagation** is an **efficient recipe** (chain rule from calculus) to compute those slopes through many layers; you use software, not pen and paper.
+Define a loss $\mathcal{L}$ (“how wrong are we?”) on outputs vs. targets. **Gradient descent** (or Adam, etc.) nudges every weight a little bit in the direction that **reduces** $\mathcal{L}$—slopes $\partial \mathcal{L}/\partial W$, $\partial \mathcal{L}/\partial b$ as in the [primer]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}). For a longer **optimization** read, see [Gradients & optimization for ML]({{ '/notes/personal-notes/gradients-optimization-for-ml/' | relative_url }}). **Backpropagation** is an **efficient recipe** (chain rule from calculus) to compute those slopes through many layers; you use software, not pen and paper.
 
 ### Activations
 

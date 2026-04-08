@@ -18,7 +18,7 @@ Use this section for **PDF notes from coursework** and for **longer personal exp
   <div class="col-md-6 mb-4">
     <div class="project-card">
       <h2 class="h4 mt-0"><a href="{{ '/notes/personal-notes/' | relative_url }}">Personal notes</a></h2>
-      <p class="mb-3 small">Intuition-first write-ups: boosting, gradient boosting, XGBoost, and related topics.</p>
+      <p class="mb-3 small">Intuition-first write-ups: foundations (gradients, bias–variance, entropy, ensembles, kernels), method notes from regression through boosting, and paper walk-throughs.</p>
       <a class="btn btn-outline-primary btn-sm" href="{{ '/notes/personal-notes/' | relative_url }}">Open personal notes</a>
     </div>
   </div>

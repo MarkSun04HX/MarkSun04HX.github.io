@@ -8,7 +8,7 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Continues <a href="{{ '/notes/personal-notes/xgboost/' | relative_url }}">XGBoost / boosting</a>. Here $n$ = number of **rows** (examples), $p$ = number of **features** (columns).</p>
+<p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Continues <a href="{{ '/notes/personal-notes/xgboost/' | relative_url }}">XGBoost / boosting</a> and <a href="{{ '/notes/personal-notes/ensembles-bagging-boosting/' | relative_url }}">Ensembles: bagging vs boosting</a>. For **gradients** in the loss, <a href="{{ '/notes/personal-notes/gradients-optimization-for-ml/' | relative_url }}">Gradients & optimization</a>. Here $n$ = number of **rows** (examples), $p$ = number of **features** (columns).</p>
 
 **LightGBM** (Ke et al., Microsoft) is **gradient boosting** with trees, like **XGBoost**, but with implementation choices that favor **speed** and **memory efficiency** on **large** datasets—especially when $n$ (sample size) or $p$ (feature count) is big.
 
