@@ -1,6 +1,24 @@
 (function () {
   'use strict';
 
+  function escapeHtml(s) {
+    if (!s) return '';
+    return s
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function typeset(nodes) {
+    if (!nodes || !nodes.length) return Promise.resolve();
+    if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+      var list = Array.isArray(nodes) ? nodes : [nodes];
+      return window.MathJax.typesetPromise(list).catch(function () {});
+    }
+    return Promise.resolve();
+  }
+
   function init(root) {
     root.addEventListener('click', function (e) {
       var btn = e.target.closest('.pn-quiz__choice');
@@ -28,8 +46,10 @@
         var ok = chosen === correct;
         feedback.classList.toggle('text-success', ok);
         feedback.classList.toggle('text-danger', !ok);
-        feedback.textContent =
-          (ok ? 'Correct. ' : 'Not quite. ') + (explanation || '');
+        var prefix = ok ? 'Correct. ' : 'Not quite. ';
+        feedback.innerHTML =
+          '<span class="pn-quiz__fb-body">' + escapeHtml(prefix + explanation) + '</span>';
+        typeset([feedback]);
       }
     });
   }

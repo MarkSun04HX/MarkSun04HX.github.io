@@ -1,4 +1,5 @@
 # Pop quizzes for personal-note pages (key = page permalink). correct = 0-based index.
+# In double-quoted strings, use \\ for a single \ so MathJax sees \( ... \) for inline math.
 # Hub page /notes/personal-notes/ intentionally has no quiz (see index copy).
 
 "/notes/personal-notes/machine-learning-concepts/":
@@ -15,16 +16,16 @@
       - "Predicting the majority class always can yield high accuracy while failing the minority."
       - "It is undefined for more than two classes."
     correct: 1
-    explanation: "Accuracy can hide poor performance on rare classes; use precision/recall, F1, balanced accuracy, or cost-aware metrics."
+    explanation: "Accuracy can hide poor performance on rare classes; use precision/recall, \\(F_1\\), balanced accuracy, or cost-aware metrics."
 
 "/notes/personal-notes/math-intuition-for-ml/":
-  - prompt: "In these notes, x^T beta (for numeric features) means…"
+  - prompt: "In these notes, \\(x^{\\top} \\beta\\) (for numeric features) means…"
     choices:
       - "The product of two unrelated scalars chosen at random."
       - "A weighted sum—multiply each feature by a coefficient and add (plus often an intercept)."
-      - "The variance of the response y."
+      - "The variance of the response \\(y\\)."
     correct: 1
-    explanation: "x^T beta is shorthand for the linear predictor as a sum of weighted features."
+    explanation: "\\(x^{\\top} \\beta\\) is shorthand for the linear predictor as a sum of weighted features."
   - prompt: "Gradient descent steps opposite the gradient because…"
     choices:
       - "The gradient points in the direction of steepest increase of the loss; moving opposite reduces it."
@@ -101,17 +102,17 @@
   - prompt: "The RBF (Gaussian) kernel is large when…"
     choices:
       - "Two points are far apart in Euclidean distance."
-      - "Two points are close in Euclidean distance (for typical gamma)."
+      - "Two points are close in Euclidean distance (for typical \\(\\gamma\\))."
       - "The model has no hyperparameters."
     correct: 1
     explanation: "RBF similarity decays with distance; nearby points receive high kernel values."
   - prompt: "The kernel trick lets SVMs…"
     choices:
       - "Avoid ever computing inner products."
-      - "Act as if data lived in a rich feature space while only using kernel values K(x_i, x_j)."
+      - "Act as if data lived in a rich feature space while only using kernel values \\(K(x_i, x_j)\\)."
       - "Remove the need for labels."
     correct: 1
-    explanation: "Kernels replace explicit high-dimensional maps phi(x) with K(x_i, x_j) that behave like inner products in that space."
+    explanation: "Kernels replace explicit high-dimensional maps \\(\\phi(x)\\) with \\(K(x_i, x_j)\\) that behave like inner products in that space."
 
 "/notes/personal-notes/linear-logistic-regression/":
   - prompt: "OLS linear regression estimates coefficients by…"
@@ -120,23 +121,23 @@
       - "Maximizing the number of support vectors."
       - "Majority vote among k neighbors."
     correct: 0
-    explanation: "OLS picks beta to minimize squared prediction error; software solves the normal equations or equivalent."
-  - prompt: "Logistic regression models P(y=1|x) using…"
+    explanation: "OLS picks \\(\\beta\\) to minimize squared prediction error; software solves the normal equations or equivalent."
+  - prompt: "Logistic regression models \\(P(y=1 \\mid x)\\) using…"
     choices:
-      - "A linear function of x without bounds, so probabilities can exceed 1."
-      - "A sigmoid applied to a linear score x^T beta so probabilities stay in (0,1)."
-      - "Only the sign of x_1, ignoring other features."
+      - "A linear function of \\(x\\) without bounds, so probabilities can exceed 1."
+      - "A sigmoid applied to a linear score \\(x^{\\top} \\beta\\) so probabilities stay in \\((0,1)\\)."
+      - "Only the sign of \\(x_1\\), ignoring other features."
     correct: 1
-    explanation: "The logit is linear in x; the inverse link (sigmoid) maps the real line to valid probabilities."
+    explanation: "The logit is linear in \\(x\\); the inverse link (sigmoid) maps the real line to valid probabilities."
 
 "/notes/personal-notes/knn/":
-  - prompt: "Increasing K in KNN typically…"
+  - prompt: "Increasing \\(K\\) in KNN typically…"
     choices:
       - "Makes predictions smoother, trading higher bias for lower variance."
       - "Always improves test error without limit."
       - "Removes the need to choose a distance metric."
     correct: 0
-    explanation: "Larger K averages more neighbors—less wiggly (lower variance), but can underfit locally (higher bias)."
+    explanation: "Larger \\(K\\) averages more neighbors—less wiggly (lower variance), but can underfit locally (higher bias)."
   - prompt: "If one feature is on a huge numeric scale and others are small, Euclidean KNN often…"
     choices:
       - "Is unaffected because distance is rotation invariant."
@@ -146,18 +147,18 @@
     explanation: "Distance sums squared differences across dimensions; large-scale features can swamp others without scaling."
 
 "/notes/personal-notes/elastic-net/":
-  - prompt: "Lasso (L1) penalty is known for…"
+  - prompt: "Lasso (\\(L_1\\)) penalty is known for…"
     choices:
       - "Shrinking coefficients but rarely setting any exactly to zero."
       - "Encouraging sparsity—some coefficients can become exactly zero (variable selection)."
       - "Making the problem non-convex."
     correct: 1
-    explanation: "L1 can zero out coefficients; ridge (L2) shrinks but does not typically zero them."
-  - prompt: "Elastic net combines L1 and L2 partly to…"
+    explanation: "\\(L_1\\) can zero out coefficients; ridge (\\(L_2\\)) shrinks but does not typically zero them."
+  - prompt: "Elastic net combines \\(L_1\\) and \\(L_2\\) partly to…"
     choices:
       - "Handle correlated predictors more stably than lasso alone while keeping some selection."
       - "Remove the need for a tuning parameter."
-      - "Guarantee a unique solution when p > n without any penalty."
+      - "Guarantee a unique solution when \\(p > n\\) without any penalty."
     correct: 0
     explanation: "The mix stabilizes groups of correlated features compared with pure lasso while retaining sparsity."
 
@@ -172,7 +173,7 @@
   - prompt: "Regression trees commonly split leaves to reduce…"
     choices:
       - "Within-node variance (sum of squared deviations from the leaf mean)."
-      - "Only the number of leaves, ignoring y."
+      - "Only the number of leaves, ignoring \\(y\\)."
       - "The kernel matrix determinant."
     correct: 0
     explanation: "Regression trees minimize squared error within children; classification uses Gini or entropy-type impurities."
@@ -198,16 +199,16 @@
     choices:
       - "The hyperplane with the widest margin to the nearest correctly classified points."
       - "The smallest number of trees."
-      - "Minimum K in KNN."
+      - "Minimum \\(K\\) in KNN."
     correct: 0
     explanation: "Max-margin separation improves geometric robustness before kernels or slack."
-  - prompt: "The soft-margin parameter C trades off…"
+  - prompt: "The soft-margin parameter \\(C\\) trades off…"
     choices:
       - "Margin width versus tolerance for points inside the margin or misclassified."
       - "Number of layers in a neural network."
       - "Learning rate and batch size only."
     correct: 0
-    explanation: "Larger C penalizes slack more—closer to a hard margin; smaller C allows more overlap."
+    explanation: "Larger \\(C\\) penalizes slack more—closer to a hard margin; smaller \\(C\\) allows more overlap."
 
 "/notes/personal-notes/neural-networks/":
   - prompt: "Backpropagation is best described as…"
@@ -296,12 +297,12 @@
       - "The training classification accuracy."
       - "The sum of absolute correlations with a single fixed column."
     correct: 0
-    explanation: "PC1 is the direction of maximal variance after centering—core geometric definition."
+    explanation: "\\(\\mathrm{PC}_1\\) is the direction of maximal variance after centering—core geometric definition."
   - prompt: "PCA on raw features with incomparable units often requires…"
     choices:
       - "No preprocessing—PCA is always scale invariant."
       - "Standardizing or otherwise scaling so one giant-variance column does not dominate."
-      - "Adding labels y to the matrix before SVD."
+      - "Adding labels \\(y\\) to the matrix before SVD."
     correct: 1
     explanation: "PCA is sensitive to scale; standardize when features use different units or ranges."
 
@@ -313,11 +314,11 @@
       - "Sorting one feature only."
     correct: 0
     explanation: "Expectation (assign) and maximization (update means) style steps until convergence."
-  - prompt: "k-means implicitly assumes…"
+  - prompt: "\\(k\\)-means implicitly assumes…"
     choices:
       - "Clusters are well represented by spherical groups around centroids (rough Euclidean geometry story)."
-      - "Labels y are always available."
-      - "k must equal the number of rows."
+      - "Labels \\(y\\) are always available."
+      - "\\(k\\) must equal the number of rows."
     correct: 0
     explanation: "Euclidean distance to centroids favors blob-like clusters; elongated or varying-density groups can be a poor fit."
 
@@ -326,7 +327,7 @@
     choices:
       - "Merge clusters based on the closest pair of points across groups—can suffer chaining."
       - "Always produce balanced cluster sizes."
-      - "Require k to be specified before any distances are computed."
+      - "Require \\(k\\) to be specified before any distances are computed."
     correct: 0
     explanation: "Single linkage uses minimum between-cluster distance; elongated structures can chain together."
   - prompt: "Complete linkage uses…"

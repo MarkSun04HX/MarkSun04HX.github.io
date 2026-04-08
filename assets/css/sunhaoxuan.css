@@ -390,3 +390,13 @@ mjx-container {
   background: rgba(179, 58, 58, 0.1);
   color: #7a2222;
 }
+
+/* MathJax inside quiz prompts, choices, and feedback */
+.pn-quiz mjx-container {
+  vertical-align: middle;
+  margin: 0 0.06em;
+}
+
+.pn-quiz .pn-quiz__feedback mjx-container {
+  margin: 0 0.08em;
+}
