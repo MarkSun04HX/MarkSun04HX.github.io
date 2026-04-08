@@ -11,6 +11,7 @@ Built with [Beautiful Jekyll](https://beautifuljekyll.com/) and hosted on [GitHu
 |------|---------|
 | `_config.yml` | Site title, author, nav (`navbar-links`), footer social links, colors, SEO |
 | `index.html` | Home page (intro + blog feed) |
+| `contact.md` | Contact form → `contact.email` (Formspree when `contact.formspree_form_id` is set; else mailto fallback) |
 | `aboutme.md` | Bio, education, experience, contact |
 | `resume.md` | Résumé gate at `/resume/` (same private questions as class notes); PDF on `resume-content.md` → `/resume/content/` |
 | `projects.md` | Project highlights |
@@ -39,6 +40,7 @@ The default branch **`master`** is what GitHub Pages uses (either as the publish
 2. Add a post under **`_posts/`** using the name pattern `YYYY-MM-DD-title.md` and YAML front matter (see an existing post).
 3. Adjust **navigation** or **footer social links** in **`_config.yml`** (`navbar-links`, `social-network-links`).
 4. Tweak **colors** in **`_config.yml`** or **`assets/css/sunhaoxuan.css`**.
+5. **Contact form:** set **`contact.email`** in **`_config.yml`**. For in-browser delivery (no mail app), create a form at [Formspree](https://formspree.io), set its notification address to that email, and set **`contact.formspree_form_id`** to the id from the form URL (`https://formspree.io/f/<id>`).
 
 After you push to GitHub, the site updates within about one to two minutes (Actions deploy) or after the next Pages build (branch publishing).
 

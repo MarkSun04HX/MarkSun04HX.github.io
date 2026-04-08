@@ -21,6 +21,7 @@ author: Haoxuan (Mark) Sun
 
 navbar-links:
   About Me: "aboutme"
+  Contact: "contact"
   Résumé: "resume"
   Projects: "projects"
   Notes:
@@ -113,6 +114,13 @@ url-pretty: "MarkSun04HX.github.io"
 
 # Canonical site URL (RSS, sitemap, absolute links). Use github.io unless custom DNS is configured.
 url: "https://marksun04hx.github.io"
+
+# Contact form (see /contact/). For email to arrive in your inbox without opening the visitor’s mail app,
+# create a free form at https://formspree.io, set the notification email to contact.email, and paste the form id.
+# Leave formspree_form_id empty to use a mailto: fallback instead.
+contact:
+  email: "sunh23@wfu.edu"
+  formspree_form_id: ""
 
 # Add the website title to the title of every page
 title-on-all-pages: true
