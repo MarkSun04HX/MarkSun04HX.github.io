@@ -1,0 +1,10 @@
+---
+description: After completing work that changes this repo, commit and push without asking.
+alwaysApply: true
+---
+
+# Git: commit and push by default
+
+When a task changes files in this repository and the user did **not** say to skip git or leave changes uncommitted, **finish by committing and pushing** to `origin` on the current branch (usually `master`). Use a clear conventional-style message. Do not ask whether to commit unless the user explicitly prefers to review diffs first.
+
+**Exceptions:** no commit if there is nothing to commit, if the user says not to push, or if git operations fail—in the latter case, report the error and what is left uncommitted.
