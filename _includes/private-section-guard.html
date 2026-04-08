@@ -1,0 +1,17 @@
+{% comment %}
+  First line of protected page body: redirect to gate if session flag missing.
+  Params: storage_key (string), gate_path (site path e.g. /resume/)
+{% endcomment %}
+<script>
+(function () {
+  var KEY = '{{ include.storage_key }}';
+  var gate = '{{ include.gate_path | relative_url }}';
+  try {
+    if (sessionStorage.getItem(KEY) !== '1') {
+      window.location.replace(gate);
+    }
+  } catch (e) {
+    window.location.replace(gate);
+  }
+})();
+</script>

@@ -12,7 +12,7 @@ Built with [Beautiful Jekyll](https://beautifuljekyll.com/) and hosted on [GitHu
 | `_config.yml` | Site title, author, nav (`navbar-links`), footer social links, colors, SEO |
 | `index.html` | Home page (intro + blog feed) |
 | `aboutme.md` | Bio, education, experience, contact |
-| `resume.md` | Résumé / CV page (PDF download; avoids duplicating CV text on the page) |
+| `resume.md` | Résumé gate at `/resume/` (same private questions as class notes); PDF on `resume-content.md` → `/resume/content/` |
 | `projects.md` | Project highlights |
 | `notes/` | **Notes** section: [`notes/index.md`](notes/index.md) hub, [`notes/class-notes.md`](notes/class-notes.md) (gate → [`class-notes-content.md`](notes/class-notes-content.md) for PDFs + coursework), [`notes/personal-notes/`](notes/personal-notes/) (ML / stats write-ups) |
 | `calendar.html` | Calendar page linked from the nav |
@@ -22,7 +22,7 @@ Built with [Beautiful Jekyll](https://beautifuljekyll.com/) and hosted on [GitHu
 | `assets/css/sunhaoxuan.css` | Custom layout and accent styles |
 | `assets/img/favicon.svg` | Site icon |
 | `assets/img/ra/*.png` | RA research figures (web); paired PDFs in `assets/files/ra/` |
-| `assets/files/haoxuan-sun-resume.pdf` | Résumé PDF linked from `/resume` |
+| `assets/files/haoxuan-sun-resume.pdf` | Résumé PDF (linked from gated `/resume/content/`; file URL is still public if guessed) |
 | `assets/files/notes/*.pdf` | Course note PDFs linked from class notes |
 | `assets/images/` | Images for posts or diagrams (e.g. TBDE figures) |
 | `scripts/` | Optional utilities (e.g. diagram generation) |

@@ -1,0 +1,14 @@
+---
+layout: page
+title: Résumé / CV
+subtitle: PDF download
+permalink: /resume/content/
+---
+
+{% include private-section-guard.html storage_key="sunResumeAccessV1" gate_path="/resume/" %}
+
+<p class="mb-3"><a class="btn btn-primary" href="{{ '/assets/files/haoxuan-sun-resume.pdf' | relative_url }}">Download résumé (PDF)</a></p>
+
+<p class="text-muted small">Last updated <strong>March 2026</strong>. For narrative context and project links, see <a href="{{ '/aboutme' | relative_url }}">About me</a> and <a href="{{ '/projects' | relative_url }}">Projects</a> — details are not duplicated here.</p>
+
+{% include private-section-leave.html storage_key="sunResumeAccessV1" redirect_path="/resume/" link_id="resume-leave" link_label="Lock résumé on this browser" hint="(clears access until you pass the check again)." %}

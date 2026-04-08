@@ -1,8 +1,6 @@
 (function () {
   'use strict';
 
-  var STORAGE_KEY = 'sunWfuClassNotesV1';
-
   function normalize(s) {
     return (s || '')
       .toLowerCase()
@@ -83,8 +81,7 @@
     ];
     if (phrases.indexOf(n) >= 0) return true;
     var compact = n.replace(/\s/g, '');
-    if (compact === 'xiamen' || compact === 'xiamenchina') return true;
-    return false;
+    return compact === 'xiamen' || compact === 'xiamenchina';
   }
 
   var QUESTIONS = [
@@ -116,17 +113,20 @@
   ];
 
   document.addEventListener('DOMContentLoaded', function () {
-    var root = document.getElementById('class-notes-gate');
+    var root = document.getElementById('private-section-gate');
     if (!root) return;
 
+    var STORAGE_KEY = root.getAttribute('data-storage-key');
     var contentUrl = root.getAttribute('data-content-url');
-    var form = root.querySelector('#class-notes-gate-form');
-    var input = root.querySelector('#class-notes-gate-answer');
-    var wrong = document.getElementById('class-notes-gate-wrong');
-    var select = document.getElementById('class-notes-q-select');
-    var promptEl = document.getElementById('class-notes-gate-question');
+    if (!STORAGE_KEY || !contentUrl) return;
 
-    if (!form || !input || !contentUrl || !select || !promptEl) return;
+    var form = root.querySelector('#private-gate-form');
+    var input = root.querySelector('#private-gate-answer');
+    var wrong = document.getElementById('private-gate-wrong');
+    var select = document.getElementById('private-gate-q-select');
+    var promptEl = document.getElementById('private-gate-question');
+
+    if (!form || !input || !select || !promptEl) return;
 
     function applyQuestion(index) {
       var q = QUESTIONS[index];

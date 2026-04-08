@@ -1,0 +1,19 @@
+{% comment %}
+  Params: storage_key, redirect_path, link_id, link_label, hint (optional)
+{% endcomment %}
+<p class="small text-muted border-top pt-3 mt-4"><a href="#" id="{{ include.link_id }}" class="text-secondary">{{ include.link_label }}</a>{% if include.hint %} {{ include.hint }}{% endif %}</p>
+<script>
+(function () {
+  var KEY = '{{ include.storage_key }}';
+  var url = '{{ include.redirect_path | relative_url }}';
+  var el = document.getElementById('{{ include.link_id }}');
+  if (!el) return;
+  el.addEventListener('click', function (e) {
+    e.preventDefault();
+    try {
+      sessionStorage.removeItem(KEY);
+    } catch (err) {}
+    window.location.href = url;
+  });
+})();
+</script>

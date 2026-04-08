@@ -5,19 +5,7 @@ subtitle: Course PDFs and coursework list
 permalink: /notes/class-notes/content/
 ---
 
-<script>
-(function () {
-  var KEY = 'sunWfuClassNotesV1';
-  var gate = "{{ '/notes/class-notes/' | relative_url }}";
-  try {
-    if (sessionStorage.getItem(KEY) !== '1') {
-      window.location.replace(gate);
-    }
-  } catch (e) {
-    window.location.replace(gate);
-  }
-})();
-</script>
+{% include private-section-guard.html storage_key="sunWfuClassNotesV1" gate_path="/notes/class-notes/" %}
 
 <p class="mb-4"><a href="{{ '/notes/' | relative_url }}">← Back to Notes</a></p>
 
@@ -118,20 +106,4 @@ Below is a semester-by-semester list of courses on my **unofficial** Wake Forest
 
 <p class="text-muted small mt-3">Course titles and terms reflect my unofficial transcript as of December 2025; the 2026 spring term was still in progress when that transcript was generated.</p>
 
-<p class="small text-muted border-top pt-3 mt-4"><a href="#" id="class-notes-leave" class="text-secondary">Lock class notes on this browser</a> (clears access until you answer the question again). On shared computers, use this when you are done.</p>
-
-<script>
-(function () {
-  var KEY = 'sunWfuClassNotesV1';
-  var notesHome = "{{ '/notes/' | relative_url }}";
-  var el = document.getElementById('class-notes-leave');
-  if (!el) return;
-  el.addEventListener('click', function (e) {
-    e.preventDefault();
-    try {
-      sessionStorage.removeItem(KEY);
-    } catch (err) {}
-    window.location.href = notesHome;
-  });
-})();
-</script>
+{% include private-section-leave.html storage_key="sunWfuClassNotesV1" redirect_path="/notes/" link_id="class-notes-leave" link_label="Lock class notes on this browser" hint="(clears access until you answer the question again). On shared computers, use this when you are done." %}
