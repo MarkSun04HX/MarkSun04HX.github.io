@@ -49,8 +49,10 @@ from sklearn.decomposition import PCA
 
 X, _ = load_iris(return_X_y=True)
 X = StandardScaler().fit_transform(X)
-Z = PCA(n_components=2).fit_transform(X)
-print("shape after PCA:", Z.shape)
+pca = PCA(n_components=4).fit(X)
+print("shape 2D scores:", PCA(n_components=2).fit_transform(X).shape)
+print("explained variance ratio:", pca.explained_variance_ratio_.round(4))
+print("cumulative:", pca.explained_variance_ratio_.cumsum().round(4))
 ```
 
 **R** — base `stats`
@@ -59,5 +61,33 @@ print("shape after PCA:", Z.shape)
 X <- scale(iris[, 1:4])
 pc <- prcomp(X, center = FALSE, scale. = FALSE)  # already scaled
 head(pc$x[, 1:2])
-summary(pc)$importance[, 1:3]
+summary(pc)$importance[, 1:4]
 ```
+
+### Example output (illustrative)
+
+**Python** (iris, **standardized** features; sklearn 1.3+; your decimals may differ slightly by version):
+
+```text
+shape 2D scores: (150, 2)
+explained variance ratio: [0.7296 0.2285 0.0367 0.0052]
+cumulative: [0.7296 0.9581 0.9948 1.    ]
+```
+
+**R** (`summary(pc)$importance` is typical):
+
+```text
+                      PC1    PC2    PC3     PC4
+Standard deviation   1.708 0.956 0.383   0.144
+Proportion of Var.   0.730 0.229 0.037   0.005
+Cumulative Proportion 0.730 0.959 0.996   1.000
+```
+
+### How to interpret these outputs
+
+- **`explained variance ratio` / `Proportion of variance`:** fraction of **total variance** in the (centered/scaled) data captured by each component. **PC1** is the strongest single direction of spread; later PCs add **smaller** slices.
+- **Cumulative row:** e.g. **~0.96** after PC2 means **two** numbers per flower still explain **most** of the variability—good for **2D plots** or compressing four measurements to two.
+- **Scores** `pc$x` / `Z`: each row’s **coordinates** on the new axes—not “importance of species” by themselves; they are **rotated features** for visualization or downstream modeling.
+- **Scale matters:** ratios change if you **don’t** standardize; compare models on a **consistent** preprocessing pipeline.
+
+See also [machine learning concepts]({{ '/notes/personal-notes/machine-learning-concepts/' | relative_url }}) for how this differs from **supervised** test error (PCA has no $y$ in the fit).

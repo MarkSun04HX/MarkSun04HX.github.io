@@ -50,10 +50,12 @@ Start with one cluster and **split** recursively (less common; can be costly).
 ```python
 from sklearn.datasets import load_iris
 from sklearn.cluster import AgglomerativeClustering
+from sklearn.metrics import silhouette_score
 
 X, _ = load_iris(return_X_y=True)
 hc = AgglomerativeClustering(n_clusters=3, linkage="ward").fit(X)
 print("labels (first 10):", hc.labels_[:10].tolist())
+print("silhouette:", round(silhouette_score(X, hc.labels_), 3))
 ```
 
 **R** — base `stats`
@@ -62,5 +64,36 @@ print("labels (first 10):", hc.labels_[:10].tolist())
 d <- dist(scale(iris[, 1:4]), method = "euclidean")
 hc <- hclust(d, method = "ward.D2")
 ct <- cutree(hc, k = 3)
+tail(hc$height, 5)  # heights of last merges (larger = more dissimilar groups joined)
 table(ct, iris$Species)
 ```
+
+### Example output (illustrative)
+
+**Python** (iris raw, Ward linkage, $K=3$):
+
+```text
+labels (first 10): [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+silhouette: 0.554
+```
+
+**R** (`table` again uses **true species** only to show alignment on iris):
+
+```text
+       setosa versicolor virginica
+  1      0         2        36
+  2      0        48        14
+  3     50         0         0
+```
+
+(`hc$height` values depend on the `dist` scale; use them to see **how far apart** merged clusters were—larger jumps suggest a **natural** cut.)
+
+### How to interpret these outputs
+
+- **Labels:** arbitrary **IDs** (1,2,3, …)—permutation of cluster names does **not** change the partition. Compare runs by **matching** clusters (e.g. Hungarian algorithm) if needed, not by label integers.
+- **Silhouette:** same idea as in [k-means]({{ '/notes/personal-notes/k-means/' | relative_url }})—higher usually means **clearer** separation at the chosen $K$.
+- **`hc$height` (merge heights):** in agglomerative clustering, **small** heights = very similar groups merged early; a **big jump** in height when moving from $K{+}1$ to $K$ clusters suggests a **stable** choice of $K$ (elbow on the **dendrogram**).
+- **`cutree(hc, k = 3)`:** you chose $K$ **after** building the full tree—unlike k-means alone, you can **inspect** many $K$ from one `hclust` object.
+- **Linkage choice** changes results: **single** linkage can **chain**; **Ward** often favors **compact**, equal-variance-ish blobs—similar spirit to k-means.
+
+For **supervised** metrics (accuracy, $F_1$, …), see [machine learning concepts]({{ '/notes/personal-notes/machine-learning-concepts/' | relative_url }}); unsupervised outputs rarely reduce to a single “accuracy” without external labels.

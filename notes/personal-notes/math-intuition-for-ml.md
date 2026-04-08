@@ -110,7 +110,7 @@ Means “work grows **roughly like** $n^2$ when $n$ gets large”—a **scalabil
 
 ### Where to go next
 
-Open the [personal notes index]({{ '/notes/personal-notes/' | relative_url }}) and pick a topic. The **supervised** list starts with [linear & logistic regression]({{ '/notes/personal-notes/linear-logistic-regression/' | relative_url }})—it is the natural first page if you want to see $x^\top \beta$ in context.
+Open the [personal notes index]({{ '/notes/personal-notes/' | relative_url }}) and pick a topic. For **what supervised means**, **RMSE vs accuracy**, and **when to use $F_1$**, read [Machine learning concepts]({{ '/notes/personal-notes/machine-learning-concepts/' | relative_url }}) first. The **supervised** methods list starts with [linear & logistic regression]({{ '/notes/personal-notes/linear-logistic-regression/' | relative_url }})—good if you want to see $x^\top \beta$ in context.
 
 **Free outside resources (not mine):** 3Blue1Brown’s “Essence of linear algebra” series (YouTube) builds excellent pictures for vectors and matrices; Khan Academy has short modules on dot products and matrix multiplication if you want practice.
 

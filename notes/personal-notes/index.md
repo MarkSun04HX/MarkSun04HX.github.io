@@ -12,6 +12,11 @@ These pages are informal write-ups for my own understanding. They are **not** pe
 
 **New to the notation?** The supervised ML pages use short formulas (weighted sums, sums of squares). If you have **not** taken linear algebra, start with **[Math intuition for ML notes]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }})**—it explains vectors, dot products, $\sum$, and symbols like $x^\top \beta$ in plain language, then come back here.
 
+### Orientation (read first)
+
+- **[Machine learning concepts]({{ '/notes/personal-notes/machine-learning-concepts/' | relative_url }})** — supervised vs unsupervised, empirical vs population risk, prediction vs association, RMSE / accuracy / $F_1$ / G-mean, and how to choose metrics.
+- **[Math intuition for ML notes]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }})** — what $x^\top\beta$, vectors, and $\sum$ mean without a linear algebra course.
+
 Topics below are ordered by **rough conceptual complexity**—from classical linear models and local methods, through trees and ensembles, margins and kernels, neural nets, then gradient-boosting variants. **Unsupervised** methods are grouped at the end (dimension reduction, then partitioning, then hierarchical structure).
 
 ### Supervised learning

@@ -50,18 +50,52 @@ No universally correct $K$—use **domain knowledge**, **elbow** heuristic on wi
 **Python** — `pip install scikit-learn`
 
 ```python
+import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
 
 X, _ = load_iris(return_X_y=True)
-km = KMeans(n_clusters=3, n_init="auto", random_state=0).fit(X)
-print("within-cluster SS (inertia):", round(km.inertia_, 2))
-print("first labels:", km.labels_[:12].tolist())
+km = KMeans(n_clusters=3, n_init="auto", random_state=0).fit(X)  # n_init=10 if sklearn < 1.4
+print("inertia (within-cluster SS):", round(km.inertia_, 2))
+print("cluster sizes:", np.bincount(km.labels_))
+print("silhouette [-1,1], higher tighter clusters:", round(silhouette_score(X, km.labels_), 3))
+print("first 12 labels:", km.labels_[:12].tolist())
 ```
 
 **R** — base `stats`
 
 ```r
 km <- kmeans(scale(iris[, 1:4]), centers = 3, nstart = 25)
+km$tot.withinss   # total within-cluster sum of squares
 table(km$cluster, iris$Species)
 ```
+
+### Example output (illustrative)
+
+**Python** (iris **raw** features; `random_state=0`; versions may differ slightly):
+
+```text
+inertia (within-cluster SS): 78.85
+cluster sizes: [50 47 53]
+silhouette [-1,1], higher tighter clusters: 0.553
+first 12 labels: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+```
+
+**R** (`table` compares clusters to **true species**—k-means never sees species; this is only **post-hoc** on iris). Row labels are arbitrary; **your** counts may permute rows but often look **like** this:
+
+```text
+       setosa versicolor virginica
+  1      0         2        36
+  2      0        48        14
+  3     50         0         0
+```
+
+### How to interpret these outputs
+
+- **Inertia / `tot.withinss`:** total squared distance from points to their cluster center—**lower** is tighter fit **for fixed $K$**. **Cannot** compare fairly across different $K$ without caution (more clusters usually shrink inertia). Use the **elbow** or **silhouette** to choose $K$.
+- **Silhouette (sklearn):** for each point, compares **cohesion** (distance to own cluster) vs **separation** (distance to nearest other cluster). Averages to roughly **$-1$ to $1$**; **higher** suggests clearer separation. **Negative** values often mean points may sit in the wrong cluster.
+- **Cluster sizes:** huge imbalance can mean **wrong $K$** or **non-spherical** groups (k-means assumes roughly **round** blobs of similar size).
+- **Cross-tab with `iris$Species`:** only possible here because iris **has** labels. In real clustering you **do not** have this—you would instead use **domain** labels later, **stability** under resampling, or **silhouette / gap** heuristics.
+
+More on metrics in [machine learning concepts]({{ '/notes/personal-notes/machine-learning-concepts/' | relative_url }}).
