@@ -14,7 +14,7 @@ Built with [Beautiful Jekyll](https://beautifuljekyll.com/) and hosted on [GitHu
 | `aboutme.md` | Bio, education, experience, contact |
 | `resume.md` | Résumé / CV page (PDF download; avoids duplicating CV text on the page) |
 | `projects.md` | Project highlights |
-| `notes/` | **Notes** section: [`notes/index.md`](notes/index.md) hub, [`notes/class-notes.md`](notes/class-notes.md) (course PDFs + coursework list), [`notes/personal-notes/`](notes/personal-notes/) (ML / stats write-ups) |
+| `notes/` | **Notes** section: [`notes/index.md`](notes/index.md) hub, [`notes/class-notes.md`](notes/class-notes.md) (gate → [`class-notes-content.md`](notes/class-notes-content.md) for PDFs + coursework), [`notes/personal-notes/`](notes/personal-notes/) (ML / stats write-ups) |
 | `calendar.html` | Calendar page linked from the nav |
 | `tags.html` | Tag index for posts |
 | `blog/` | Blog hub and category pages (`/blog/`, `/blog/research/`, `/blog/sports/`, `/blog/journal/`) |
