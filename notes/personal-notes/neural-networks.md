@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Neural networks (feedforward)"
 subtitle: Composed nonlinear layers and backpropagation
 permalink: /notes/personal-notes/neural-networks/

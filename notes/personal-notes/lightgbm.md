@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "LightGBM"
 subtitle: Histogram-based gradient boosting with leaf-wise growth
 permalink: /notes/personal-notes/lightgbm/

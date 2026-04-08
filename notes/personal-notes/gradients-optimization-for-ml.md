@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Gradients & optimization for ML"
 subtitle: Slopes, descent, and why so many models are “minimize a loss”
 permalink: /notes/personal-notes/gradients-optimization-for-ml/

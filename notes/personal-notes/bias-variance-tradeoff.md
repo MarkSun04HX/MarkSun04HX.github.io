@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Bias–variance tradeoff"
 subtitle: Simple models vs flexible models—and what “averaging” fixes
 permalink: /notes/personal-notes/bias-variance-tradeoff/

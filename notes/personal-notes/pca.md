@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Principal Component Analysis (PCA)"
 subtitle: Directions of maximum variance and low-rank approximation
 permalink: /notes/personal-notes/pca/

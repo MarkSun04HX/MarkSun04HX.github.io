@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Linear & logistic regression"
 subtitle: From least squares to odds and the logit
 permalink: /notes/personal-notes/linear-logistic-regression/

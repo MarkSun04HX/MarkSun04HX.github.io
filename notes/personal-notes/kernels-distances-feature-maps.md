@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Kernels, distances & feature maps"
 subtitle: When “closeness” and “alignment” replace explicit new columns
 permalink: /notes/personal-notes/kernels-distances-feature-maps/

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Support Vector Machines (SVM)"
 subtitle: Max-margin separation and kernels
 permalink: /notes/personal-notes/svm/

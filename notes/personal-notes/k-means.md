@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "K-means clustering"
 subtitle: Partition points into K Voronoi cells by least squares
 permalink: /notes/personal-notes/k-means/

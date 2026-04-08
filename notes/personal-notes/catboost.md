@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "CatBoost"
 subtitle: Gradient boosting with ordered targets and categorical handling
 permalink: /notes/personal-notes/catboost/

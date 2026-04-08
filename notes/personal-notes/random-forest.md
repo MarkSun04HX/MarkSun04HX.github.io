@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Random Forest"
 subtitle: Bagging plus random feature subsets at each split
 permalink: /notes/personal-notes/random-forest/

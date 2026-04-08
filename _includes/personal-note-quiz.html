@@ -1,0 +1,20 @@
+{% assign pn_quiz = site.data.personal_note_quizzes[page.permalink] %}
+{% if pn_quiz and pn_quiz.size > 0 %}
+<section class="pn-quiz border rounded p-3 p-md-4 mt-5 mb-4" style="border-color:#dde4ec;background:#f8fafc;" aria-labelledby="pn-quiz-heading">
+  <h2 id="pn-quiz-heading" class="h4 mb-1">Pop quiz <span class="text-muted font-weight-normal">(optional)</span></h2>
+  <p class="small text-muted mb-3">Quick checks—nothing is stored. Choose an answer, then read the feedback.</p>
+  {% for q in pn_quiz %}
+  <div class="pn-quiz__item mb-4 pb-3 {% unless forloop.last %}border-bottom{% endunless %}" style="border-color:#dde4ec;" data-pn-quiz-item data-correct="{{ q.correct }}">
+    <p class="font-weight-medium mb-2 mb-md-3">{{ forloop.index }}. {{ q.prompt }}</p>
+    <div class="pn-quiz__choices d-flex flex-column" role="group" aria-label="Question {{ forloop.index }}">
+      {% for c in q.choices %}
+      <button type="button" class="btn btn-sm btn-outline-secondary text-left mb-2 pn-quiz__choice" data-index="{{ forloop.index0 }}">{{ c }}</button>
+      {% endfor %}
+    </div>
+    <div class="pn-quiz__feedback small mt-2 d-none" role="status"></div>
+    <div class="pn-quiz__explanation-source d-none">{{ q.explanation }}</div>
+  </div>
+  {% endfor %}
+</section>
+<script src="{{ '/assets/js/personal-note-quiz.js' | relative_url }}" defer></script>
+{% endif %}

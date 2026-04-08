@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "From boosting to XGBoost"
 subtitle: Intuition, gradient boosting, and what XGBoost adds
 permalink: /notes/personal-notes/xgboost/

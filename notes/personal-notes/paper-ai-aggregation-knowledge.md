@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Paper notes: How AI aggregation affects knowledge"
 subtitle: Acemoglu, Lin, Ozdaglar & Siderius (2026) — detailed walk-through
 permalink: /notes/personal-notes/paper-ai-aggregation-knowledge/

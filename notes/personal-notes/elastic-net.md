@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Elastic net, ridge & lasso"
 subtitle: Penalized linear models for stability and selection
 permalink: /notes/personal-notes/elastic-net/

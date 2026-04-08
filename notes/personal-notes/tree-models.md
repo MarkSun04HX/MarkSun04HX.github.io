@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Tree models (CART)"
 subtitle: Recursive partitioning for regression and classification
 permalink: /notes/personal-notes/tree-models/

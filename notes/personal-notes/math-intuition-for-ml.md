@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Math intuition for ML notes"
 subtitle: Vectors, sums, and symbols—without a linear algebra course
 permalink: /notes/personal-notes/math-intuition-for-ml/

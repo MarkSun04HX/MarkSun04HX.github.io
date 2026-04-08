@@ -360,3 +360,33 @@ mjx-container {
   overflow-x: auto;
   overflow-y: hidden;
 }
+
+/* Personal notes — optional pop quiz (see _data/personal_note_quizzes.yml) */
+.pn-quiz .pn-quiz__choice {
+  white-space: normal;
+  line-height: 1.35;
+  border-radius: 6px;
+  border-color: #c5d0dc;
+}
+
+.pn-quiz .pn-quiz__choice:hover:not(:disabled) {
+  border-color: var(--sun-accent);
+  background: var(--sun-accent-soft);
+}
+
+.pn-quiz .pn-quiz__choice:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.pn-quiz .pn-quiz__choice.is-correct {
+  border-color: #1e7a4c;
+  background: rgba(30, 122, 76, 0.12);
+  color: #145232;
+}
+
+.pn-quiz .pn-quiz__choice.is-wrong {
+  border-color: #b33a3a;
+  background: rgba(179, 58, 58, 0.1);
+  color: #7a2222;
+}

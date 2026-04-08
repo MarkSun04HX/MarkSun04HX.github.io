@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Convolutional Neural Networks (CNNs)"
 subtitle: Local filters, hierarchy, and translation structure
 permalink: /notes/personal-notes/cnns/

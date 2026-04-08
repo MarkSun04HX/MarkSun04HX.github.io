@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Hierarchical clustering"
 subtitle: Agglomerative trees of merges or divisive splits
 permalink: /notes/personal-notes/hierarchical-clustering/

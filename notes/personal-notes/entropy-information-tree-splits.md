@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Entropy, information & tree impurity"
 subtitle: Why Gini and cross-entropy measure “mixedness” at a node
 permalink: /notes/personal-notes/entropy-information-tree-splits/

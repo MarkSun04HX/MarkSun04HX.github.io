@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "K-nearest neighbors (KNN)"
 subtitle: Instance-based prediction by local voting or averaging
 permalink: /notes/personal-notes/knn/

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Ensembles: bagging vs boosting"
 subtitle: Parallel averaging vs sequential correction—and what forests and boosters do
 permalink: /notes/personal-notes/ensembles-bagging-boosting/

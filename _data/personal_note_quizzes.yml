@@ -1,0 +1,354 @@
+# Pop quizzes for personal-note pages (key = page permalink). correct = 0-based index.
+# Hub page /notes/personal-notes/ intentionally has no quiz (see index copy).
+
+"/notes/personal-notes/machine-learning-concepts/":
+  - prompt: "Empirical risk is…"
+    choices:
+      - "The exact population average loss you can never observe."
+      - "A loss averaged over the finite sample you actually computed it on (e.g. train or validation)."
+      - "Always equal to test accuracy."
+    correct: 1
+    explanation: "Empirical risk is the sample average of the loss; population risk is the theoretical target."
+  - prompt: "On highly imbalanced classes, accuracy alone can be misleading because…"
+    choices:
+      - "It ignores the confusion matrix entirely."
+      - "Predicting the majority class always can yield high accuracy while failing the minority."
+      - "It is undefined for more than two classes."
+    correct: 1
+    explanation: "Accuracy can hide poor performance on rare classes; use precision/recall, F1, balanced accuracy, or cost-aware metrics."
+
+"/notes/personal-notes/math-intuition-for-ml/":
+  - prompt: "In these notes, x^T beta (for numeric features) means…"
+    choices:
+      - "The product of two unrelated scalars chosen at random."
+      - "A weighted sum—multiply each feature by a coefficient and add (plus often an intercept)."
+      - "The variance of the response y."
+    correct: 1
+    explanation: "x^T beta is shorthand for the linear predictor as a sum of weighted features."
+  - prompt: "Gradient descent steps opposite the gradient because…"
+    choices:
+      - "The gradient points in the direction of steepest increase of the loss; moving opposite reduces it."
+      - "The gradient always equals zero in machine learning."
+      - "It is required for decision trees only."
+    correct: 0
+    explanation: "For minimization, stepping opposite the gradient follows the downhill direction of a smooth loss."
+
+"/notes/personal-notes/gradients-optimization-for-ml/":
+  - prompt: "Logistic regression is often fit by minimizing negative log-likelihood because…"
+    choices:
+      - "That is equivalent to maximum likelihood for many models and fits the standard convex optimization story."
+      - "It forces predictions to be exactly 0 or 1."
+      - "It removes the need for any data."
+    correct: 0
+    explanation: "Maximizing likelihood matches minimizing negative log-likelihood (cross-entropy loss in classification)."
+  - prompt: "A convex loss in the parameters means (typical story)…"
+    choices:
+      - "Gradient descent with a suitable step size can reach a global minimum under standard conditions."
+      - "There are always infinitely many global minima."
+      - "Neural networks are always easy to optimize."
+    correct: 0
+    explanation: "Convex problems avoid the multiple local minima issue that complicates deep non-convex training."
+
+"/notes/personal-notes/bias-variance-tradeoff/":
+  - prompt: "A very deep single decision tree, trained to low training error, often has…"
+    choices:
+      - "Low variance and high bias."
+      - "Low bias on flexible fits but high variance to small data changes."
+      - "No connection to bias or variance."
+    correct: 1
+    explanation: "Deep trees fit training data closely (low bias) but are unstable—high variance."
+  - prompt: "Averaging many decorrelated trees (random forest) mainly targets…"
+    choices:
+      - "Reducing variance while keeping the low-bias character of deep trees."
+      - "Eliminating the need for any training data."
+      - "Making each tree a linear model."
+    correct: 0
+    explanation: "Bagging/averaging reduces variance when base learners are diverse; RF adds feature subsampling to decorrelate trees."
+
+"/notes/personal-notes/entropy-information-tree-splits/":
+  - prompt: "Entropy of a node’s class distribution is highest when…"
+    choices:
+      - "One class has probability 1."
+      - "Classes are as mixed as possible (e.g. equal proportions in the binary case)."
+      - "There is only one training example."
+    correct: 1
+    explanation: "Entropy measures uncertainty; it is maximized when the distribution is most uniform over classes."
+  - prompt: "Gini impurity and entropy often…"
+    choices:
+      - "Always pick exactly different splits for every dataset."
+      - "Rank splits similarly in practice; both reward purer children."
+      - "Apply only to regression trees with squared error."
+    correct: 1
+    explanation: "Both are classification impurity measures; software lets you choose criterion with often similar performance."
+
+"/notes/personal-notes/ensembles-bagging-boosting/":
+  - prompt: "Bagging trains base models…"
+    choices:
+      - "Sequentially, each correcting the previous round’s mistakes."
+      - "In parallel on bootstrap samples, then averages or votes."
+      - "Only on a single fixed row of the data."
+    correct: 1
+    explanation: "Bagging = bootstrap aggregating—parallel fits on resampled data, then aggregate predictions."
+  - prompt: "Classic gradient boosting adds trees…"
+    choices:
+      - "All at once with no dependence on prior fits."
+      - "Sequentially, using gradients (pseudo-residuals) of the loss to fit the next tree."
+      - "Only if the data has exactly two features."
+    correct: 1
+    explanation: "Boosting is sequential; gradient boosting uses loss gradients to tell the next tree what to correct."
+
+"/notes/personal-notes/kernels-distances-feature-maps/":
+  - prompt: "The RBF (Gaussian) kernel is large when…"
+    choices:
+      - "Two points are far apart in Euclidean distance."
+      - "Two points are close in Euclidean distance (for typical gamma)."
+      - "The model has no hyperparameters."
+    correct: 1
+    explanation: "RBF similarity decays with distance; nearby points receive high kernel values."
+  - prompt: "The kernel trick lets SVMs…"
+    choices:
+      - "Avoid ever computing inner products."
+      - "Act as if data lived in a rich feature space while only using kernel values K(x_i, x_j)."
+      - "Remove the need for labels."
+    correct: 1
+    explanation: "Kernels replace explicit high-dimensional maps phi(x) with K(x_i, x_j) that behave like inner products in that space."
+
+"/notes/personal-notes/linear-logistic-regression/":
+  - prompt: "OLS linear regression estimates coefficients by…"
+    choices:
+      - "Minimizing sum of squared residuals on the training data (least squares)."
+      - "Maximizing the number of support vectors."
+      - "Majority vote among k neighbors."
+    correct: 0
+    explanation: "OLS picks beta to minimize squared prediction error; software solves the normal equations or equivalent."
+  - prompt: "Logistic regression models P(y=1|x) using…"
+    choices:
+      - "A linear function of x without bounds, so probabilities can exceed 1."
+      - "A sigmoid applied to a linear score x^T beta so probabilities stay in (0,1)."
+      - "Only the sign of x_1, ignoring other features."
+    correct: 1
+    explanation: "The logit is linear in x; the inverse link (sigmoid) maps the real line to valid probabilities."
+
+"/notes/personal-notes/knn/":
+  - prompt: "Increasing K in KNN typically…"
+    choices:
+      - "Makes predictions smoother, trading higher bias for lower variance."
+      - "Always improves test error without limit."
+      - "Removes the need to choose a distance metric."
+    correct: 0
+    explanation: "Larger K averages more neighbors—less wiggly (lower variance), but can underfit locally (higher bias)."
+  - prompt: "If one feature is on a huge numeric scale and others are small, Euclidean KNN often…"
+    choices:
+      - "Is unaffected because distance is rotation invariant."
+      - "Is dominated by that feature unless you scale or weight features."
+      - "Automatically ignores large-scale features."
+    correct: 1
+    explanation: "Distance sums squared differences across dimensions; large-scale features can swamp others without scaling."
+
+"/notes/personal-notes/elastic-net/":
+  - prompt: "Lasso (L1) penalty is known for…"
+    choices:
+      - "Shrinking coefficients but rarely setting any exactly to zero."
+      - "Encouraging sparsity—some coefficients can become exactly zero (variable selection)."
+      - "Making the problem non-convex."
+    correct: 1
+    explanation: "L1 can zero out coefficients; ridge (L2) shrinks but does not typically zero them."
+  - prompt: "Elastic net combines L1 and L2 partly to…"
+    choices:
+      - "Handle correlated predictors more stably than lasso alone while keeping some selection."
+      - "Remove the need for a tuning parameter."
+      - "Guarantee a unique solution when p > n without any penalty."
+    correct: 0
+    explanation: "The mix stabilizes groups of correlated features compared with pure lasso while retaining sparsity."
+
+"/notes/personal-notes/tree-models/":
+  - prompt: "Standard CART-style splits in this notes are…"
+    choices:
+      - "Oblique combinations of all features at once."
+      - "Axis-aligned—one feature compared to a threshold per split."
+      - "Chosen only by random guessing."
+    correct: 1
+    explanation: "Each split asks about a single feature versus a threshold, producing a staircase boundary."
+  - prompt: "Regression trees commonly split leaves to reduce…"
+    choices:
+      - "Within-node variance (sum of squared deviations from the leaf mean)."
+      - "Only the number of leaves, ignoring y."
+      - "The kernel matrix determinant."
+    correct: 0
+    explanation: "Regression trees minimize squared error within children; classification uses Gini or entropy-type impurities."
+
+"/notes/personal-notes/random-forest/":
+  - prompt: "Compared with bagging trees on all features at each split, random forest also…"
+    choices:
+      - "Uses every feature at every split to maximize correlation between trees."
+      - "Randomly restricts the feature subset considered at each split to decorrelate trees."
+      - "Trains on the full dataset without resampling."
+    correct: 1
+    explanation: "Random feature subsets reduce correlation among trees so averaging cuts variance more effectively."
+  - prompt: "Out-of-bag (OOB) error uses…"
+    choices:
+      - "A separate test set you must purchase."
+      - "Examples not drawn in each tree’s bootstrap sample as a built-in validation proxy."
+      - "Only the first tree in the forest."
+    correct: 1
+    explanation: "Each bootstrap sample leaves out about 37% of rows; those OOB points validate that tree’s contribution."
+
+"/notes/personal-notes/svm/":
+  - prompt: "A hard-margin linear SVM seeks…"
+    choices:
+      - "The hyperplane with the widest margin to the nearest correctly classified points."
+      - "The smallest number of trees."
+      - "Minimum K in KNN."
+    correct: 0
+    explanation: "Max-margin separation improves geometric robustness before kernels or slack."
+  - prompt: "The soft-margin parameter C trades off…"
+    choices:
+      - "Margin width versus tolerance for points inside the margin or misclassified."
+      - "Number of layers in a neural network."
+      - "Learning rate and batch size only."
+    correct: 0
+    explanation: "Larger C penalizes slack more—closer to a hard margin; smaller C allows more overlap."
+
+"/notes/personal-notes/neural-networks/":
+  - prompt: "Backpropagation is best described as…"
+    choices:
+      - "An efficient application of the chain rule to compute gradients through layers."
+      - "A clustering algorithm on the hidden units."
+      - "The same as bagging decision trees."
+    correct: 0
+    explanation: "Backprop computes partial derivatives of the loss with respect to weights layer by layer."
+  - prompt: "Nonlinear activations between affine layers are needed because…"
+    choices:
+      - "Composition of affines without nonlinearities is still just one affine map."
+      - "They guarantee convex optimization."
+      - "They remove the need for any training data."
+    correct: 0
+    explanation: "Without nonlinearities, deep stacks collapse to a single linear transformation—no genuine depth."
+
+"/notes/personal-notes/cnns/":
+  - prompt: "Convolutional layers exploit…"
+    choices:
+      - "Translation structure—local patterns can appear anywhere in the grid."
+      - "The assumption that every pixel is independent with no spatial layout."
+      - "Only fully connected layers on flattened inputs."
+    correct: 0
+    explanation: "Shared local filters detect motifs across locations; that is the spatial prior conv nets use."
+  - prompt: "Pooling layers often…"
+    choices:
+      - "Increase spatial resolution of the feature map."
+      - "Downsample spatially, adding some translation tolerance and reducing compute."
+      - "Replace the need for any nonlinear activation."
+    correct: 1
+    explanation: "Pooling summarizes local neighborhoods (max/avg), shrinking maps and adding local invariance."
+
+"/notes/personal-notes/xgboost/":
+  - prompt: "In gradient boosting, pseudo-residuals are driven by…"
+    choices:
+      - "Gradients of the loss with respect to the current model’s predictions."
+      - "Random bootstrap draws only."
+      - "Principal component scores only."
+    correct: 0
+    explanation: "The next tree targets negative gradients of the loss—what would most reduce error locally."
+  - prompt: "Boosting ensembles differ from random forest mainly in that boosting…"
+    choices:
+      - "Fits trees in parallel on independent bootstraps only."
+      - "Builds trees sequentially so each new tree corrects the current ensemble’s mistakes."
+      - "Cannot use decision trees as base learners."
+    correct: 1
+    explanation: "Boosting is adaptive and sequential; random forest bagging is parallel with aggregation."
+
+"/notes/personal-notes/lightgbm/":
+  - prompt: "Histogram-based splitting approximates continuous features by…"
+    choices:
+      - "Binning values into discrete buckets to aggregate gradients cheaply."
+      - "Deleting all continuous columns."
+      - "Exact sorting at every leaf without approximation."
+    correct: 0
+    explanation: "Bins reduce sort cost and memory—core to LightGBM’s speed on large data."
+  - prompt: "Leaf-wise (best-first) growth tends to…"
+    choices:
+      - "Grow the tree level-by-level only."
+      - "Split the leaf that currently yields the largest loss reduction—can deepen unevenly."
+      - "Use no regularization."
+    correct: 1
+    explanation: "Leaf-wise expansion can be powerful but needs depth/leaf constraints to control overfitting."
+
+"/notes/personal-notes/catboost/":
+  - prompt: "Ordered boosting in CatBoost is designed to reduce…"
+    choices:
+      - "Target leakage from using the same data to form residuals and fit splits."
+      - "The need for any categorical features."
+      - "GPU memory only, with no statistical motivation."
+    correct: 0
+    explanation: "Ordering/permutation schemes limit how future-looking information leaks into earlier boosting steps."
+  - prompt: "CatBoost is especially noted for…"
+    choices:
+      - "Ignoring categorical variables entirely."
+      - "Strong handling of high-cardinality categorical features with ordered statistics ideas."
+      - "Replacing gradient boosting with pure linear models."
+    correct: 1
+    explanation: "Ordered target statistics and related ideas target bias from naive categorical encoding in boosting."
+
+"/notes/personal-notes/pca/":
+  - prompt: "The first principal component direction maximizes…"
+    choices:
+      - "The variance of the projected data (spread along that line), subject to unit length."
+      - "The training classification accuracy."
+      - "The sum of absolute correlations with a single fixed column."
+    correct: 0
+    explanation: "PC1 is the direction of maximal variance after centering—core geometric definition."
+  - prompt: "PCA on raw features with incomparable units often requires…"
+    choices:
+      - "No preprocessing—PCA is always scale invariant."
+      - "Standardizing or otherwise scaling so one giant-variance column does not dominate."
+      - "Adding labels y to the matrix before SVD."
+    correct: 1
+    explanation: "PCA is sensitive to scale; standardize when features use different units or ranges."
+
+"/notes/personal-notes/k-means/":
+  - prompt: "Lloyd’s algorithm alternates between…"
+    choices:
+      - "Assigning points to nearest centroids and recomputing centroids as cluster means."
+      - "Fitting a logistic model and then a random forest."
+      - "Sorting one feature only."
+    correct: 0
+    explanation: "Expectation (assign) and maximization (update means) style steps until convergence."
+  - prompt: "k-means implicitly assumes…"
+    choices:
+      - "Clusters are well represented by spherical groups around centroids (rough Euclidean geometry story)."
+      - "Labels y are always available."
+      - "k must equal the number of rows."
+    correct: 0
+    explanation: "Euclidean distance to centroids favors blob-like clusters; elongated or varying-density groups can be a poor fit."
+
+"/notes/personal-notes/hierarchical-clustering/":
+  - prompt: "Single linkage clustering tends to…"
+    choices:
+      - "Merge clusters based on the closest pair of points across groups—can suffer chaining."
+      - "Always produce balanced cluster sizes."
+      - "Require k to be specified before any distances are computed."
+    correct: 0
+    explanation: "Single linkage uses minimum between-cluster distance; elongated structures can chain together."
+  - prompt: "Complete linkage uses…"
+    choices:
+      - "The maximum distance between any point in one cluster and any point in the other."
+      - "Only the centroid distance."
+      - "Random tie-breaking without distances."
+    correct: 0
+    explanation: "Complete linkage merges based on the farthest pair across clusters—tighter, more compact groups than single linkage often yields."
+
+"/notes/personal-notes/paper-ai-aggregation-knowledge/":
+  - prompt: "In a DeGroot-style learning model on a network, agents typically…"
+    choices:
+      - "Ignore neighbors entirely."
+      - "Update beliefs toward a weighted average of their own and neighbors’ current beliefs."
+      - "Observe only a global mean with no local structure."
+    correct: 1
+    explanation: "DeGroot updating is linear averaging on a graph—simple social learning dynamics."
+  - prompt: "The paper’s contrast between fast updating and robust learning highlights that…"
+    choices:
+      - "Speed and robustness to misspecification need not align; aggressive updating can hurt long-run accuracy."
+      - "Faster updating always improves every welfare measure with no tradeoffs."
+      - "Networks never matter for aggregation."
+    correct: 0
+    explanation: "The working paper stresses cases where quick convergence can undermine robust improvement—speed vs. resilience is a real tension."

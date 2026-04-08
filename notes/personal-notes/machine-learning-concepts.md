@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Machine learning concepts"
 subtitle: Supervision, risk, metrics, and what we are actually measuring
 permalink: /notes/personal-notes/machine-learning-concepts/

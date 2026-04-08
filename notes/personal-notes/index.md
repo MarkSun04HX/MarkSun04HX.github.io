@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: Personal notes
 subtitle: Intuition-first methods, and careful paper walk-throughs
 permalink: /notes/personal-notes/
@@ -9,6 +9,8 @@ mathjax: true
 <p class="mb-4"><a href="{{ '/notes/' | relative_url }}">← Back to Notes</a></p>
 
 These pages are informal write-ups for my own understanding. They are **not** peer-reviewed or guaranteed error-free. If something is unclear or you spot a mistake, I am happy to hear from you via the footer links.
+
+At the **bottom** of each topic page (not this index), there is an **optional pop quiz**—a few multiple-choice checks with instant feedback; answers are not saved.
 
 **New to the notation?** The supervised ML pages use short formulas (weighted sums, sums of squares). If you have **not** taken linear algebra, start with **[Math intuition for ML notes]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }})**—it explains vectors, dot products, $\sum$, and symbols like $x^\top \beta$ in plain language, then come back here.
 
