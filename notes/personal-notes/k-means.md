@@ -13,7 +13,7 @@ mathjax: true
 **K-means** partitions $n$ points into **$K$ clusters** by minimizing **within-cluster sum of squares**:
 
 $$
-\min_{\text{assignments } C,\; \text{centroids } \mu} \sum_{k=1}^K \sum_{i \in C_k} \|x_i - \mu_k\|^2,
+\min_{C,\,\mu} \sum_{k=1}^K \sum_{i \in C_k} \|x_i - \mu_k\|^2
 $$
 
 where $\mu_k$ is the **mean** (average) of all points currently assigned to cluster $k$—the **centroid** of that group.

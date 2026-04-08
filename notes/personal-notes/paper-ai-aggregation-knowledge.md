@@ -272,16 +272,21 @@ Think **local expertise**: health conditions in one region vs. labor market cond
 
 ### 14. If you read the actual paper, follow this map
 
-| Section | What to look for |
-|--------|-------------------|
-| **1** | Motivation, feedback loop, contribution in words. |
-| **2** | Formal DeGroot + AI equations ($T$, $\alpha$, $\rho$, $\beta$). |
-| **3** | Convergence + Theorem 1 (closed form). |
-| **4** | Two-island figure + Theorem 2 (robustness vs $\rho$). |
-| **5** | Majority vs minority training (Propositions 2–3). |
-| **6** | Local aggregators figure + Proposition 4 + Theorem 3. |
-| **7** | Short recap + future research. |
-| **Appendix** | Proofs (heavy math). |
+{::nomarkdown}
+<table class="table table-bordered table-sm" style="max-width: 44rem;">
+<thead><tr><th>Section</th><th>What to look for</th></tr></thead>
+<tbody>
+<tr><td><strong>1</strong></td><td>Motivation, feedback loop, contribution in words.</td></tr>
+<tr><td><strong>2</strong></td><td>Formal DeGroot + AI equations ($T$, $\alpha$, $\rho$, $\beta$).</td></tr>
+<tr><td><strong>3</strong></td><td>Convergence + Theorem 1 (closed form).</td></tr>
+<tr><td><strong>4</strong></td><td>Two-island figure + Theorem 2 (robustness vs $\rho$).</td></tr>
+<tr><td><strong>5</strong></td><td>Majority vs minority training (Propositions 2–3).</td></tr>
+<tr><td><strong>6</strong></td><td>Local aggregators figure + Proposition 4 + Theorem 3.</td></tr>
+<tr><td><strong>7</strong></td><td>Short recap + future research.</td></tr>
+<tr><td><strong>Appendix</strong></td><td>Proofs (heavy math).</td></tr>
+</tbody>
+</table>
+{:/nomarkdown}
 
 ---
 

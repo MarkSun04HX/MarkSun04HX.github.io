@@ -1,5 +1,8 @@
 {% if page.mathjax %}
 <script>
+/* MathJax 3 + Kramdown: Kramdown emits <script type="math/tex"> tags (MathJax v2 style).
+   MJ3 must also run findScript so those are typeset; see:
+   https://docs.mathjax.org/en/latest/upgrading/v2.html#math-in-script-tags */
 window.MathJax = {
   tex: {
     inlineMath: [['\\(', '\\)'], ['$', '$']],
@@ -9,6 +12,22 @@ window.MathJax = {
   },
   svg: {
     fontCache: 'global'
+  },
+  options: {
+    renderActions: {
+      findScript: [10, function (doc) {
+        if (!doc.inputJax || !doc.inputJax[0]) return;
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = { node: text, delim: '', n: 0 };
+          math.end = { node: text, delim: '', n: 0 };
+          doc.math.push(math);
+        }
+      }, '']
+    }
   }
 };
 </script>

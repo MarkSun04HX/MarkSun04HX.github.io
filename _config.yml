@@ -287,6 +287,11 @@ kramdown:
 defaults:
   -
     scope:
+      path: "notes/personal-notes"
+    values:
+      mathjax: true
+  -
+    scope:
       path: ""
       type: "posts"
     values:
