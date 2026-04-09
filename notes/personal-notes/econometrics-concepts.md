@@ -88,7 +88,7 @@ flowchart TB
 ### Linear regression as a workhorse
 
 - **Ordinary least squares (OLS):** chooses coefficients to minimize the sum of squared residuals in a linear model $y = X\beta + u$.
-- **Conditional expectation interpretation:** under ideal conditions, coefficients describe **how $y$ changes on average** when one regressor moves, **holding others fixed**—but “holding fixed” is only as good as the **controls** you have and the **functional form** you use.
+- **Conditional expectation interpretation:** under ideal conditions, coefficients describe how \(y\) changes on average when one regressor moves, **holding others fixed**—but “holding fixed” is only as good as the **controls** you have and the **functional form** you use.
 
 **Example:** wage on years of schooling plus parental education—the schooling coefficient is a “partial” association **after** controlling for parents; it is **not** automatically the causal return to an extra year unless assumptions hold.
 
@@ -217,7 +217,11 @@ flowchart TB
 
 ### Difference-in-differences (DID)
 
-Compares **changes over time** between a **treated** group and a **control** group: roughly, $(\bar{y}_{\text{treat,after}} - \bar{y}_{\text{treat,before}}) - (\bar{y}_{\text{control,after}} - \bar{y}_{\text{control,before}})$.
+Compares **changes over time** between a **treated** group and a **control** group: roughly, the **double difference** of group means (displayed below so subscripts parse reliably):
+
+$$
+(\bar{y}_{\text{treat,after}} - \bar{y}_{\text{treat,before}}) - (\bar{y}_{\text{control,after}} - \bar{y}_{\text{control,before}})
+$$
 
 - **Parallel trends:** absent treatment, treated and control would have evolved **similarly**—this is **untestable** for the post period; people use **pre-trend** plots and **placebos** as checks, not proofs.
 
@@ -600,7 +604,7 @@ flowchart TB
 
 ### GMM & overidentification
 
-**GMM** generalizes method-of-moments with **many** moment conditions (e.g. multiple instruments). **Hansen $J$** test checks **overidentifying** restrictions—failure suggests **invalid** instruments or misspecification (power caveats apply).
+**GMM** generalizes method-of-moments with **many** moment conditions (e.g. multiple instruments). The **Hansen \(J\)** test checks **overidentifying** restrictions—failure suggests **invalid** instruments or misspecification (power caveats apply).
 
 {::nomarkdown}
 <div class="pn-viz">
@@ -618,7 +622,7 @@ flowchart LR
 ### Functional form, logs, and interactions
 
 - **Logs:** $\log y$ on $\log x$ gives **elasticities**; $\log y$ on $x$ gives **semi-elasticity**.
-- **Interactions** $x_1 \times x_2$:** effect of $x_1$ **depends on** $x_2$ (**moderation**); centering variables can ease interpretation.
+- **Interactions:** $x_1 \times x_2$ — effect of $x_1$ **depends on** $x_2$ (**moderation**); centering variables can ease interpretation.
 - **Polynomials / splines:** flexibly model **curvature**; risk **overfitting** without discipline.
 
 **Example:** wage on education and **female** dummy with an **interaction**—returns to schooling **differ** by gender if interaction is nonzero.
@@ -727,7 +731,7 @@ flowchart LR
 
 ---
 
-### Multiple testing & $p$-hacking risk
+### Multiple testing and p-hacking risk
 
 Many **hypotheses** inflate the chance of a “significant” fluke. **Bonferroni**, **FDR** control, **pre-analysis plans**, and **fewer** primary outcomes help. **Publication bias** means published $p$-values skew low.
 
