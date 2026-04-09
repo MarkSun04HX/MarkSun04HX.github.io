@@ -14,6 +14,16 @@ At the **bottom** of each topic page (not this index), there is an **optional po
 
 **New to the notation?** The supervised ML pages use short formulas (weighted sums, sums of squares). If you have **not** taken linear algebra, start with **[Math intuition for ML notes]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }})**—it explains vectors, dot products, $\sum$, and symbols like $x^\top \beta$ in plain language, then come back here.
 
+### Public repository walk-throughs
+{: #repo-walk-throughs}
+
+Short, informal notes on **what selected open-source projects do**, how their **repos are laid out**, and what they **achieved** in practice—based on READMEs, tree structure, and public docs, **not** a full security or code audit. Each page links to the canonical GitHub remote.
+
+- **[OpenMAIC (THU-MAIC)]({{ '/notes/personal-notes/repo-openmaic/' | relative_url }})** — multi-agent **interactive classroom** (Next.js, LangGraph, skills + OpenClaw integration); lesson generation, whiteboard/TTS, AGPL-3.0.
+- **[OpenClaw]({{ '/notes/personal-notes/repo-openclaw/' | relative_url }})** — **personal AI assistant gateway**: many chat channels, onboarding CLI, daemon, skills ecosystem, strong DM security defaults; large TypeScript monorepo.
+- **[sindresorhus/awesome]({{ '/notes/personal-notes/repo-awesome-sindresorhus/' | relative_url }})** — the **meta–awesome-list** (mostly curated markdown + CI), not an app; how “awesome lists” became a GitHub convention.
+- **[The Fuck (nvbn)]({{ '/notes/personal-notes/repo-thefuck/' | relative_url }})** — Python **rule engine** that suggests fixes for your last shell command; plugin-style rules and shell aliases.
+
 ### Orientation (read first)
 
 - **[Machine learning concepts]({{ '/notes/personal-notes/machine-learning-concepts/' | relative_url }})** — supervised vs unsupervised, empirical vs population risk, prediction vs association, RMSE / accuracy / $F_1$ / G-mean, and how to choose metrics.
