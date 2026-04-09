@@ -54,7 +54,14 @@ Topics below are ordered by **rough conceptual complexity**—from classical lin
 13. **[K-means clustering]({{ '/notes/personal-notes/k-means/' | relative_url }})** — Lloyd’s algorithm, choosing $K$, geometry assumptions.
 14. **[Hierarchical clustering]({{ '/notes/personal-notes/hierarchical-clustering/' | relative_url }})** — linkages, dendrograms, agglomerative vs. divisive.
 
+### Econometrics primer (before paper walk-throughs)
+
+Vocabulary and design patterns that show up across applied work—**endogeneity**, **DID**, **IV**, **RD**, panels, standard errors, **robustness** and **placebos**, limited dependent variables, and more—with **short examples** for each idea.
+
+- **[Econometrics concepts (primer)]({{ '/notes/personal-notes/econometrics-concepts/' | relative_url }})** — a single scrollable map; use it as a **glossary** while reading empirical papers or the notes below.
+
 ### Paper walk-throughs (economics)
+{: #paper-walk-throughs-economics}
 
 Longer narrative summaries of individual papers—geared toward **intro-level micro/macro** and readers **new to research**, with section-by-section maps and plain-language intuition.
 
