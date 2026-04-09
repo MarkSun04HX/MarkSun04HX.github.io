@@ -12,22 +12,6 @@ mathjax: true
 
 **Hierarchical clustering** builds a **tree** (dendrogram) of nested clusters—**no need to choose $K$ upfront** (you **cut** the tree at a height to get $K$ groups when you are ready).
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  P[Each point is cluster] --> M[Merge closest pair]
-  M --> R[Update distances linkage]
-  R --> Q{One cluster left?}
-  Q -->|no| M
-  Q -->|yes| D[Dendrogram]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Agglomerative: greedy merges according to single/complete/average/Ward linkage.</p>
-
 ### Agglomerative (bottom-up)
 
 Start with **each point** as its own cluster. Repeatedly **merge** the two clusters that are **closest** under a **linkage** rule until one cluster remains.

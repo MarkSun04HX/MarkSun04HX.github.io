@@ -18,22 +18,6 @@ $$
 
 where $\mu_k$ is the **mean** (average) of all points currently assigned to cluster $k$—the **centroid** of that group.
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  I[Init K centers] --> A[Assign points to nearest center]
-  A --> U[Recompute centers as means]
-  U --> C{Changed?}
-  C -->|yes| A
-  C -->|no| DONE[Clusters]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Alternate assignment and centroid updates until stable.</p>
-
 ### Lloyd’s algorithm (iterative)
 
 1. **Initialize** $K$ centroids (random points, k-means++, etc.).

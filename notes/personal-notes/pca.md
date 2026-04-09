@@ -12,20 +12,6 @@ mathjax: true
 
 **PCA** (principal component analysis) finds a **new set of axes** for your data. **First axis** = direction along which the cloud of points **spreads out the most** (largest variance). **Second axis** = next direction, **perpendicular** to the first, with the **next** most spread—and so on. **No labels** (**unsupervised**): you only use the **numeric columns** $X$.
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  X[Matrix of features] --> S[SVD or eigen decomposition]
-  S --> PC[Principal directions]
-  PC --> Z[Project to k dimensions]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Find orthogonal directions of maximal variance; project data for compression or viz.</p>
-
 ### Population view
 
 For random $X \in \mathbb{R}^p$ with mean zero, the **first principal direction** $v_1$ maximizes $\mathrm{Var}(v_1^\top X)$ subject to $\|v_1\|=1$. **Translation:** pick a **direction** in feature space (unit length); project every data point onto that line; measure how **spread out** those projections are; PCA picks the direction with **maximum** spread. Successive components $v_2, v_3, \ldots$ are **orthogonal** (90°) and capture **remaining** variance in order. **Eigenvector / eigenvalue** (advanced label): those directions solve a standard matrix equation for the **covariance** of features; **eigenvalue** = variance along that component. First pass: **PC1** = “main axis of the cloud,” **PC2** = perpendicular “secondary axis.”

@@ -319,11 +319,6 @@ defaults:
       path: "notes/personal-notes"
     values:
       mathjax: true
-      css:
-        - "/assets/css/personal-note-viz.css"
-      footer-extra:
-        - footer-cta.html
-        - personal-note-mermaid.html
 
 # Exclude these files from production site
 exclude:

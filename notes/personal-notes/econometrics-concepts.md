@@ -10,35 +10,6 @@ mathjax: true
 
 <p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;">This is a **compact map** of ideas that show up repeatedly in applied econometrics and policy evaluation—not a substitute for a textbook or course. Examples are **illustrative**; real studies need design- and field-specific detail. Read this **before** the <a href="{{ '/notes/personal-notes/#paper-walk-throughs-economics' | relative_url }}">paper walk-throughs</a> if the vocabulary is new.</p>
 
-<p class="pn-viz-note">Each <code>###</code> section below ends with a small <strong>Mermaid</strong> diagram summarizing that idea (before the next horizontal rule).</p>
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  subgraph CORE[Core]
-    E[Estimate beta or ATE]
-    U[Uncertainty SEs and tests]
-    I[Identification story]
-  end
-  subgraph Q[Quasi experimental]
-    R[RCT randomize]
-    D[DID parallel trends]
-    V[RD at cutoff]
-    Z[IV exclusion]
-  end
-  subgraph P[Panels]
-    F[Within FE]
-    C[Cluster errors]
-    H[HAC time series]
-  end
-  CORE --> Q
-  CORE --> P
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">High-level buckets: estimation and inference sit with identification; designs and data structures plug in next.</p>
-
 ---
 
 ### What “econometrics” is doing here
@@ -48,18 +19,6 @@ flowchart TB
 - **Interpretation:** say what a number **means** for behavior or policy. That often requires extra **causal** arguments, not just a fitted line.
 
 **Example:** regressing district test scores on per-pupil spending estimates an **association**. Claiming “money causes scores to rise” needs a story about **what varies** spending and what else moves with it.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  D[Data] --> EST[Estimator]
-  EST --> INF[SEs and tests]
-  INF --> INT[Interpretation causal or descriptive]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Three layers: estimate, quantify uncertainty, interpret.</p>
 
 ---
 
@@ -71,18 +30,6 @@ flowchart LR
 
 **Example:** a **census** of firms in one year removes sampling uncertainty about *that year*, but **selection** into which firms exist and **confounding** can still bias causal claims.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  DGP[True DGP] -.->|hidden| POP[Population quantity]
-  SAM[Your sample] --> EST2[Sample estimate]
-  EST2 --> VAR[Sampling variance]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Finite data wiggle around the estimand.</p>
-
 ---
 
 ### Linear regression as a workhorse
@@ -92,18 +39,6 @@ flowchart TB
 
 **Example:** wage on years of schooling plus parental education—the schooling coefficient is a “partial” association **after** controlling for parents; it is **not** automatically the causal return to an extra year unless assumptions hold.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  Y[y] --> OLS[OLS projection on X]
-  X[X controls] --> OLS
-  OLS --> BETA[Coefficients partial associations]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">OLS best linear fit; causal read needs controls and exogeneity.</p>
-
 ---
 
 ### Omitted variable bias (OVB)
@@ -111,18 +46,6 @@ flowchart LR
 If a determinant of $y$ is **correlated** with an included regressor **and** affects $y$, leaving it out generally **biases** the coefficient on the included regressor.
 
 **Example:** estimating health on insurance without health **risk**—sicker people may buy more insurance, so the insurance coefficient mixes **treatment** and **selection**.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  U[Unobserved U] --> Y[outcome y]
-  U --> X[regressor x]
-  X --> Y
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">If U is omitted and correlated with x, beta tilts.</p>
 
 ---
 
@@ -137,19 +60,6 @@ flowchart TB
 
 **Example:** price and quantity in a market—OLS of quantity on price confounds **demand** and **supply** shifts; need **instruments**, **experiments**, or **structural** restrictions.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  E1[Omitted] --> ENDO[Endogeneity]
-  E2[Reverse causality] --> ENDO
-  E3[Measurement error] --> ENDO
-  E4[Simultaneity] --> ENDO
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Shared label for many failure modes of exogeneity.</p>
-
 ---
 
 ### Confounding vs selection
@@ -158,18 +68,6 @@ flowchart TB
 - **Selection into treatment:** treated units **differ** on observables or unobservables; **selection on observables** vs **unobservables** is a standard divide.
 
 **Example:** job-training participants may be **more motivated**; motivation confounds simple before–after or treated–control comparisons.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  C[Confounder] --> T[treatment]
-  C --> Y2[outcome]
-  T --> Y2
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Confounding is common cause; selection is who takes T.</p>
 
 ---
 
@@ -182,18 +80,6 @@ flowchart TB
 
 **Example:** a drug’s **ATE** across everyone can differ from the **ATT** among patients who chose it—**compliance** and **external validity** matter.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  Y1[Y1] --> ATE[ATE]
-  Y0[Y0] --> ATE
-  OBS[One observed] -.-> ID2[Design or assumptions]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Fundamental problem of causal inference.</p>
-
 ---
 
 ### Randomized controlled trial (RCT)
@@ -201,17 +87,6 @@ flowchart LR
 Gold standard when feasible: **random assignment** breaks the link between treatment and **pre-treatment** confounders (in expectation), so simple contrasts identify causal effects **under successful randomization and compliance**.
 
 **Example:** randomly offer vouchers for tutoring; compare winners vs losers—still watch **attrition**, **spillovers**, and **Hawthorne** effects.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  R[Random assignment] --> B[Balance pretreatment]
-  B --> C[Compare arms]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Randomization breaks confounding in expectation.</p>
 
 ---
 
@@ -227,19 +102,6 @@ $$
 
 **Example:** a state raises minimum wage in 2015; neighboring states do not—DID uses pre-2015 trends to argue the **incremental** 2015+ gap is policy-driven.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  TB[Treated before] --> DIF[Double difference]
-  TA[Treated after] --> DIF
-  CB[Control before] --> DIF
-  CA[Control after] --> DIF
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Trend difference between groups after policy.</p>
-
 ---
 
 ### Event study / dynamic DID
@@ -248,17 +110,6 @@ Interacting treatment with **time indicators** (leads and lags) shows **dynamic*
 
 **Example:** safety regulation phased in—event study shows whether outcomes **already** diverged before the rule (bad sign for DID).
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  PRE[Pre event coeffs] --> PT[Parallel trends check]
-  POST[Post coeffs] --> TE[Dynamic treatment effects]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Leads test pre trends; lags show dynamics.</p>
-
 ---
 
 ### Triple difference (DDD)
@@ -266,17 +117,6 @@ flowchart LR
 Adds a **second comparison dimension** (e.g. another untreated industry in the treated state) to relax DID when a single “control group” might still be affected.
 
 **Example:** state tax change hits one industry more than another—compare **within-state** industry gaps **before vs after**, relative to **another state’s** same industry gap.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  D1[State by time diff] --> D3[Triple difference]
-  D2[Industry diff] --> D3
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Extra dimension absorbs shared shocks.</p>
 
 ---
 
@@ -289,18 +129,6 @@ There is a **cutoff** $c$ in a **running variable** $Z$ (e.g. test score) that s
 
 **Example:** scholarship for scores $\geq 90$—compare students at 89 vs 90; **McCrary test** checks for **bunching** (manipulation of $Z$).
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  Z[running variable] --> CUT{Near cutoff}
-  CUT -->|above| TR[Treated]
-  CUT -->|below| CO[Control]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Local comparison at the threshold.</p>
-
 ---
 
 ### Instrumental variables (IV) & two-stage least squares (2SLS)
@@ -311,18 +139,6 @@ An **instrument** $Z$ must (i) **relevance:** correlated with endogenous $x$; (i
 
 **Example:** distance to college as instrument for schooling (Card-style designs)—debate centers on whether distance satisfies **exclusion** everywhere.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  ZZ[Instrument Z] --> XX[endogenous x]
-  ZZ -.->|exclusion| YY[outcome y]
-  XX --> YY
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Only exogenous variation in x through Z counts.</p>
-
 ---
 
 ### Weak instruments
@@ -331,17 +147,6 @@ If $Z$ barely moves $x$, IV estimates blow up in variance and can be **severely 
 
 **Example:** a weak political instrument for growth—t ratios look exciting but the **first stage** is noise.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  ZW[Z barely moves x] --> B[Biased IV]
-  ZW --> V[huge variance]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Weak first stage breaks reliable IV inference.</p>
-
 ---
 
 ### Local average treatment effect (LATE)
@@ -349,18 +154,6 @@ flowchart TB
 With a **binary** instrument, IV identifies the effect for **compliers**—units whose treatment status **follows** the instrument—not for the whole population (**defiers** assumed absent in the usual setup).
 
 **Example:** randomized **offer** of a job program (not everyone enrolls)—IV effect is for those **induced** by the offer.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  Z3[Offer] --> D3[Take up]
-  Z3 --> Y4[outcome]
-  D3 -.-> COM[Compliers]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">IV estimand is local to induced takers.</p>
 
 ---
 
@@ -372,18 +165,6 @@ flowchart LR
 
 **Example:** compare smokers and non-smokers with **same** age, income, and exercise—still wrong if **unobserved** health drives both smoking and outcomes.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  X4[covariates X] --> PS[propensity score]
-  PS --> MW[Match or weight]
-  MW --> BAL[Balanced groups]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Relies on selection on observables.</p>
-
 ---
 
 ### Fixed effects (FE) in panel data
@@ -394,33 +175,11 @@ flowchart LR
 
 **Example:** firm-year profits on CEO gender with **firm FE**—only uses years where the firm **changes** CEO (rare), so power and interpretation need care.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  UIT[Unit i time t] --> WI[Within transform]
-  WI --> FE2[Remove unit invariant confounders]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Uses only within-unit variation.</p>
-
 ---
 
 ### Random effects (RE) vs FE
 
 **RE** treats unobserved heterogeneity as **uncorrelated** with regressors (strong). **FE** allows arbitrary correlation (weaker, uses within variation). **Hausman-type** tests compare FE vs RE when both are estimable under RE assumptions.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  RE[RE uncorrelated] --> H[Hausman test]
-  FE[FE allow correlation] --> H
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Choose when effects correlate with regressors.</p>
 
 ---
 
@@ -430,18 +189,6 @@ Including a **lagged dependent variable** with **short** $T$ and **FE** creates 
 
 **Example:** $y_{it} = \rho y_{i,t-1} + \beta x_{it} + \alpha_i + u_{it}$—naive FE with small $T$ mis-estimates $\rho$.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  LAG[Lagged y] --> FE3[FE]
-  FE3 --> NB[Nickell bias short T]
-  NB --> GMM[GMM system]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Lags with FE need careful instruments.</p>
-
 ---
 
 ### Clustered standard errors
@@ -449,17 +196,6 @@ flowchart LR
 When errors are **correlated within groups** (states, firms, classrooms), default i.i.d. SEs are **too small**. **Cluster-robust** SEs allow arbitrary correlation **within** cluster.
 
 **Example:** 50 states, 1000 counties—clustering at **state** if shocks are state-wide; finer clustering if justified.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  GRP[Cluster g] --> COR[Correlation within g]
-  COR --> SE[Cluster robust SE]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Acknowledge dependence within groups.</p>
 
 ---
 
@@ -469,17 +205,6 @@ OLS can stay **unbiased** with non-constant variance, but default SEs can be wro
 
 **Example:** income regression—variance of spending likely rises with income; robust SEs are standard reporting.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  RES[Heteroskedastic residuals] --> W[White sandwich]
-  W --> SE2[Robust SE]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">HC errors without clustering.</p>
-
 ---
 
 ### HAC (Newey–West) standard errors
@@ -488,17 +213,6 @@ For **time series** with **autocorrelation** and/or heteroskedasticity, **HAC** 
 
 **Example:** monthly macro regression—residuals often **persist**; Newey–West is common.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  TS[Time series errors] --> AC[Autocorrelation]
-  AC --> NW[Newey West]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">HAC for time-ordered dependence.</p>
-
 ---
 
 ### Quantile regression
@@ -506,17 +220,6 @@ flowchart LR
 Models **conditional quantiles** of $y$ (e.g. median, 90th percentile) rather than the **mean**. Captures **heterogeneous** effects across the outcome distribution.
 
 **Example:** a training program might help **low-wage** workers more than high-wage—mean shift misses that.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  QTAU[Quantile tau] --> QR[Linear in x for Q tau y]
-  QR --> HET[Effects across y distribution]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Median or tails instead of mean.</p>
 
 ---
 
@@ -528,18 +231,6 @@ flowchart LR
 
 **Example:** number of doctor visits—Poisson with **exposure** offset if observation windows differ.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  BIN[Binary] --> LP[Logit probit]
-  CNT[Counts] --> POI[Poisson NB]
-  CEN[Censoring] --> TOB[Tobit]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Likelihood matches outcome scale.</p>
-
 ---
 
 ### Sample selection & Heckman
@@ -548,17 +239,6 @@ flowchart TB
 
 **Example:** estimating returns to education on **working** men—omit unemployed whose wage offers are low.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  SEL[Selection eq] --> OBS2[Observe y if selected]
-  OUT[outcome eq] --> JOINT[Joint or two step]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Model participation and outcomes together.</p>
-
 ---
 
 ### Duration / survival analysis
@@ -566,17 +246,6 @@ flowchart LR
 **Hazard models** (Cox, parametric survival) study **time until an event** (job finding, firm death) with **censoring**.
 
 **Example:** unemployment spell length—right-censored if still unemployed when data end.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  T5[Duration] --> HAZ[Hazard]
-  CEN2[Censoring] --> COX[Cox partial likelihood]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Time-to-event with incomplete spells.</p>
 
 ---
 
@@ -588,34 +257,11 @@ flowchart LR
 
 **Example:** simultaneous supply and demand—price is **endogenous** in a single equation for quantity.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  SUP2[Supply] --> PRC[Price quantity]
-  DEM[Demand] --> PRC
-  PRC --> SF[Instruments or system]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Multiple equations jointly determine outcomes.</p>
-
 ---
 
 ### GMM & overidentification
 
 **GMM** generalizes method-of-moments with **many** moment conditions (e.g. multiple instruments). The **Hansen \(J\)** test checks **overidentifying** restrictions—failure suggests **invalid** instruments or misspecification (power caveats apply).
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  MOM[Many moments] --> GMM2[GMM]
-  GMM2 --> J[Hansen J]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">OverID checks excess restrictions.</p>
 
 ---
 
@@ -627,17 +273,6 @@ flowchart LR
 
 **Example:** wage on education and **female** dummy with an **interaction**—returns to schooling **differ** by gender if interaction is nonzero.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  X5[Spec] --> LOG[Logs elasticities]
-  X5 --> INT[Interactions moderation]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Functional form shapes marginal effects.</p>
-
 ---
 
 ### Moderation vs mediation
@@ -646,18 +281,6 @@ flowchart LR
 - **Mediation:** $x$ affects **mediator** $m$, which affects $y$—decomposing **direct** vs **indirect** paths needs **strong** assumptions (often sequential ignorability).
 
 **Example:** education raises **network quality**, which raises wages—**mediation**; education’s effect **larger in cities**—**moderation**.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  X6[x] --> M[mediator m]
-  M --> Y5[y]
-  X6 --> Y5
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Mediation is path; moderation is interaction.</p>
 
 ---
 
@@ -668,18 +291,6 @@ flowchart TB
 - **Durbin–Watson / BG test:** **serial correlation** in time series residuals.
 
 **Example:** linear trend in logs looks fine, but RESET flags **quadratic** terms—decide with theory and out-of-sample sense.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  RESID[Residuals] --> RESET[RESET]
-  RESID --> BP[BP White]
-  RESID --> DW[DW BG]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Diagnostics for misspecification or dependence.</p>
 
 ---
 
@@ -697,19 +308,6 @@ Typical bundles:
 
 **Example:** minimum wage employment—show results with **state-specific** trends, alternate **control states**, and **different** age groups as falsification.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  BASE[Baseline] --> A1[Alt samples]
-  BASE --> A2[Alt controls]
-  BASE --> A3[Alt SE]
-  BASE --> A4[Placebos]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Stable conclusions across reasonable changes.</p>
-
 ---
 
 ### Placebo tests & falsification
@@ -717,17 +315,6 @@ flowchart TB
 - **Placebo outcome:** an outcome **should not** move if the mechanism is specific (e.g. teen employment for minimum wage, not adult employment).
 - **Placebo timing:** pretend treatment happened **earlier**—effects should not predate policy.
 - **Randomization inference:** assign **fake** treatment labels many times to build a null distribution (common in small-$n$ designs).
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  FAKE[Fake treatment or outcome] --> NUL[Expect null]
-  NUL --> PASS[Supports design]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Negative controls probe confounding.</p>
 
 ---
 
@@ -737,17 +324,6 @@ Many **hypotheses** inflate the chance of a “significant” fluke. **Bonferron
 
 **Example:** testing 20 subgroups—expect **one** false positive at 5% if nulls are true everywhere.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  MANY[Many hypotheses] --> FP[More false positives]
-  FP --> ADJ[Bonferroni FDR prereg]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Multiplicity inflates apparent significance.</p>
-
 ---
 
 ### External validity & transportability
@@ -756,17 +332,6 @@ Results from **one** population, time, or scale may not **transfer**. **Structur
 
 **Example:** RCT in one city—scalability depends on **market thickness**, norms, and general equilibrium.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  POP2[Study population] --> EST3[Effect]
-  POP3[New setting] --> TRN[May not transport]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Scale and context matter.</p>
-
 ---
 
 ### Intent-to-treat (ITT) vs treatment-on-the-treated (TOT)
@@ -774,33 +339,11 @@ flowchart LR
 - **ITT:** effect of **assignment** (handles **noncompliance**, policy-relevant for “offer the program”).
 - **TOT / compiler effects:** scale ITT by **first stage** or use IV—**local** not always **global**.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  ASG[Assignment] --> ITT2[ITT]
-  TAK[Take up] --> TOT2[TOT IV]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">ITT is policy relevant under noncompliance.</p>
-
 ---
 
 ### Standardization & units
 
 Report **meaningful units** (dollars, years, SDs). **Standardized coefficients** compare **relative** importance **only** when scaling is comparable—**not** a substitute for causal interpretation.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  RAW2[Raw coefs] --> STD2[Standardize]
-  STD2 --> CMP[Compare cautiously]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Scales affect magnitudes not causal logic.</p>
 
 ---
 
@@ -818,20 +361,6 @@ flowchart LR
 
 Modern **staggered DID** and **heterogeneous treatment effects** are active research areas—default TWFE packages can misbehave; check current best practices for your setting.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  RCT2[RCT] --> PICK[Pick design]
-  RD2[RD] --> PICK
-  DID2[DID] --> PICK
-  IV2[IV] --> PICK
-  MAT[Matching FE] --> PICK
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Heuristic routing; staggered DID needs modern tools.</p>
-
 ---
 
 ### Where to go next
@@ -841,14 +370,3 @@ flowchart TB
 
 If you want a **deeper** standalone note on one tool (e.g. staggered DID or RD bandwidth), say which and it can be split out later.
 
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  BK[Textbooks] --> DEEP[Deeper theory]
-  PW[Paper walkthroughs] --> APP[Applied narrative]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Books formalize; site notes walk through examples.</p>

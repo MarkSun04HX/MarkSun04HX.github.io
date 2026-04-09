@@ -18,21 +18,6 @@ $$
 
 **Plain read:** $a^{(l-1)}$ is the **vector of activations** from the previous layer; $a^{(l)}$ is the new vector after this layer. Input $a^{(0)} = x$. The **final** layer may skip $\sigma$ or use **softmax** for probabilities (multi-class).
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  IN[Input layer] --> H1[Hidden layers + activations]
-  H1 --> H2[...]
-  H2 --> OUT[Output layer]
-  OUT --> L[Loss backprop updates weights]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Composed linear maps and nonlinearities; trained by gradient-based optimization.</p>
-
 ### Universal approximation
 
 Even **one wide hidden layer** can approximate many continuous functions on compact domains (under mild conditions)—**theory** says capacity exists; **optimization** and **generalization** are the hard parts in practice.

@@ -10,20 +10,6 @@ mathjax: true
 
 <p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Uses <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">dot products</a> and <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">norms</a>. For **feature maps, RBF kernels, and distance intuition**, read <a href="{{ '/notes/personal-notes/kernels-distances-feature-maps/' | relative_url }}">Kernels, distances & feature maps</a> alongside this page.</p>
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  M[Maximize margin] --> H[Hyperplane wTx + b]
-  H --> SV[Support vectors on edge]
-  K[Kernel trick] --> H
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Large-margin separator; kernels allow curved boundaries in original space.</p>
-
 ### Linear separable case (hard margin)
 
 For binary labels $y_i \in \{-1,+1\}$ (two classes coded as $+1$ and $-1$), a **linear SVM** draws a **flat boundary** between classes. In 2D it is a **line**; in 3D a **plane**; in higher dimensions people say **hyperplane**—same idea. The equation $w^\top x + b = 0$ is just “**weighted sum of features** plus a shift $b$ equals zero” on the boundary (same $w^\top x$ pattern as [linear regression]({{ '/notes/personal-notes/linear-logistic-regression/' | relative_url }}), but used for **geometry** here). The SVM picks the boundary with the **widest empty corridor** (**margin**) to the nearest points (**support vectors**). Maximize margin $\Leftrightarrow$ minimize $\|w\|^2$ subject to $y_i(w^\top x_i + b) \ge 1$.

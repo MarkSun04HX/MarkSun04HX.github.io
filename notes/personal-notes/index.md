@@ -10,48 +10,6 @@ mathjax: true
 
 These pages are informal write-ups for my own understanding. They are **not** peer-reviewed or guaranteed error-free. If something is unclear or you spot a mistake, I am happy to hear from you via the footer links.
 
-<p class="pn-viz-note">Topic pages include <strong>Mermaid</strong> diagrams (concept maps and flows). Paper walk-throughs also link to <strong>official publisher figure pages</strong> where available—figures are not re-hosted here.</p>
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  subgraph OR[Orientation]
-    MLC[ML concepts]
-    MATH[Math intuition]
-  end
-  subgraph FD[Foundations]
-    GRAD[Gradients and optimization]
-    BV[Bias variance]
-    ENT[Entropy and trees]
-    ENS[Ensembles]
-    KER[Kernels and distances]
-  end
-  subgraph SUP[Supervised track]
-    L1[Linear logistic] --> L2[KNN elastic trees]
-    L2 --> L3[Forest SVM nets]
-    L3 --> L4[Boosting variants]
-  end
-  subgraph UNS[Unsupervised track]
-    U1[PCA] --> U2[K means]
-    U2 --> U3[Hierarchical clustering]
-  end
-  subgraph EC[Econometrics primer]
-    E1[Causal vocabulary]
-  end
-  subgraph PW[Paper walk-throughs]
-    P1[AI aggregation]
-    P2[Chen vaccination SI]
-  end
-  OR --> FD
-  FD --> SUP
-  FD --> UNS
-  EC --> PW
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Rough map of how the personal-notes index is organized (not every link shown).</p>
-
 At the **bottom** of each topic page (not this index), there is an **optional pop quiz**—a few multiple-choice checks with instant feedback; answers are not saved.
 
 **New to the notation?** The supervised ML pages use short formulas (weighted sums, sums of squares). If you have **not** taken linear algebra, start with **[Math intuition for ML notes]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }})**—it explains vectors, dot products, $\sum$, and symbols like $x^\top \beta$ in plain language, then come back here.

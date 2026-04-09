@@ -12,20 +12,6 @@ mathjax: true
 
 **LightGBM** (Ke et al., Microsoft) is **gradient boosting** with trees, like **XGBoost**, but with implementation choices that favor **speed** and **memory efficiency** on **large** datasets—especially when $n$ (sample size) or $p$ (feature count) is big.
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  H[Histogram bin features] --> G[Gradient-based splits]
-  G --> LW[Leaf-wise growth best delta loss]
-  LW --> GOSS[Optional gradient subsampling]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Fast histogram splits and aggressive leaf-wise expansion for large tabular data.</p>
-
 ### Histogram-based splits
 
 Continuous features are **binned** into discrete buckets (like a **histogram**). Splits are chosen by **aggregating gradients** (see [boosting note]({{ '/notes/personal-notes/xgboost/' | relative_url }}): slopes of the loss) into bins rather than sorting every feature at every node—**much faster** and lower memory than exact pre-sorted algorithms on massive data.

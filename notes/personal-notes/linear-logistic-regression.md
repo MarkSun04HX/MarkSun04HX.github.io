@@ -10,26 +10,6 @@ mathjax: true
 
 <p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;"><strong>Reading note:</strong> Light math below. If <em>vectors</em> or $x^\top \beta$ are unfamiliar, skim <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a> first.</p>
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  subgraph ols[Linear regression]
-    A1[x] --> B1[Linear score xT beta]
-    B1 --> Y1[y continuous]
-  end
-  subgraph log[Logistic regression]
-    A2[x] --> B2[Linear score]
-    B2 --> S[sigmoid]
-    S --> P[Probability of class 1]
-  end
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Same linear score; logistic adds a link for binary probabilities.</p>
-
 ### Linear regression
 
 You model a numeric response as a **linear function** of features (plus noise). In words: each feature gets a **weight**; the prediction is **add up (weight × feature)** (plus often a constant). With $p$ features, $x \in \mathbb{R}^p$ just means “a list of $p$ numbers for this row,” and $\beta$ is the list of weights. The intercept is often hidden by adding a fake feature that is always 1.
@@ -50,18 +30,6 @@ When $X$ has full column rank, the closed form is $\hat{\beta} = (X^\top X)^{-1}
 
 Assumptions for nice inference (not always needed for prediction): linearity, independent errors with mean zero, homoskedasticity, and often Gaussian errors for exact $t$-tests.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  X[x features] --> B[Linear combination xT beta]
-  B --> E[Errors around hyperplane]
-  E --> OLS[Minimize sum of squared errors]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">OLS geometry: closest linear approximation to continuous outcomes in L2.</p>
-
 ### Logistic regression
 
 For **binary** $y \in \{0,1\}$, linear regression is a poor model for $\Pr(y=1 \mid x)$ because predictions can leave $[0,1]$. **Logistic regression** uses the **logistic (sigmoid)** link:
@@ -79,18 +47,6 @@ $$
 You fit $\beta$ by **maximum likelihood**: choose weights that make the observed 0/1 outcomes **most plausible** under the model (software uses IRLS / Newton / gradient methods)—see [Gradients & optimization for ML]({{ '/notes/personal-notes/gradients-optimization-for-ml/' | relative_url }}) for the **loss minimization** view. **Softmax** is the multi-class cousin (“pick among several categories” instead of binary).
 
 **Modeling vs. causation:** These equations describe **association** between $x$ and $y$ for prediction; they do **not** by themselves prove $x$ *causes* $y$.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  YBIN[y in 0 1] --> LL[Log likelihood Bernoulli]
-  LL --> MAX[Maximize w.r.t. beta]
-  MAX --> FIT[Fitted probabilities in 0 1]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Logistic fit: choose coefficients that maximize the likelihood of observed labels.</p>
 
 ### Why this sits first
 

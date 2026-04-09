@@ -12,20 +12,6 @@ The **machine learning** pages on this site use a small amount of **algebra** an
 
 ---
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  V[Vector x] --> D[Dot with beta]
-  D --> S[Sum of weighted features]
-  S --> Y[Scalar prediction y hat]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Linear models combine features with weights; length and angle geometry guide intuition.</p>
-
 ### What is a “model” here?
 
 A **model** is a **rule**: it takes **inputs** you can measure (age, income, pixels, words turned into numbers, …) and outputs a **prediction** (a number, a probability, a class). **Training** means adjusting the rule so past examples are fit well, without memorizing noise.

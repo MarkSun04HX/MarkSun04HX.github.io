@@ -16,21 +16,6 @@ This note builds **boosting** from a simple idea, then **gradient boosting**, th
 
 ---
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  F0[Start with constant prediction] --> M1[Fit tree to negative gradient]
-  M1 --> ADD[Add scaled tree]
-  ADD --> M2[Repeat]
-  M2 --> REG[Shrinkage + depth limit + subsampling]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Gradient boosting: each tree nudges predictions toward lower loss.</p>
-
 ### 1. The core idea of boosting
 
 Imagine a **weak learner**: a model that is only slightly better than random guessing (formally, accuracy a bit above chance on classification, or correlation with the target on regression). **Boosting** combines many weak learners into one **strong** predictor by **sequential correction**.

@@ -10,22 +10,6 @@ mathjax: true
 
 <p class="mb-4 p-3 border rounded" style="border-color:#dde4ec;background:#f8fafc;font-size:0.95rem;">Read this page **before** diving into individual algorithms if terms like **supervised**, **RMSE**, or **F1** are new. Pair with <a href="{{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}">Math intuition for ML notes</a> for notation.</p>
 
-<p class="pn-viz-note">Each major section below includes a small <strong>Mermaid</strong> diagram (rendered in your browser).</p>
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  subgraph SITE[Personal notes overview]
-    SUP[Supervised labeled x and y] --> ALG[Algorithm pages]
-    UNS[Unsupervised x only] --> CLU[PCA and clustering]
-    MET[Metrics and risk] --> CHO[RMSE F1 and related]
-  end
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Roadmap: supervision type drives method choice; metrics match the decision task.</p>
-
 ---
 
 ### Supervised vs unsupervised learning
@@ -40,18 +24,6 @@ flowchart TB
 
 On this site, **supervised** method notes start with [linear & logistic regression]({{ '/notes/personal-notes/linear-logistic-regression/' | relative_url }}); **unsupervised** notes end with [PCA]({{ '/notes/personal-notes/pca/' | relative_url }}), [k-means]({{ '/notes/personal-notes/k-means/' | relative_url }}), [hierarchical clustering]({{ '/notes/personal-notes/hierarchical-clustering/' | relative_url }}).
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  XY["Pairs x and y"] --> SUP[Supervised learning]
-  XO["Only x"] --> UNS[Unsupervised structure]
-  SEMI[Some labels] --> MID[Semi supervised hybrid]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Labels present or absent defines the learning problem class.</p>
-
 ---
 
 ### Prediction / classification vs association
@@ -60,19 +32,6 @@ flowchart LR
 - **Association / description:** you care about **relationships in the data at hand**—e.g. “is higher education correlated with income in this survey?” That is closer to **statistics / econometrics** (estimates, confidence intervals, causality arguments). The same fitted model can support **both** stories, but the **question** differs: *score new rows* vs *quantify and interpret relationships*.
 
 **Important:** a **high** in-sample $R^2$ does **not** prove the model predicts well tomorrow; it can mean **overfitting**.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  Q[Research question] --> PRED[Prediction: generalize to new rows]
-  Q --> ASSOC[Association or causality: interpret coefficients]
-  PRED --> CV[Holdout and cross validation]
-  ASSOC --> INF[Inference uncertainty and design]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Same fitted model can answer different questions; validation strategy should match the goal.</p>
 
 ---
 
@@ -83,19 +42,6 @@ flowchart TB
 - **Empirical risk** (what you compute): average loss on a **finite sample**—e.g. **training error** $\frac{1}{n}\sum_i \ell(y_i, f(x_i))$, or **validation / test** error on a held-out set.
 
 **Intuition:** empirical risk is a **noisy estimate** of population risk. **Regularization**, **more data**, and **honest validation** are how we push empirical risk on a holdout set closer to what we would see in production.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  POP[Population risk expectation] -.->|unknown| EMP[Empirical risk on sample]
-  EMP --> TR[Train error]
-  EMP --> VA[Validation error]
-  VA --> GOAL[Proxy for future performance]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">We only observe finite samples; empirical risk estimates the unseen population risk.</p>
 
 ---
 
@@ -109,18 +55,6 @@ Let $y_i$ be actual values and $\hat{y}_i$ predictions on a set of $n$ points.
 - **$R^2$:** one minus (model sum of squared errors) / (total variance of $y$ around its mean). “Share of variance explained” **on that dataset**; can be **negative** on a test set if the model loses to predicting $\bar{y}$.
 
 **Reporting:** RMSE/MAE describe **typical error size**; $R^2$ is **relative** fit—use cautiously on test data.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  ERR[Prediction errors] --> MAE[MAE mean abs]
-  ERR --> RMSE[RMSE sqrt mean sq]
-  ERR --> R2[R2 explained fraction]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Regression metrics emphasize typical error size or relative fit.</p>
 
 ---
 
@@ -138,20 +72,6 @@ Focus on **binary** first (positive / negative class); multiclass extends via **
 
 **Probabilistic** classifiers: **log loss** (cross-entropy) penalizes **confident wrong** probabilities; **Brier score** measures mean squared error of predicted probabilities. **ROC–AUC** summarizes tradeoff of TPR vs FPR across thresholds (ranking quality), not one fixed threshold.
 
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  CM[Confusion matrix TP FP TN FN] --> PREC[Precision]
-  CM --> REC[Recall]
-  PREC --> F1[F1 balance]
-  REC --> F1
-  CM --> ROC[ROC AUC ranking]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Classification metrics derive from counts of correct and wrong decisions.</p>
-
 ---
 
 ### Which metric should I report?
@@ -160,19 +80,6 @@ flowchart TB
 - **Balanced classes, symmetric errors:** accuracy can be fine.
 - **Imbalanced classes or unequal mistake costs:** report **precision/recall** or **$F_1$**, **balanced accuracy**, or **G-mean**, plus the **confusion matrix**.
 - **Probabilities matter** (calibration, ranking): log loss, Brier, ROC–AUC.
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  REG[Numeric y] --> RM[RMSE or MAE]
-  BAL[Balanced classes] --> ACC[Accuracy ok]
-  IMB[Imbalanced] --> PR[F1 precision recall]
-  CAL[Probabilities] --> LL[Log loss Brier AUC]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Match the reported metric to the cost of mistakes and whether you need probabilities.</p>
 
 ---
 

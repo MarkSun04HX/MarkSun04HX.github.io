@@ -20,22 +20,6 @@ When you fit a model $\hat{f}$ from **one** training set and score it on **new**
 
 ---
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  E[Total error] --> B[Bias squared]
-  E --> V[Variance]
-  E --> N[Noise irreducible]
-  S[More flexible model] -.->|often| B2[Lower bias]
-  S -.->|often| V2[Higher variance]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Flexibility shifts the bias–variance split; noise stays.</p>
-
 ### Squared-error regression (decomposition sketch)
 
 For squared error at a fixed $x$, under the usual textbook assumptions,

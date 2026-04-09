@@ -18,20 +18,6 @@ $$
 \min_\beta \;\sum_i (y_i - x_i^\top \beta)^2 + \lambda \,\Omega(\beta).
 $$
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  OLS[Least squares fit] --> PEN[Plus L1 and L2 penalties]
-  PEN --> SHR[Shrinks coefficients]
-  SHR --> SEL[Some coefficients to zero]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Elastic net blends ridge (L2) stability and lasso (L1) sparsity.</p>
-
 ### Ridge ($L_2$)
 
 $$

@@ -14,20 +14,6 @@ Most supervised algorithms you will use are, at bottom: **pick parameters** so a
 
 ---
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  L[Loss on data] --> G[Gradient = slope of L]
-  G --> U[Update parameters]
-  U --> L
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Iterative optimization: move parameters opposite the gradient to reduce loss.</p>
-
 ### Derivative = slope of a curve
 
 For one variable $\theta$, the **derivative** $\frac{d L}{d\theta}$ answers: “if I increase $\theta$ a **tiny** bit, does $L$ go **up** or **down**, and how fast?” **Positive** derivative → $L$ rises as $\theta$ increases; **negative** → $L$ falls.

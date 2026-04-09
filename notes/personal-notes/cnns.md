@@ -12,22 +12,6 @@ mathjax: true
 
 **CNNs** build **spatial** structure into the network: instead of full connectivity from every input pixel to every hidden unit, use **local receptive fields** and **shared weights** (**convolution**).
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart LR
-  IMG[Image grid] --> C[Conv filters local]
-  C --> P[Pooling]
-  P --> ST[Stack deeper]
-  ST --> FC[Dense head]
-  FC --> Y[Labels or scores]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Translation-tolerant local features built from convolutions and pooling.</p>
-
 ### Convolution layer (discrete intuition)
 
 For a 2D input (image channels stacked), a **filter** (kernel) is a small grid of weights that **slides** across the image. At each stop, it multiplies matching pixels and **adds** (a **dot product** on that patch) + **bias**, then a nonlinearity—same pattern as [weighted sums]({{ '/notes/personal-notes/math-intuition-for-ml/' | relative_url }}), but **local** and **reused** everywhere. **Multiple filters** produce **multiple feature maps** (different detectors). **Parameter sharing** = the **same** small filter is used at every location—so an edge detector learned in one corner works everywhere (**translation** structure).

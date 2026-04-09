@@ -14,21 +14,6 @@ Decision trees split data to make **leaves pure** (one class, or tight $y$ in re
 
 ---
 
-
-
-{::nomarkdown}
-<div class="pn-viz">
-<div class="mermaid">
-flowchart TB
-  P[Parent node impurity] --> Q{Try splits}
-  Q --> C[Child impurity left / right]
-  C --> IG[Information gain or Gini drop]
-  IG --> W[Pick best split]
-</div>
-</div>
-{:/}
-<p class="pn-viz-caption">Trees greedily reduce impurity (entropy / Gini / deviance) at each split.</p>
-
 ### Entropy (Shannon)
 
 For a discrete distribution with class probabilities $p_k$ (non-negative, sum to 1),
