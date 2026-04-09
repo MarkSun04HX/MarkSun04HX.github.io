@@ -295,11 +295,6 @@ kramdown:
 defaults:
   -
     scope:
-      path: "notes/personal-notes"
-    values:
-      mathjax: true
-  -
-    scope:
       path: ""
       type: "posts"
     values:
@@ -319,6 +314,16 @@ defaults:
         - favicon-extra.html
       footer-extra:
         - footer-cta.html
+  -
+    scope:
+      path: "notes/personal-notes"
+    values:
+      mathjax: true
+      css:
+        - "/assets/css/personal-note-viz.css"
+      footer-extra:
+        - footer-cta.html
+        - personal-note-mermaid.html
 
 # Exclude these files from production site
 exclude:

@@ -12,6 +12,22 @@ mathjax: true
 
 A **decision tree** is a **flowchart of yes/no rules** on your inputs. **Axis-aligned** means each question is about **one** feature at a time: “if $x_j \le t$ go left, else right,” where $x_j$ is the value of **feature $j$** (e.g. age) and $t$ is a **threshold** the algorithm learns. Repeat until you stop at a **leaf**: mean $y$ in that leaf (regression) or majority class / class proportions (classification).
 
+
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart TB
+  R[Root: all rows] --> S1[Split on feature j threshold]
+  S1 --> L[Left child subset]
+  S1 --> RT[Right child subset]
+  L --> S2[Split again]
+  RT --> S3[Split again]
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Recursive axis-aligned partitions; leaves predict a constant or majority class.</p>
+
 ### Impurity and split search
 
 **Regression:** common loss is **squared error** within leaves; each split minimizes **sum of squared deviations** from leaf means (equivalently, maximize **variance reduction**).

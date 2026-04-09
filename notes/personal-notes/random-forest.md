@@ -12,6 +12,21 @@ mathjax: true
 
 **Random Forest (RF)** is an **ensemble** of many **deep decision trees**, each trained on a **bootstrap sample** of the data (**bagging** = bootstrap aggregating). The final prediction is the **average** of tree predictions (regression) or a **vote** (classification).
 
+
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart TB
+  D[Training data] --> B[Bootstrap bags]
+  B --> T[Tree on random feature subset each split]
+  T --> E[Many trees]
+  E --> V[Vote or average]
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Bagging + random feature subsampling decorrelates trees.</p>
+
 ### Key extra idea beyond bagging
 
 At each split, consider only a **random subset** of features (e.g. about $\sqrt{p}$ out of $p$ features for classification, about $p/3$ for regression in common defaults—$p$ = **how many columns** you could split on). This **decorrelates** trees: if one strong feature dominates, bagging alone still produces correlated trees; **random subspace** at splits forces other variables to contribute, **reducing variance** of the average.

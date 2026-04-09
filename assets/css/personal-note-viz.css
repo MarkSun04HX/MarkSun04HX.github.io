@@ -1,0 +1,45 @@
+/* Diagrams and figure callouts for notes/personal-notes */
+
+.pn-viz {
+  margin: 1.35rem 0 1.75rem;
+  padding: 0.75rem 0;
+  text-align: center;
+}
+
+.pn-viz-caption {
+  font-size: 0.9rem;
+  color: #5a6570;
+  margin: 0.65rem auto 0;
+  max-width: 42rem;
+  line-height: 1.45;
+}
+
+.pn-paper-fig-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem 0 1.25rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dde4ec;
+  border-radius: 4px;
+  background: #f8fafc;
+  font-size: 0.95rem;
+}
+
+.pn-paper-fig-links .label {
+  font-weight: 600;
+  margin-right: 0.35rem;
+}
+
+.mermaid {
+  margin: 0.5rem auto;
+  overflow-x: auto;
+}
+
+.pn-viz-note {
+  font-size: 0.88rem;
+  color: #5a6570;
+  margin: 0.5rem 0 1rem;
+}

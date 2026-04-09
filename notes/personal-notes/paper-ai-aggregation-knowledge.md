@@ -8,6 +8,8 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
+<p class="pn-viz-note">Working papers may not have stable public figure hosting; this page uses <strong>Mermaid</strong> diagrams for the main mechanisms. Consult the authors’ PDF for any official figures.</p>
+
 <p class="text-muted small"><strong>Use &amp; copyright:</strong> The bullet below is the <strong>canonical citation</strong> for the underlying work. Everything else on this page is my <strong>own summary and paraphrase</strong> for study—it is <strong>not</strong> copied text from the paper, <strong>not</strong> the authors’ endorsement, and <strong>not</strong> a substitute for reading their PDF. Obtain the official manuscript from the authors or their institutions.</p>
 
 <p class="text-muted small"><strong>Full citation (APA-style):</strong> Acemoglu, D., Lin, T., Ozdaglar, A., &amp; Siderius, J. (2026). <em>How AI aggregation affects knowledge</em> (Working paper, 25 March 2026 version). <em>Cite the venue / series when formally published if applicable.</em></p>
@@ -67,6 +69,18 @@ If the network is **well-behaved** (strongly connected and aperiodic—roughly, 
 
 **In one sentence:** *DeGroot = “each period, average your friends’ last beliefs with fixed trust weights.”*
 
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart LR
+  P0[Beliefs p t] --> T[Trust matrix T]
+  T --> P1[New beliefs p t+1]
+  P1 --> P0
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">DeGroot updating as repeated multiplication by fixed influence weights (network geometry in T).</p>
+
 ---
 
 ### 4. What the paper adds: a global AI aggregator
@@ -118,6 +132,20 @@ Under technical conditions, there is again a **unique consensus** $p^{\star\star
 
 **In one sentence:** *The AI is an extra “voice” in the network whose script is literally built from **everyone’s beliefs**, including beliefs already shaped by **last round’s AI**.*
 
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart TB
+  PPL[People beliefs p_i] --> MIX[Weighted mix m t]
+  MIX --> AI[Smoothed output a t]
+  AI --> PPL
+  PPL --> NET[Neighbor averaging T]
+  NET --> PPL
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Feedback loop: AI reads beliefs, people update using neighbors and AI, next AI input already reflects past AI.</p>
+
 ---
 
 ### 5. The learning gap (success measure)
@@ -136,6 +164,20 @@ $$
 The paper’s deeper results often study **how much** the AI shifts the gap relative to baseline, e.g. $\Delta^\star = \Delta_1 - \Delta_0$ (so negative means improvement in their definition in Section 4).
 
 **In one sentence:** *Did adding the AI move society **closer** to the truth you would get from pooling all private clues, or **farther**?*
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart LR
+  TH[True theta] --> BMK[Benchmark average of signals]
+  PSTAR[Consensus no AI] --> G0[Gap Delta0]
+  BMK --> G0
+  PSTAR2[Consensus with AI] --> G1[Gap Delta1]
+  BMK --> G1
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Learning gaps measure distance from efficient pooling with and without the AI layer.</p>
 
 ---
 
@@ -174,6 +216,19 @@ This stripped-down picture still has:
 - **who trusts the AI** ($\beta$),  
 - **feedback speed** ($\rho$).
 
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart TB
+  I1[Island 1 majority] --> HPH[Homophily h]
+  I2[Island 2 minority] --> HPH
+  HPH --> AIW[Training weight alpha]
+  AIW --> FB[AI feedback to both islands]
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Two-island sketch: segregation and representation shape what the global model hears.</p>
+
 ---
 
 ### 8. Main “speed vs robustness” result (Theorem 2) — explained slowly
@@ -194,6 +249,21 @@ That is a **tough** standard—mimicking a designer who **does not perfectly kno
 - When the AI **updates more slowly**, it averages over a **smoother history**, so one-shot distortions do not get **recursively amplified** as harshly, and some training weights can **robustly** help across environments.
 
 **In one sentence:** *If the global model retrains too tightly on **what people believe right now**, and those beliefs were already bent by **the same kind of model**, you may be unable to pick training weights that **always** help across realistic unknowns.*
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart LR
+  subgraph fast[Small rho fast tracking]
+    F1[Tight coupling to current beliefs] --> F2[Fragile robust improvement set]
+  end
+  subgraph slow[Large rho slower AI state]
+    S1[Smoother history] --> S2[Positive measure robust alpha]
+  end
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Theorem 2 contrast: very responsive AI (small rho) vs more inertial AI (large rho) and robust training-weight designs.</p>
 
 ---
 

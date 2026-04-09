@@ -17,9 +17,36 @@ mathjax: true
 
 No explicit training phase beyond storing data—**lazy learning**. The model is the whole dataset plus $K$ and the metric.
 
+
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart LR
+  Q[New point x] --> K[Find K nearest train points]
+  K --> R{Task}
+  R -->|regression| A[Average neighbor y]
+  R -->|classification| V[Majority vote]
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Instance-based: no training phase beyond storing data and choosing K.</p>
+
 ### Distance and scaling
 
 Features with large numeric range dominate distance unless you **standardize** or use feature weights. **Categorical** features need encoding (one-hot, etc.) and an appropriate combined distance.
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart LR
+  RAW[Raw feature scales] --> STD[Standardize or weight]
+  STD --> D[Euclidean or chosen metric]
+  D --> NEI[Comparable neighbor distances]
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Scaling aligns units so one feature does not dominate distance.</p>
 
 ### Bias–variance trade-off with $K$
 
@@ -27,6 +54,19 @@ Features with large numeric range dominate distance unless you **standardize** o
 - **Large $K$:** smoother decision boundary / predictions, more bias, less variance.
 
 Choose $K$ by **cross-validation**. **Curse of dimensionality (intuition):** in many dimensions, “far” and “close” points can all sit at **similar** distances from you, so “nearest” becomes noisy unless you have **huge** data. Then KNN may need **fewer features** (e.g. [PCA]({{ '/notes/personal-notes/pca/' | relative_url }})) or more observations.
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart LR
+  SK[Small K] --> LB[Lower bias]
+  SK --> HV[Higher variance]
+  LK[Large K] --> HB[Higher bias]
+  LK --> LV[Lower variance]
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">The usual bias–variance trade-off as neighborhood size changes.</p>
 
 ### Compared to linear models
 

@@ -14,6 +14,25 @@ An **ensemble** combines **many** models into one prediction—**vote** or **ave
 
 ---
 
+
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart LR
+  subgraph bag[Bagging]
+    B1[Bootstrap samples] --> B2[Fit many trees]
+    B2 --> B3[Average or vote]
+  end
+  subgraph boo[Boosting]
+    F1[Fit weak learner] --> F2[Upweight mistakes]
+    F2 --> F3[Add next learner]
+  end
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Bagging averages noisy models; boosting sequences corrections on residuals.</p>
+
 ### Bagging (bootstrap aggregating)
 
 1. Draw **$B$** **bootstrap** samples (sample $n$ rows **with replacement** from training data).

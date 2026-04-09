@@ -14,6 +14,20 @@ Many algorithms only need **pairwise** comparisons between examples: **how far a
 
 ---
 
+
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart LR
+  X[Raw features] --> D[Distance or kernel K x x prime]
+  D --> M[Implicit high dim space]
+  M --> P[Prediction]
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Kernels compare points via inner products without building huge feature lists explicitly.</p>
+
 ### Distances for KNN and neighbors-based thinking
 
 **Euclidean:** $\|x_i - x_j\|_2 = \sqrt{\sum_d (x_{id} - x_{jd})^2}$ — default **“straight line”** in feature space after scaling.

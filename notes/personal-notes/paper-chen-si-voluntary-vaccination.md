@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: personal-note
 title: "Paper notes: SI epidemic with voluntary vaccination (Chen 2006)"
 subtitle: Rational choice, multiple equilibria, and when vaccines can raise prevalence
 permalink: /notes/personal-notes/paper-chen-si-voluntary-vaccination/
@@ -8,9 +8,19 @@ mathjax: true
 
 <p class="mb-4"><a href="{{ '/notes/personal-notes/' | relative_url }}">← Personal notes</a></p>
 
-<p class="text-muted small"><strong>Use &amp; copyright:</strong> This page is my <strong>own detailed summary</strong> of a published journal article. It is <strong>not</strong> copied prose from the paper, <strong>not</strong> the author’s endorsement, and <strong>not</strong> a substitute for the PDF. For quotations, theorems, or coursework, cite the original. The author was at <strong>Wake Forest University</strong> (Department of Economics) when the paper was published.</p>
+<p class="text-muted small"><strong>Use &amp; copyright:</strong> This page is my <strong>own detailed summary</strong> of a published journal article. It is <strong>not</strong> copied prose from the paper, <strong>not</strong> the author’s endorsement, and <strong>not</strong> a substitute for the PDF. For quotations, theorems, or coursework, cite the original. The author was at <strong>Wake Forest University</strong> (Department of Economics) when the paper was published. **Figures** are © Springer; this site does **not** host image files—only **links** to Springer’s figure pages (same as opening them from the article).</p>
 
 <p class="text-muted small"><strong>Citation (APA):</strong> Chen, F. H. (2006). A susceptible-infected epidemic model with voluntary vaccinations. <em>Journal of Mathematical Biology</em>, <em>53</em>(2), 253–272. https://doi.org/10.1007/s00285-006-0006-1</p>
+
+<div class="pn-paper-fig-links">
+  <span class="label">Official figures (SpringerLink):</span>
+  <a href="https://link.springer.com/article/10.1007/s00285-006-0006-1/figures/1" rel="noopener noreferrer">Figure&nbsp;1</a>
+  <span aria-hidden="true">·</span>
+  <a href="https://link.springer.com/article/10.1007/s00285-006-0006-1/figures/2" rel="noopener noreferrer">Figure&nbsp;2</a>
+  <span aria-hidden="true">·</span>
+  <a href="https://link.springer.com/article/10.1007/s00285-006-0006-1/figures/3" rel="noopener noreferrer">Figure&nbsp;3</a>
+  <span class="text-muted small">(open in browser; access may require library login)</span>
+</div>
 
 ---
 
@@ -24,6 +34,21 @@ mathjax: true
 - Can there be **several** endemic outcomes (different $P$ and vaccine use)?
 - Can introducing a vaccine **increase** equilibrium prevalence relative to **no vaccine**?
 - What do **subsidies**, **safer-behavior campaigns**, and **mandatory** vaccination do?
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart TB
+  EXO[Earlier models: exogenous behavior] --> CH[Chen: DP choices given P]
+  CH --> EQ[Fixed point: policies and prevalence]
+  EQ --> Q1[Endemic existence and multiplicity]
+  EQ --> Q2[Vaccine can raise P?]
+  Q1 --> POL[Subsidy mandate campaigns]
+  Q2 --> POL
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Paper moves from reduced-form risky behavior to equilibrium objects from optimization.</p>
 
 ---
 
@@ -41,6 +66,21 @@ mathjax: true
 
 So the model is **micro-founded**: behavior is not a free parameter—it comes from **comparing costs and expected lifetime utility** under beliefs about $P$.
 
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart LR
+  SU[Susceptible] --> V{Vaccinate c_v}
+  V -->|yes| VS[Vaccinated lower beta_v]
+  V -->|no| U[Unvaccinated]
+  VS --> R{Risky or protect}
+  U --> R
+  R -->|risky contact| I[Infected SI]
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">SI compartments with costly vaccine and perfect protection option (see Table in this section).</p>
+
 ---
 
 ### 3. Timing of decisions (one period)
@@ -51,6 +91,20 @@ For a **susceptible** who has **not** yet been vaccinated this lifetime:
 2. Then **self-protect or not** (pay $c_s$ or face risk).
 
 **Vaccinated** susceptibles: only **self-protect vs risky** remains; the paper shows in steady state **no one self-protects after vaccinating** (vaccination + protection is dominated in their argument—intuition: if you still paid $c_s$, you could have saved money by just protecting without vaccinating, etc.; the algebra pins this down).
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart TD
+  A[Start of period susceptible] --> B{Vaccinate first}
+  B -->|pay c_v| C[Vaccinated branch]
+  B -->|no| D[Unvaccinated branch]
+  C --> E{Protect or risky}
+  D --> F{Vaccinate now protect or risky}
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Decision order within a period (matches the paper’s timing assumptions).</p>
 
 ---
 
@@ -77,13 +131,25 @@ The paper **recenters** values by subtracting the infected outside option, defin
 
 **Steady-state** versions **(3)–(4)** collapse to **closed-form max** expressions **(13)–(15)** because the infinite-horizon structure makes continuation values proportional to a **per-period comparison** (standard DP trick with geometric survival).
 
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart LR
+  P[P prevalence] --> Wn[W_n and W_v values]
+  Wn --> POL[Protect vaccinate risky policies]
+  POL --> P
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Bellman objects feed policies; policies and demographics feed back into equilibrium P.</p>
+
 ---
 
 ### 5. Who does what? Thresholds in $(c_v, c_s)$ space
 
 Given steady prevalence $P$, define **cutoffs** $\gamma_n(P)$ and $\gamma_v(P)$ from **indifference** between protecting vs risky (unvaccinated vs vaccinated branches). The **benefit of vaccinating** (without protecting) vs staying unvaccinated and risky is denoted $B(P)$; it depends on $P$ because the value of avoiding infection changes with how common infection is.
 
-**Figure 1 (conceptually):** Partition types $(c_v, c_s)$ into regions:
+**Figure 1 (conceptually):** See the official <a href="https://link.springer.com/article/10.1007/s00285-006-0006-1/figures/1" rel="noopener noreferrer">Figure&nbsp;1</a> on SpringerLink for the paper’s partition of the type space. In words, partition types $(c_v, c_s)$ into regions:
 
 - Some types **always protect** (low $c_s$).
 - Some **never vaccinate, go risky** (high $c_s$, vaccination too costly relative to benefit).
@@ -101,6 +167,19 @@ For each type, stocks **$S, I, V$** (susceptible unvaccinated, infected, vaccina
 A **steady-state equilibrium** ties together: **optimal policies** $(\sigma_n,\rho_v,\rho_n,r)$, **type stocks**, and **$P$** consistent with **(9)–(12)** and **(16)–(19)**.
 
 **Remark:** A **disease-free** steady state with $P=0$ **always** exists (no one meets infection).
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart TB
+  STOCKS[S I V by type] --> INF[New infections proportional mixing]
+  INF --> P2[Aggregate P]
+  P2 --> DP[Optimal choices]
+  DP --> STOCKS
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Steady state: stocks, force of infection, and behavior mutually consistent.</p>
 
 ---
 
@@ -138,6 +217,19 @@ This quantity is the paper’s **basic reproduction number** $R_0$: expected **s
 
 So **the same** biology can support **very different** social outcomes depending on **beliefs / coordination** on which equilibrium.
 
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart TB
+  Paxis[Prevalence P] --> G["Map g(P) fixed points"]
+  G --> M{How many crossings}
+  M -->|one| U[Unique endemic]
+  M -->|several| MULT[Multiple P with self fulfilling beliefs]
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Multiplicity: several fixed points of the equilibrium map in P (Example 4 in the paper).</p>
+
 **Mechanism:** Benefit of vaccination $B(P)$ can be **non-monotone** in $P$ when the vaccine is **imperfect** and a condition like $\delta^2 < (1-\delta)^2 \beta \beta_v$ holds: $B(P)$ rises then falls. At **high** $P$, vaccination may look **not worth it** (everyone expects disaster); high risky behavior sustains high $P$. At **lower** $P$, vaccination is attractive and sustains lower $P$. **Self-fulfilling expectations.**
 
 **Proposition 6:** If efficacy is **high enough** that $(1-\delta)^2 \beta \beta_v / \delta^2 \leq 1$, then $B(P)$ is **strictly increasing** in $P$ on $[0,1)$, and the **endemic equilibrium is unique**—multiplicity requires **sufficiently leaky** vaccines (in a precise sense).
@@ -148,7 +240,7 @@ So **the same** biology can support **very different** social outcomes depending
 
 **Example 7:** Parameters such that **without** vaccine, unique endemic $P_n \approx 0.167$ and **two-thirds** of susceptibles **self-protect**. **With** voluntary vaccine, unique endemic $P \approx 0.175 > P_n$.
 
-**Figure 2 logic:** Compare who is risky **with vs without** vaccine at the **old** prevalence $P_n$. **Region I:** risky either way. **Region II:** risky without vaccine; **with** vaccine they **vaccinate** and stay risky (lower $\beta_v$ but not zero). **Region III:** would **protect** without vaccine; with vaccine some **switch** to **vaccinate + risky**. If **enough mass** moves from **full protection** to **partial protection via imperfect vaccine**, **aggregate** infections can rise.
+**Figure 2 logic:** Compare <a href="https://link.springer.com/article/10.1007/s00285-006-0006-1/figures/2" rel="noopener noreferrer">Figure&nbsp;2</a> on SpringerLink with who is risky **with vs without** vaccine at the **old** prevalence $P_n$. **Region I:** risky either way. **Region II:** risky without vaccine; **with** vaccine they **vaccinate** and stay risky (lower $\beta_v$ but not zero). **Region III:** would **protect** without vaccine; with vaccine some **switch** to **vaccinate + risky**. If **enough mass** moves from **full protection** to **partial protection via imperfect vaccine**, **aggregate** infections can rise.
 
 **Condition (27)** in the paper formalizes when $g(P_n) > 1$ so a **higher** equilibrium $P_v > P_n$ exists—i.e. vaccine introduction can push the system to a **worse** endemic point.
 
@@ -162,7 +254,7 @@ So **the same** biology can support **very different** social outcomes depending
 
 If programs **lower $c_s$** in a **first-order stochastic dominance** sense (more mass at low $c_s$ for each $c_v$), then **when the endemic equilibrium is unique**, equilibrium prevalence **cannot rise** (**Proposition 8**).
 
-**Caveat:** If **multiple** equilibria exist both before and after, **which** equilibrium is selected can flip; **Figure 3** illustrates that **improving** the cost distribution can **increase** $P$ if the economy jumps to a **worse** equilibrium. So **coordination / expectations** matter under multiplicity.
+**Caveat:** If **multiple** equilibria exist both before and after, **which** equilibrium is selected can flip; <a href="https://link.springer.com/article/10.1007/s00285-006-0006-1/figures/3" rel="noopener noreferrer">Figure&nbsp;3</a> illustrates that **improving** the cost distribution can **increase** $P$ if the economy jumps to a **worse** equilibrium. So **coordination / expectations** matter under multiplicity.
 
 #### 10.2 Subsidizing vaccination (lower $c_v$)
 
@@ -226,7 +318,7 @@ The **conclusion** flags richer **partner choice** and **multiple prevention mar
 
 - Chen, F. H. (2006). A susceptible-infected epidemic model with voluntary vaccinations. *Journal of Mathematical Biology*, *53*(2), 253–272. https://doi.org/10.1007/s00285-006-0006-1
 
-**Copyright:** The journal article is © Springer-Verlag 2006. This HTML page is **original commentary**; it does not reproduce the paper’s text, proofs, or figures.
+**Copyright:** The journal article is © Springer-Verlag 2006. This HTML page is **original commentary**; it does not reproduce the paper’s text or proofs. **Figures** are linked to SpringerLink for viewing under your own access rights; images are not stored on this site.
 
 **Open access note:** Check your library or [SpringerLink](https://link.springer.com/article/10.1007/s00285-006-0006-1) for authorized PDF access; rights vary by institution.
 

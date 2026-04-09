@@ -12,6 +12,20 @@ mathjax: true
 
 **CatBoost** (Prokhorenkova et al., Yandex) is another high-performance **gradient boosting** library. Two themes stand out: **reducing prediction shift** from target leakage in categorical encoding / boosting, and **strong defaults** for **high-cardinality categoricals**.
 
+
+
+{::nomarkdown}
+<div class="pn-viz">
+<div class="mermaid">
+flowchart LR
+  CAT[Ordered stats for categories] --> OB[Ordered boosting reduces bias]
+  OB --> SYM[Symmetric trees optional]
+  SYM --> PRED[Prediction]
+</div>
+</div>
+{:/}
+<p class="pn-viz-caption">Ordered target statistics and boosting reduce categorical leakage and overfitting.</p>
+
 ### Prediction shift and ordered boosting
 
 In standard boosting, the model at step $t$ is fit using targets and predictions that **depend on the same data** you are fitting on—subtle **target leakage** through the residual structure can **bias** predictions. **Ordered boosting** uses a **random permutation** of training rows and builds residuals using only **prior** observations in that order when computing statistics for splits—closer to a **temporal** honesty and often **better generalization** with less tuning.
