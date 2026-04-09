@@ -43,6 +43,76 @@ So the **achievement** is not a single script—it is a **platform**: multi-chan
 
 ---
 
+### Key upstream snippets
+
+Anchors use `main` as of this note; if line numbers drift, open the file from the repo root.
+
+**1. `package.json` — CLI entry and extension surface**  
+[openclaw `package.json` (L1–L49)](https://github.com/openclaw/openclaw/blob/main/package.json#L1-L49)
+
+```jsonc
+{
+  "name": "openclaw",
+  "version": "2026.4.10",
+  "description": "Multi-channel AI gateway with extensible messaging integrations",
+  // …repository, license, files…
+  "bin": {
+    "openclaw": "openclaw.mjs"
+  },
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./plugin-sdk": {
+      "types": "./dist/plugin-sdk/index.d.ts",
+      "default": "./dist/plugin-sdk/index.js"
+    },
+    "./plugin-sdk/core": {
+      "types": "./dist/plugin-sdk/core.d.ts",
+      "default": "./dist/plugin-sdk/core.js"
+    }
+    // …additional export paths…
+  }
+}
+```
+
+**What this achieves:** The repo ships as a **published Node package**: the `openclaw` binary is the user-facing entry, while **`exports` exposes `plugin-sdk`** so channels and tools can integrate without forking core—i.e. “gateway + extension API,” not a single closed binary.
+
+**2. `openclaw.mjs` — Node version policy and bootstrap**  
+[openclaw `openclaw.mjs` (L1–L41)](https://github.com/openclaw/openclaw/blob/main/openclaw.mjs#L1-L41)
+
+```javascript
+const MIN_NODE_MAJOR = 22;
+const MIN_NODE_MINOR = 12;
+const MIN_NODE_VERSION = `${MIN_NODE_MAJOR}.${MIN_NODE_MINOR}`;
+// …parseNodeVersion, isSupportedNodeVersion…
+const ensureSupportedNodeVersion = () => {
+  if (isSupportedNodeVersion(parseNodeVersion(process.versions.node))) {
+    return;
+  }
+  process.stderr.write(
+    `openclaw: Node.js v${MIN_NODE_VERSION}+ is required (current: v${process.versions.node}).\n` +
+      "If you use nvm, run:\n" +
+      `  nvm install ${MIN_NODE_MAJOR}\n` +
+      `  nvm use ${MIN_NODE_MAJOR}\n` +
+      `  nvm alias default ${MIN_NODE_MAJOR}\n`,
+  );
+  process.exit(1);
+};
+ensureSupportedNodeVersion();
+// …module-not-found helpers, dynamic import of dist/entry…
+if (module.enableCompileCache && !process.env.NODE_DISABLE_COMPILE_CACHE) {
+  try {
+    module.enableCompileCache();
+  } catch {
+    // Ignore errors
+  }
+}
+```
+
+**What this achieves:** Support is **enforced up front** (clear stderr + exit) so users do not hit obscure runtime errors deep in the gateway; optional **compile cache** speeds repeated CLI starts. That is part of making a large monorepo **dependable as a global CLI**.
+
+---
+
 ### Security idea worth remembering
 
 They explicitly treat **inbound DMs as untrusted input**: default **pairing** flows for many channels, allowlists, `openclaw doctor` to flag risky DM policies. That is the right mindset whenever a bot can **execute tools** or read **local workspace** files.

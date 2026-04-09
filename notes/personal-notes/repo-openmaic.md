@@ -33,6 +33,98 @@ So the **achievement** is both: (1) a **self-contained classroom product**, and 
 
 ---
 
+### Key upstream snippets
+
+Anchors point at the default branch (`main`) as of this note; line numbers can drift—follow the file path if a link lands wrong.
+
+**1. `package.json` — scripts and dependency footprint**  
+[OpenMAIC `package.json` (L9–L45)](https://github.com/THU-MAIC/OpenMAIC/blob/main/package.json#L9-L45)
+
+```json
+{
+  "scripts": {
+    "postinstall": "cd packages/mathml2omml && npm run build && cd ../pptxgenjs && npm run build",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "check": "prettier . --check",
+    "format": "prettier . --write",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.23",
+    "@ai-sdk/google": "^3.0.13",
+    "@ai-sdk/openai": "^3.0.13",
+    "@ai-sdk/react": "^3.0.44",
+    "@copilotkit/backend": "^0.37.0",
+    "@copilotkit/runtime": "^1.51.2",
+    "@langchain/core": "^1.1.16",
+    "@langchain/langgraph": "^1.1.1",
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "ai": "^6.0.42",
+    "copilotkit": "^0.0.58",
+    "mathml2omml": "workspace:*",
+    "next": "16.1.2",
+    "pptxgenjs": "workspace:*",
+    "pptxtojson": "^1.11.0"
+  }
+}
+```
+
+**What this achieves:** In one place you see the **product stack**: Next.js for the app, **Vercel AI SDK** (`ai`, `@ai-sdk/*`) for provider-facing calls, **LangGraph** for orchestration, **CopilotKit** for agent/chat UX, **MCP** for tool protocol, and **workspace packages** for slide/MathML pipelines (`pptxgenjs`, `mathml2omml`)—i.e. not “a demo UI” but a **lesson factory** with export and test hooks (`vitest`, Playwright).
+
+**2. `docker-compose.yml` — runnable service contract**  
+[OpenMAIC `docker-compose.yml` (full file)](https://github.com/THU-MAIC/OpenMAIC/blob/main/docker-compose.yml)
+
+```yaml
+services:
+  openmaic:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+    volumes:
+      # Optional: mount server-providers.yml for provider config
+      # - ./server-providers.yml:/app/server-providers.yml:ro
+      - openmaic-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  openmaic-data:
+```
+
+**What this achieves:** A **repeatable deploy story**: build from the repo Dockerfile, wire secrets via `.env.local`, persist app data in a named volume, optional read-only provider config—so “run it like software,” not only `pnpm dev`.
+
+**3. `skills/openmaic/SKILL.md` — OpenClaw-facing SOP**  
+[OpenMAIC `skills/openmaic/SKILL.md` (L1–L18)](https://github.com/THU-MAIC/OpenMAIC/blob/main/skills/openmaic/SKILL.md#L1-L18)
+
+```markdown
+---
+name: openmaic
+description: Guided SOP for setting up and using OpenMAIC from OpenClaw. …
+user-invocable: true
+metadata: { "openclaw": { "emoji": "🏫" } }
+---
+
+# OpenMAIC Skill
+
+Use this as a guided, confirmation-heavy SOP. …
+
+## Core Rules
+
+- Move one phase at a time.
+- Before any state-changing action, ask for confirmation.
+…
+```
+
+**What this achieves:** The integration is **explicitly procedural** (phased setup, confirmations, config in files—not ad-hoc “paste keys in chat”). That is how the project turns a web app into something **addressable from chat agents** without losing safety and reproducibility.
+
+---
+
 ### How the code is likely organized (high level)
 
 Without line-by-line audit, a reasonable mental model:

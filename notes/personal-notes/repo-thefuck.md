@@ -38,6 +38,69 @@ Classic **Python package** layout:
 
 ---
 
+### Key upstream snippets
+
+Upstream default branch is **`master`** for [nvbn/thefuck](https://github.com/nvbn/thefuck).
+
+**1. `thefuck/types.py` — dynamic rules and corrections**  
+[thefuck `thefuck/types.py` (L134–L198)](https://github.com/nvbn/thefuck/blob/master/thefuck/types.py#L134-L198)
+
+```python
+    @classmethod
+    def from_path(cls, path):
+        # …resolve name, skip excluded rules…
+        with logs.debug_time(u'Importing rule: {};'.format(name)):
+            try:
+                rule_module = load_source(name, str(path))
+            except Exception:
+                logs.exception(u"Rule {} failed to load".format(name), sys.exc_info())
+                return
+        priority = getattr(rule_module, 'priority', DEFAULT_PRIORITY)
+        return cls(name, rule_module.match,
+                   rule_module.get_new_command,
+                   getattr(rule_module, 'enabled_by_default', True),
+                   getattr(rule_module, 'side_effect', None),
+                   settings.priority.get(name, priority),
+                   getattr(rule_module, 'requires_output', True))
+
+    def get_corrected_commands(self, command):
+        """Returns generator with corrected commands."""
+        new_commands = self.get_new_command(command)
+        if not isinstance(new_commands, list):
+            new_commands = (new_commands,)
+        for n, new_command in enumerate(new_commands):
+            yield CorrectedCommand(script=new_command,
+                                   side_effect=self.side_effect,
+                                   priority=(n + 1) * self.priority)
+```
+
+**What this achieves:** Rules are **plain Python modules** on disk: `from_path` loads `match` / `get_new_command` by convention, applies **priority** and **enable/disable** from settings, and `get_corrected_commands` normalizes single vs. multiple suggestions into **`CorrectedCommand`** objects. The core stays small; **coverage grows by adding files**.
+
+**2. `thefuck/rules/git_push.py` — one concrete fix**  
+[thefuck `thefuck/rules/git_push.py`](https://github.com/nvbn/thefuck/blob/master/thefuck/rules/git_push.py)
+
+```python
+@git_support
+def match(command):
+    return ('push' in command.script_parts
+            and 'git push --set-upstream' in command.output)
+
+
+# …helpers trim duplicate -u / refspec…
+
+
+@git_support
+def get_new_command(command):
+    # …normalize command_parts…
+    arguments = re.findall(r'git push (.*)', command.output)[-1].replace("'", r"\'").strip()
+    return replace_argument(" ".join(command_parts), 'push',
+                            'push {}'.format(arguments))
+```
+
+**What this achieves:** When `git push` fails and stderr contains Git’s **`--set-upstream` hint**, the rule **parses Git’s own suggested refspec** and rewrites the user’s `push`—the kind of **deterministic, offline** fix that scales in a rule library without an LLM.
+
+---
+
 ### What they achieved
 
 - **Huge adoption** for a developer QoL tool—proof that **composable rules + shell alias** beats a monolithic “smart shell.”
