@@ -3,9 +3,60 @@ layout: page
 title: Sports
 subtitle: Takes on the games I follow
 permalink: /blog/sports/
+js:
+  - "/assets/js/sports-upcoming.js"
 ---
 
 <p class="blog-category-hint">Posts use <code>tags: [sports]</code> in their front matter. <a href="{{ '/blog/' | relative_url }}">← Blog overview</a></p>
+
+<section class="sports-upcoming" id="sports-upcoming" aria-labelledby="sports-upcoming-heading">
+  <h2 class="sports-upcoming__heading" id="sports-upcoming-heading">Upcoming fixtures</h2>
+  <p class="sports-upcoming__sub text-muted small">Next match or event for each series, in <strong>your local time</strong>. Data refreshes automatically every five minutes (and when you reload).</p>
+  <div class="sports-upcoming__grid">
+    <article class="sports-upcoming__card">
+      <div class="sports-upcoming__card-head">
+        <span class="sports-upcoming__icon sports-upcoming__icon--football" aria-hidden="true"><i class="fa-solid fa-futbol"></i></span>
+        <div>
+          <h3 class="sports-upcoming__label">Arsenal</h3>
+          <p class="sports-upcoming__league">English Premier League</p>
+        </div>
+      </div>
+      <p class="sports-upcoming__title" id="su-arsenal-title">Loading…</p>
+      <p class="sports-upcoming__when"><i class="fa-solid fa-clock" aria-hidden="true"></i> <span id="su-arsenal-when">—</span></p>
+      <p class="sports-upcoming__detail text-muted small mb-0" id="su-arsenal-detail"></p>
+      <p class="sports-upcoming__err small text-danger mb-0" id="su-arsenal-err" hidden></p>
+    </article>
+    <article class="sports-upcoming__card">
+      <div class="sports-upcoming__card-head">
+        <span class="sports-upcoming__icon sports-upcoming__icon--ufc" aria-hidden="true"><i class="fa-solid fa-hand-fist"></i></span>
+        <div>
+          <h3 class="sports-upcoming__label">UFC</h3>
+          <p class="sports-upcoming__league">Next numbered / Fight Night card</p>
+        </div>
+      </div>
+      <p class="sports-upcoming__title" id="su-ufc-title">Loading…</p>
+      <p class="sports-upcoming__when"><i class="fa-solid fa-clock" aria-hidden="true"></i> <span id="su-ufc-when">—</span></p>
+      <p class="sports-upcoming__detail text-muted small mb-0" id="su-ufc-detail"></p>
+      <p class="sports-upcoming__err small text-danger mb-0" id="su-ufc-err" hidden></p>
+    </article>
+    <article class="sports-upcoming__card">
+      <div class="sports-upcoming__card-head">
+        <span class="sports-upcoming__icon sports-upcoming__icon--f1" aria-hidden="true"><i class="fa-solid fa-flag-checkered"></i></span>
+        <div>
+          <h3 class="sports-upcoming__label">Formula 1</h3>
+          <p class="sports-upcoming__league">Next Grand Prix (race)</p>
+        </div>
+      </div>
+      <p class="sports-upcoming__title" id="su-f1-title">Loading…</p>
+      <p class="sports-upcoming__when"><i class="fa-solid fa-clock" aria-hidden="true"></i> <span id="su-f1-when">—</span></p>
+      <p class="sports-upcoming__detail text-muted small mb-0" id="su-f1-detail"></p>
+      <p class="sports-upcoming__err small text-danger mb-0" id="su-f1-err" hidden></p>
+    </article>
+  </div>
+  <p class="sports-upcoming__meta text-muted small mb-0"><span id="su-updated"></span> · Schedules via <a href="https://www.thesportsdb.com/" rel="noopener noreferrer">TheSportsDB</a> &amp; <a href="https://github.com/jolpi/ca-ergast-f1-api" rel="noopener noreferrer">Jolpica F1</a> (unofficial feeds).</p>
+</section>
+
+<hr class="my-4" />
 
 {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
 {% assign posts = site.tags["sports"] | sort: "date" | reverse %}
