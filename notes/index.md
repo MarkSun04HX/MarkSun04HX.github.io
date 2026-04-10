@@ -27,8 +27,8 @@ Use this section for **PDF notes from coursework** and for **longer personal exp
 <div class="row">
   <div class="col-md-12 mb-4">
     <div class="project-card">
-      <h2 class="h4 mt-0"><a href="{{ '/notes/deep-learning-pytorch/' | relative_url }}">Deep learning with PyTorch — study map</a></h2>
-      <p class="mb-3 small">Chapter-by-chapter modules, concept checklists, and companion exercise prompts aligned with Stevens, Antiga &amp; Viehmann (<cite>Deep Learning with PyTorch</cite>, Manning, 2020)—for use <strong>with</strong> the book, not as a substitute.</p>
+      <h2 class="h4 mt-0"><a href="{{ '/notes/deep-learning-pytorch/' | relative_url }}">Deep learning with PyTorch — study companion</a></h2>
+      <p class="mb-3 small">Chapter-aligned notes, practice questions, and <strong>collapsible answers</strong> (original material) plus links to personal ML notes—use alongside Stevens, Antiga &amp; Viehmann (<cite>Deep Learning with PyTorch</cite>, Manning, 2020).</p>
       <a class="btn btn-outline-primary btn-sm" href="{{ '/notes/deep-learning-pytorch/' | relative_url }}">Open study map</a>
     </div>
   </div>
