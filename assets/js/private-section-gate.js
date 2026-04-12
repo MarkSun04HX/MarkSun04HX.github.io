@@ -77,7 +77,8 @@
       'xiamen china',
       'xiamen city',
       'city of xiamen',
-      'born in xiamen'
+      'born in xiamen',
+      'xia men city'
     ];
     if (phrases.indexOf(n) >= 0) return true;
     var compact = n.replace(/\s/g, '');
