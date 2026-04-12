@@ -14,6 +14,16 @@ Weekend competition project on **patient-level drivers of emergency room use** a
 
 ---
 
+### ECN 372 — MEPS healthcare expenditure prediction competition
+
+**Wake Forest · ECN372-B: Prediction and Machine Learning in Econometrics · Spring 2026 · group work**
+
+Course **prediction competition** on **MEPS** household consolidated data (**2019–2023**): build models for **individual annual total healthcare expenditures** while obeying strict **variable exclusions** (utilization, charges, expenditure blocks, survey weights). Official scoring is **RMSLE** on a **log-type** scale with **non-negative** predictions. The repo documents an **R** pipeline—Stata PUFs → yearly Parquets → pooled harmonized table → exploratory **PCA** on a subsample, plus scripts for **ridge baselines**, **elastic net / tree / RF / XGBoost** selection runs and a governed **`CV_RMSE_RESULTS.md`**—with competition exclusion logic centralized in **`R/meps_competition_exclusions.R`**.
+
+**Repository:** [MarkSun04HX/372-prediction-competition](https://github.com/MarkSun04HX/372-prediction-competition) · **Data:** [MEPS download files](https://meps.ahrq.gov/mepsweb/data_stats/download_data_files.jsp).
+
+---
+
 ### NBA player salary prediction
 
 **Statistics learning · R · Feb 2026 – present**
