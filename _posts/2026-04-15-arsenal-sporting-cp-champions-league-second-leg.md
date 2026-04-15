@@ -11,15 +11,15 @@ The emotional contrast matters. At home, Arsenal are expected to **attack the ga
 
 ## Predicted line-up
 
-**Front three:** Martinelli – Havertz – Saka  
+**Front three:** Trossard – Gyökeres – Madueke  
 
-**Midfield:** Rice – Zubimendi – Ødegaard  
+**Midfield:** Rice – Zubimendi – Eze  
 
-**Defense:** Timber – Gabriel – Saliba – White  
+**Defense:** Hincapie – Gabriel – Saliba – White  
 
 **Goalkeeper:** Raya  
 
-Fitness clouds hang over several names (**Ødegaard**, **Saka**, **Timber**, **Calafiori**, **Merino** have all been in the “wait and see” bucket in the build-up), so this XI is partly **best-case**. If minutes need managing, **Trossard** and **Eze** become natural levers without changing the overall shape.
+Fitness clouds hang over several names (**Ødegaard**, **Saka**, **Timber**, **Calafiori**, **Merino**, **Havertz** have all been in the “wait and see” bucket in the build-up), so nothing is guaranteed—but **my** read is that Arteta leans into **fresh legs and incision** here: **Gyökeres** through the middle, **Trossard** and **Madueke** wide, **Eze** arriving from midfield, **Hincapie** at left-back, and **White** again trusted to **invert** from the right.
 
 Tactically, the watchpoint is similar to the away leg: **Ben White**’s **inverted** instincts can compress the midfield, but they can also leave **exposure** if Sporting break with speed down his side. At the Emirates, the trade-off tilts toward **risk-taking**—just not the chaotic kind.
 
