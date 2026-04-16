@@ -25,7 +25,7 @@ Roughly **even possession** (~50–50). Arsenal **out-shot** Sporting (**15** to
 
 ## Reading it against the preview
 
-The [second-leg preview]({% post_url 2026-04-15-arsenal-sporting-cp-champions-league-second-leg %}) worried about the **in-between** state: control without incision, and the **knife-fight** math if Sporting landed a punch. We got something closer to **professional ugliness**: not a performance to frame on a wall, but a **result** that matches the **aggregate** story. Lisbon did the attacking work; London did the **closing**.
+The [first-leg preview]({% post_url 2026-04-06-sporting-arsenal-preview-camavinga %}) framed **control** in Lisbon; the [second-leg preview]({% post_url 2026-04-15-arsenal-sporting-cp-champions-league-second-leg %}) worried about the **in-between** state: control without incision, and the **knife-fight** math if Sporting landed a punch. We got something closer to **professional ugliness**: not a performance to frame on a wall, but a **result** that matches the **aggregate** story. Lisbon did the attacking work; London did the **closing**.
 
 ## What’s next
 
