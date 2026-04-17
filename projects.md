@@ -66,6 +66,8 @@ Automated **Python** pipelines to process and filter **multi-terabyte** TV adver
 
 **Figures:** sample plots (heatmaps, choropleth, stacked areas) are on the [home page]({{ '/' | relative_url }}#ra-visuals) with PDF downloads.
 
+**Overview:** [Data pipeline for large-scale TV advertising and content analysis (PDF)]({{ '/assets/files/ra/data-pipeline-tv-advertising-content-analysis.pdf' | relative_url }}) · [Research note]({% post_url 2026-04-16-research-assistant-tv-advertising-data-pipeline %}).
+
 ---
 
 ### More
