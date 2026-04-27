@@ -5,7 +5,7 @@ subtitle: Research, sports, and a casual journal
 permalink: /blog/
 ---
 
-Use **`research`** for econometrics, RA work, and papers. Use **`sports`** for match previews and sports takes — those are highlighted in the **Sports** block on the [home page]({{ '/' | relative_url }}#sports) and **not** duplicated in the main “Blog & writing” list. Use **`journal`** for casual or diary-style notes (they appear in the main feed unless you also tag **`sports`**). You can use **`tags: [sports, journal]`** if a piece should appear under both [Sports]({{ '/blog/sports/' | relative_url }}) and [Journal]({{ '/blog/journal/' | relative_url }}).
+Use **`research`** for econometrics, RA work, and papers. Use **`sports`** for match previews and sports takes — list them under [Sports]({{ '/blog/sports/' | relative_url }}); they are **not** duplicated in the [home page]({{ '/' | relative_url }}) feed (research + journal there). Use **`journal`** for casual or diary-style notes (they appear in the main feed unless you also tag **`sports`**). You can use **`tags: [sports, journal]`** if a piece should appear under both [Sports]({{ '/blog/sports/' | relative_url }}) and [Journal]({{ '/blog/journal/' | relative_url }}).
 
 **How to add a post:** create `YYYY-MM-DD-short-title.md` in `_posts/`:
 
@@ -18,7 +18,7 @@ tags: [research]   # or [sports] or [journal]
 ---
 ```
 
-To keep a **template** off the home **research feed** or **Sports** spotlight, add `hide_from_home: true`. Sports-tagged posts are excluded from the main home list by default.
+To keep a **template** off the home **post feed**, add `hide_from_home: true`. Posts tagged **`sports`** only are excluded from that feed by default (use [Sports]({{ '/blog/sports/' | relative_url }}) to list them).
 
 <div class="row mt-4">
   <div class="col-md-4 mb-4">
@@ -44,4 +44,4 @@ To keep a **template** off the home **research feed** or **Sports** spotlight, a
   </div>
 </div>
 
-<p class="text-muted small mt-2">The <a href="{{ '/' | relative_url }}#sports">Sports</a> block on the home page lists recent <code>sports</code> posts. The <a href="{{ '/' | relative_url }}#posts">Blog &amp; writing</a> feed shows research and journal entries (not <code>sports</code>-only duplicates). All tags are on the <a href="{{ '/tags' | relative_url }}">tag index</a>.</p>
+<p class="text-muted small mt-2">Recent <code>sports</code> posts: <a href="{{ '/blog/sports/' | relative_url }}">Sports</a>. The <a href="{{ '/' | relative_url }}">home page</a> feed lists research and journal entries (not <code>sports</code>-only duplicates). All tags: <a href="{{ '/tags' | relative_url }}">tag index</a>.</p>

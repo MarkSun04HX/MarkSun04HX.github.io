@@ -10,7 +10,8 @@ Built with [Beautiful Jekyll](https://beautifuljekyll.com/) and hosted on [GitHu
 | Path | Purpose |
 |------|---------|
 | `_config.yml` | Site title, author, nav (`navbar-links`), footer social links, colors, SEO |
-| `index.html` | Home page (intro + blog feed) |
+| `index.html` | Home page (short intro + paginated post feed) |
+| `ra-visuals.md` | RA research figure gallery (`/ra-visuals/`) |
 | `contact.md` | Contact form → `contact.email` (Formspree when `contact.formspree_form_id` is set; else mailto fallback) |
 | `aboutme.md` | Bio, education, experience, contact |
 | `resume.md` | Résumé gate at `/resume/` (same private questions as class notes); PDF on `resume-content.md` → `/resume/content/` |

@@ -26,6 +26,6 @@ I put together a one-page **Canva** overview titled [**Data Pipeline for Large-S
 
 ## Figures on this site
 
-The **[Research visuals](/#ra-visuals)** section on my **home page** shows **exploratory plots** derived from the same broad panel work—**hour/weekday** concentration, **U.S. state** patterns, and **network-level** intensity over sample windows. Each figure links to a **vector PDF** for print or slides.
+The **[Research visuals](/ra-visuals/)** page shows **exploratory plots** derived from the same broad panel work—**hour/weekday** concentration, **U.S. state** patterns, and **network-level** intensity over sample windows. Each figure links to a **vector PDF** for print or slides.
 
 If you are interested in similar **RA or data-engineering** work in **media or IO**, feel free to reach out via **[Contact](/contact/)** or the email in the footer.

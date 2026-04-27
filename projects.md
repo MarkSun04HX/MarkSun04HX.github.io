@@ -64,7 +64,7 @@ End-of-summer deck metrics (internal targets **98–105%** “attention”): **~
 
 Automated **Python** pipelines to process and filter **multi-terabyte** TV advertising datasets; extraction and consolidation in **Jupyter/Colab** for analysis of advertising markets.
 
-**Figures:** sample plots (heatmaps, choropleth, stacked areas) are on the [home page]({{ '/' | relative_url }}#ra-visuals) with PDF downloads.
+**Figures:** sample plots (heatmaps, choropleth, stacked areas) are on the [Research visuals]({{ '/ra-visuals/' | relative_url }}) page with PDF downloads.
 
 **Overview:** [Data pipeline for large-scale TV advertising and content analysis (PDF)]({{ '/assets/files/ra/data-pipeline-tv-advertising-content-analysis.pdf' | relative_url }}) · [Research note]({% post_url 2026-04-16-research-assistant-tv-advertising-data-pipeline %}).
 

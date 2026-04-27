@@ -127,6 +127,29 @@ body > main.container-md {
   margin-bottom: 0;
 }
 
+/* Slimmer hero when the home page is intentionally minimal */
+.home-intro--minimal {
+  padding: 1.75rem 1.35rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.home-intro--minimal .lead {
+  margin-bottom: 0.6rem;
+}
+
+.home-intro--minimal > p:not(.lead):not(.home-quick-links) {
+  margin-top: 0.45rem;
+  margin-bottom: 1rem;
+  color: var(--sun-muted);
+}
+
+.home-quick-links {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  line-height: 1.5;
+}
+
 .home-actions {
   display: flex;
   flex-wrap: wrap;
