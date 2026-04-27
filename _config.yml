@@ -154,17 +154,18 @@ keywords: "Haoxuan Sun, Mark Sun, economics, statistics, data science, Wake Fore
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-page-col: "#FFFFFF"
-text-col: "#404040"
+# Light minimal neutral: off-white page, near-black body text, single blue accent (links / highlights)
+page-col: "#FAFAFA"
+text-col: "#171717"
 link-col: "#1e4d7b"
 hover-col: "#143a5c"
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
-navbar-border-col: "#DDDDDD"
-footer-col: "#EAEAEA"
-footer-text-col: "#777777"
-footer-link-col: "#404040"
-footer-hover-col: "#0085A1"
+navbar-col: "#FFFFFF"
+navbar-text-col: "#171717"
+navbar-border-col: "#E8E8E8"
+footer-col: "#FFFFFF"
+footer-text-col: "#525252"
+footer-link-col: "#1e4d7b"
+footer-hover-col: "#143a5c"
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour

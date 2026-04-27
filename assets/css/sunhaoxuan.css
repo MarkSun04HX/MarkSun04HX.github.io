@@ -1,6 +1,6 @@
 /* Personal site accents — Haoxuan (Mark) Sun
-   Portfolio-style pass (option A): typography, soft surfaces, section rhythm —
-   structure unchanged. */
+   Light minimal neutral: off-white (--page-col), near-black (--text-col), blue accent.
+   Rollback: revert _config.yml colour block + this file to prior commit if needed. */
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
@@ -8,20 +8,19 @@
   --sun-accent: #1e4d7b;
   --sun-accent-soft: rgba(30, 77, 123, 0.08);
   --sun-border: rgba(30, 77, 123, 0.2);
-  --sun-page-bg: #f3f4f6;
   --sun-surface: #ffffff;
-  --sun-shadow-soft: 0 4px 24px rgba(15, 23, 42, 0.06);
-  --sun-shadow-card: 0 1px 12px rgba(15, 23, 42, 0.05);
+  --sun-shadow-soft: 0 4px 24px rgba(15, 23, 42, 0.05);
+  --sun-shadow-card: 0 1px 12px rgba(15, 23, 42, 0.04);
   --sun-radius-lg: 16px;
   --sun-radius-md: 12px;
-  --sun-muted: #6b7280;
+  --sun-muted: #525252;
 }
 
-/* Sitewide: light “portfolio” canvas + sans-first type (Coco-like clarity) */
+/* Sitewide: neutral canvas + sans-first type; colours follow Beautiful Jekyll variables */
 body {
   font-family: "Inter", "Open Sans", system-ui, -apple-system, sans-serif;
-  background-color: var(--sun-page-bg) !important;
-  color: #374151;
+  background-color: var(--page-col) !important;
+  color: var(--text-col) !important;
 }
 
 h1,
@@ -56,10 +55,10 @@ h6,
   }
 }
 
-/* Navbar: flat white bar, hairline border (template-style top nav) */
+/* Navbar: matches config navbar-col */
 .navbar-custom {
-  background-color: var(--sun-surface) !important;
-  border-bottom: 1px solid #e5e7eb !important;
+  background-color: var(--navbar-col) !important;
+  border-bottom: 1px solid var(--navbar-border-col) !important;
   box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
 }
 
@@ -69,10 +68,10 @@ h6,
   font-size: 0.95rem;
 }
 
-/* Footer: match light shell */
+/* Footer: matches config footer-col */
 footer {
-  background-color: var(--sun-surface) !important;
-  border-top: 1px solid #e5e7eb !important;
+  background-color: var(--footer-col) !important;
+  border-top: 1px solid var(--navbar-border-col) !important;
   margin-top: 3.5rem;
 }
 
@@ -109,12 +108,12 @@ body > main.container-md {
 .home-intro .lead {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #1f2937;
+  color: var(--text-col);
   margin-bottom: 0.85rem;
 }
 
 .home-intro p {
-  color: #4b5563;
+  color: var(--sun-muted);
   line-height: 1.6;
   margin-top: 0.65rem;
   margin-bottom: 0.65rem;
@@ -161,7 +160,7 @@ body > main.container-md {
 
 .home-highlights {
   font-size: 0.95rem;
-  color: #4b5563;
+  color: var(--sun-muted);
   margin-top: 1.25rem;
   padding-left: 1.1rem;
   text-align: left;
@@ -213,7 +212,7 @@ hr.home-divider {
 .footer-cta {
   margin-bottom: 1rem;
   font-size: 0.95rem;
-  color: #666;
+  color: var(--sun-muted);
 }
 
 .footer-cta a {
@@ -236,7 +235,7 @@ hr.home-divider {
 
 .project-meta {
   font-size: 0.88rem;
-  color: #777;
+  color: var(--sun-muted);
   margin-bottom: 0.75rem;
 }
 
@@ -275,7 +274,7 @@ hr.home-divider {
 
 .ra-visuals-intro {
   font-size: 0.95rem;
-  color: #4b5563;
+  color: var(--sun-muted);
   margin-bottom: 1.35rem;
   max-width: 42rem;
   margin-left: auto;
@@ -359,7 +358,7 @@ hr.home-divider {
 
 .blog-category-hint {
   font-size: 0.92rem;
-  color: #666;
+  color: var(--sun-muted);
   margin-bottom: 1.5rem;
 }
 
@@ -391,7 +390,7 @@ hr.home-divider {
   font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 0.65rem;
-  color: #1a365d;
+  color: var(--text-col);
 }
 
 .cal-weekdays {
@@ -515,7 +514,7 @@ hr.home-divider {
   margin: 0.75rem 0 0;
   padding-left: 1.2rem;
   font-size: 0.92rem;
-  color: #444;
+  color: var(--text-col);
 }
 
 .cal-events-list li {
