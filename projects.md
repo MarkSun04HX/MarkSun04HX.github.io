@@ -26,11 +26,11 @@ Course **prediction competition** on **MEPS** Full-Year Consolidated files (**HC
 
 ---
 
-### NBA player salary prediction
+### NBA player salary prediction (STA 363)
 
-**Statistics learning · R · Feb 2026 – present**
+**Wake Forest · STA 363: Introduction to Statistical Learning · Spring 2026 · with Sihang Zhao · R / R Markdown · Feb 2026**
 
-Predictive model for 2022–2023 NBA player salaries from on-court performance metrics (~12% error). Exploratory analysis, log transforms for variance, **k-fold cross-validation** with **KNN**; extending the pipeline with penalized regression.
+Course **project** predicting **2022–23 NBA** annual **salary (USD)** from **quantitative** performance fields only (**467** players, **52** variables before cleaning). We dropped identifiers (**player name, team, position**) from the modeling frame, used a **correlation matrix** to address **multicollinearity**, and worked with a compact predictor set (**Age, MP, AST., TRB, BPM, TOV.**). **EDA** supported using **log(Salary)** to improve linearity and stabilize variance (e.g., vs. minutes). **KNN** was tuned with **leave-one-out** and **5-fold** cross-validation over **k = 2, …, 50**; we also fit **ridge** and **lasso** (**glmnet**), a pruned **regression tree** (**rpart**), and **bagged** vs **mtry = √p** **random forests** (**randomForest**). Deliverable is a **PDF** report (**knitr** / **ggplot2** / **corrplot**).
 
 ---
 
