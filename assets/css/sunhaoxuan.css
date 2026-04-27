@@ -188,15 +188,11 @@ body > main.container-md {
   line-height: 1.5;
 }
 
-/* Homepage: work experience vertical timeline */
+/* Homepage: work experience vertical timeline (no card chrome — blends with page) */
 .home-exp {
   max-width: 44rem;
   margin: 0 auto 2rem;
-  padding: 1.5rem 1.35rem 1.35rem;
-  background: var(--sun-surface);
-  border: 1px solid #e8e8e8;
-  border-radius: var(--sun-radius-lg);
-  box-shadow: var(--sun-shadow-soft);
+  padding: 0 0.25rem;
 }
 
 .home-exp__heading {
@@ -300,10 +296,6 @@ body > main.container-md {
 }
 
 @media (max-width: 575px) {
-  .home-exp {
-    padding: 1.25rem 1rem 1.15rem;
-  }
-
   .home-timeline::before {
     left: 0.35rem;
   }
@@ -1067,6 +1059,133 @@ body.home-skyline-page .home-feed-hint code {
   padding: 0.12rem 0.35rem;
   border-radius: 4px;
   font-size: 0.88em;
+}
+
+/* Hero & experience: same treatment as section labels — text on the skyline, no white card */
+body.home-skyline-page .home-intro {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.home-skyline-page .home-quick-links {
+  border-top-color: rgba(255, 255, 255, 0.14);
+}
+
+body.home-skyline-page .home-quick-links,
+body.home-skyline-page .home-quick-links.small.text-muted {
+  color: rgba(232, 236, 248, 0.82) !important;
+}
+
+body.home-skyline-page .home-quick-links a {
+  color: #93c5fd;
+  font-weight: 500;
+}
+
+body.home-skyline-page .home-quick-links a:hover {
+  color: #bfdbfe;
+}
+
+body.home-skyline-page .home-hero__eyebrow {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.home-skyline-page .home-hero__statement {
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.38);
+}
+
+body.home-skyline-page .home-hero__statement strong {
+  color: #93c5fd;
+}
+
+body.home-skyline-page .home-hero__lede {
+  color: rgba(232, 238, 252, 0.9);
+}
+
+body.home-skyline-page .home-hero__lede a {
+  color: #93c5fd;
+}
+
+body.home-skyline-page .home-hero__lede a:hover {
+  color: #bfdbfe;
+}
+
+body.home-skyline-page .home-hero__meta {
+  color: rgba(220, 226, 240, 0.78);
+}
+
+body.home-skyline-page .home-actions .btn-outline-primary {
+  background: transparent;
+  border-color: rgba(147, 197, 253, 0.55);
+  color: rgba(248, 250, 255, 0.95);
+}
+
+body.home-skyline-page .home-actions .btn-outline-primary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #bfdbfe;
+  color: #ffffff;
+}
+
+body.home-skyline-page .home-exp__heading {
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: 0.12em;
+}
+
+body.home-skyline-page .home-exp__sub,
+body.home-skyline-page .home-exp .text-muted {
+  color: rgba(232, 236, 248, 0.82) !important;
+}
+
+body.home-skyline-page .home-exp__sub a {
+  color: #93c5fd;
+}
+
+body.home-skyline-page .home-exp__sub a:hover {
+  color: #bfdbfe;
+}
+
+body.home-skyline-page .home-timeline::before {
+  background: linear-gradient(
+    180deg,
+    rgba(147, 197, 253, 0.85) 0%,
+    rgba(147, 197, 253, 0.22) 100%
+  );
+}
+
+body.home-skyline-page .home-timeline__dot {
+  background: #93c5fd;
+  border-color: rgba(10, 21, 40, 0.95);
+  box-shadow: 0 0 0 1px rgba(147, 197, 253, 0.35);
+}
+
+body.home-skyline-page .home-timeline__when {
+  color: rgba(186, 220, 253, 0.95);
+}
+
+body.home-skyline-page .home-timeline__role {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+body.home-skyline-page .home-timeline__org {
+  color: rgba(226, 232, 246, 0.78);
+}
+
+body.home-skyline-page .home-timeline__detail {
+  color: rgba(228, 233, 245, 0.88);
+}
+
+body.home-skyline-page .home-timeline__detail strong {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+body.home-skyline-page .home-timeline__links a {
+  color: #93c5fd;
+}
+
+body.home-skyline-page .home-timeline__links a:hover {
+  color: #bfdbfe;
 }
 
 /* Per-page main background (topic SVGs — see resolve-page-bg-url.html) */
