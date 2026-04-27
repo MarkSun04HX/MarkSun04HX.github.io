@@ -150,6 +150,55 @@ body > main.container-md {
   line-height: 1.5;
 }
 
+/* --- Home motion (Apple-like: soft fade + lift; respects prefers-reduced-motion) --- */
+.motion-fade-up {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1) var(--motion-delay, 0ms),
+    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1) var(--motion-delay, 0ms);
+}
+
+.motion-fade-up.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.motion-fade-up-scroll {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--motion-delay, 0ms),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1) var(--motion-delay, 0ms);
+}
+
+.motion-fade-up-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.motion-fade-up,
+.motion-fade-up-scroll {
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-fade-up,
+  .motion-fade-up-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.post-preview.motion-fade-up-scroll:not(.is-visible) {
+  will-change: opacity, transform;
+}
+
+.post-preview.motion-fade-up-scroll.is-visible {
+  will-change: auto;
+}
+
 .home-actions {
   display: flex;
   flex-wrap: wrap;
