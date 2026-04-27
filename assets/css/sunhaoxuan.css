@@ -826,3 +826,78 @@ details.dl-answer[open] summary {
     column-count: 1;
   }
 }
+
+/* --- Home skyline background (index only: body.home-skyline-page) --- */
+body.home-skyline-page {
+  background-color: #0a1528;
+}
+
+body.home-skyline-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url("/assets/img/home-skyline-bg.png") center center / cover no-repeat;
+  pointer-events: none;
+}
+
+body.home-skyline-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    165deg,
+    rgba(5, 10, 24, 0.42) 0%,
+    rgba(8, 14, 30, 0.62) 38%,
+    rgba(10, 18, 38, 0.85) 100%
+  );
+}
+
+body.home-skyline-page main .row > [class*="col-"] {
+  background: transparent;
+}
+
+/* Title block over the skyline */
+body.home-skyline-page .intro-header:not(.big-img) .page-heading h1 {
+  color: rgba(255, 255, 255, 0.97);
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.45);
+}
+
+body.home-skyline-page .intro-header:not(.big-img) .page-heading .page-subheading {
+  color: rgba(232, 238, 252, 0.9) !important;
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.35);
+}
+
+body.home-skyline-page .intro-header:not(.big-img) hr.small {
+  border-color: rgba(255, 255, 255, 0.35);
+  opacity: 1;
+}
+
+/* Section labels & feed hint over the image (post cards stay white below) */
+body.home-skyline-page .home-section-label {
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: 0.12em;
+}
+
+body.home-skyline-page .home-feed-hint {
+  color: rgba(232, 236, 248, 0.82) !important;
+}
+
+body.home-skyline-page .home-feed-hint a {
+  color: #93c5fd;
+  font-weight: 500;
+}
+
+body.home-skyline-page .home-feed-hint a:hover {
+  color: #bfdbfe;
+}
+
+body.home-skyline-page .home-feed-hint code {
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.95);
+  padding: 0.12rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
