@@ -188,6 +188,131 @@ body > main.container-md {
   line-height: 1.5;
 }
 
+/* Homepage: work experience vertical timeline */
+.home-exp {
+  max-width: 44rem;
+  margin: 0 auto 2rem;
+  padding: 1.5rem 1.35rem 1.35rem;
+  background: var(--sun-surface);
+  border: 1px solid #e8e8e8;
+  border-radius: var(--sun-radius-lg);
+  box-shadow: var(--sun-shadow-soft);
+}
+
+.home-exp__heading {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--sun-muted);
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+  text-align: center;
+}
+
+.home-exp__sub {
+  text-align: center;
+  margin: 0 0 1.25rem;
+  line-height: 1.5;
+}
+
+.home-exp__sub a {
+  font-weight: 500;
+}
+
+.home-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.home-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.42rem;
+  top: 0.4rem;
+  bottom: 0.55rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--sun-accent) 0%, rgba(30, 77, 123, 0.22) 100%);
+  border-radius: 1px;
+}
+
+.home-timeline__item {
+  position: relative;
+  padding-left: 1.65rem;
+  padding-bottom: 1.35rem;
+}
+
+.home-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.home-timeline__dot {
+  position: absolute;
+  left: 0;
+  top: 0.38rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--sun-accent);
+  border: 2px solid var(--sun-surface);
+  box-shadow: 0 0 0 1px rgba(30, 77, 123, 0.25);
+}
+
+.home-timeline__when {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sun-accent);
+  margin: 0 0 0.25rem;
+}
+
+.home-timeline__role {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text-col);
+  margin: 0 0 0.2rem;
+  line-height: 1.35;
+}
+
+.home-timeline__org {
+  font-size: 0.88rem;
+  color: var(--sun-muted);
+  margin: 0 0 0.5rem;
+  line-height: 1.45;
+}
+
+.home-timeline__detail {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #4b5563;
+  margin: 0 0 0.45rem;
+}
+
+.home-timeline__links {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.home-timeline__links a {
+  font-weight: 500;
+}
+
+@media (max-width: 575px) {
+  .home-exp {
+    padding: 1.25rem 1rem 1.15rem;
+  }
+
+  .home-timeline::before {
+    left: 0.35rem;
+  }
+
+  .home-timeline__item {
+    padding-left: 1.45rem;
+  }
+}
+
 /* --- Home motion (Apple-like: soft fade + lift; respects prefers-reduced-motion) --- */
 .motion-fade-up {
   opacity: 0;
@@ -301,8 +426,8 @@ body > main.container-md {
   text-align: center;
 }
 
-/* Only the first band after the hero: avoid a double gap before “Research visuals” */
-.home-intro + section .home-section-label {
+/* Only the first band after the hero + experience block: avoid a double gap before “Recent writing” */
+.home-intro + section + .home-section-label {
   margin-top: 0.35rem;
 }
 
