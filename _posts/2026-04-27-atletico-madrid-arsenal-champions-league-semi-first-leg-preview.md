@@ -27,11 +27,11 @@ Nothing here is official team news the morning of the match—just the shape of 
 
 **Midfield:** Rice – Zubimendi – Ødegaard  
 
-**Defense:** Kiwior – Gabriel – Saliba – White  
+**Defense:** Hincapie – Gabriel – Saliba – White  
 
 **Goalkeeper:** Raya  
 
-If **Havertz** and **Eze** are short of **90-minute** sharpness, I lean **Ødegaard** as the advanced **eight** with **Rice** and **Zubimendi** as the **double pivot**. Upstairs, **Gyökeres** carries the **reference** role Simeone’s centre-backs will want to **bend**; **Madueke** and **Trossard** are the **isolation** merchants against tired legs. At the back, **Kiwior** is the conservative pick if **Timber** / **Calafiori** are not cleared—**duels** in the channel will matter more than **overlap** glamour.
+If **Havertz** and **Eze** are short of **90-minute** sharpness, I lean **Ødegaard** as the advanced **eight** with **Rice** and **Zubimendi** as the **double pivot**. Upstairs, **Gyökeres** carries the **reference** role Simeone’s centre-backs will want to **bend**; **Madueke** and **Trossard** are the **isolation** merchants against tired legs. At the back, **Hincapie** at left-back matches the read from the [Sporting second-leg preview]({% post_url 2026-04-15-arsenal-sporting-cp-champions-league-second-leg %}) if **Timber** and **Calafiori** are still sidelined—**duels** in the channel will matter more than **overlap** glamour.
 
 ## Atlético’s likely posture
 
