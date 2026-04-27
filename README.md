@@ -23,6 +23,8 @@ Built with [Beautiful Jekyll](https://beautifuljekyll.com/) and hosted on [GitHu
 | `_posts/` | Blog posts — use `tags: [research]`, `[sports]`, or `[journal]` (journal = casual; see **Blog** in the nav) |
 | `assets/css/sunhaoxuan.css` | Custom layout and accent styles |
 | `assets/js/home-motion.js` | Optional home-page fade / scroll motion (`index.html` only) |
+| `_includes/page-banner.html` | Topic banner image on `page` / `post` / `default` layouts; maps URL + post tags to `assets/img/banners/*.svg` (no home when `home_skyline_bg`) |
+| `assets/img/banners/*.svg` | Simple original gradient banners (not stock photos) |
 | `assets/img/favicon.svg` | Site icon |
 | `assets/img/ra/*.png` | RA research figures (web); paired PDFs in `assets/files/ra/` |
 | `assets/files/haoxuan-sun-resume.pdf` | Résumé PDF (linked from gated `/resume/content/`; file URL is still public if guessed) |

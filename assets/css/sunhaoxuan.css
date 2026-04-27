@@ -901,3 +901,20 @@ body.home-skyline-page .home-feed-hint code {
   border-radius: 4px;
   font-size: 0.88em;
 }
+
+/* Topic banners (original SVGs — see _includes/page-banner.html) */
+.page-banner {
+  margin: 0 0 1.35rem;
+  border-radius: var(--sun-radius-md);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: var(--sun-shadow-card);
+  background: #f8fafc;
+}
+
+.page-banner__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}

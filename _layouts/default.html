@@ -5,6 +5,7 @@ layout: base
 <div class="intro-header"></div>
 
 <main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
+  {% include page-banner.html %}
   {% if page.before-content %}
     <div class="before-content">
       {% for file in page.before-content %}
