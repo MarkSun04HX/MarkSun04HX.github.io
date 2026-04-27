@@ -16,7 +16,7 @@ Weekend competition project on **patient-level drivers of emergency room use** a
 
 ### ECN 372 — MEPS healthcare expenditure prediction competition
 
-**Wake Forest · ECN372-B: Prediction and Machine Learning in Econometrics · Spring 2026 · group work**
+**Wake Forest · ECN372-B: Prediction and Machine Learning in Econometrics · Spring 2026 · Jimmy Ren, Bruce Du, Haoxuan (Mark) Sun**
 
 Course **prediction competition** on **MEPS** Full-Year Consolidated files (**HC-216 … HC-251**, **2019–2023**): predict **individual annual total healthcare spending** (`TOTEXPyy`) under strict **exclusions** (codebook **Section 2.5.11** spend/utilization/charges, plus survey **weights** / BRR replicates). Submit **dollar levels**; official score is **RMSLE** on **log(1 + y)** with **negative predictions clipped to zero**.
 
@@ -28,7 +28,7 @@ Course **prediction competition** on **MEPS** Full-Year Consolidated files (**HC
 
 ### NBA player salary prediction (STA 363)
 
-**Wake Forest · STA 363: Introduction to Statistical Learning · Spring 2026 · with Sihang Zhao · R / R Markdown · Feb 2026**
+**Wake Forest · STA 363: Introduction to Statistical Learning · Spring 2026 · with Cosmo Zhao · R / R Markdown · Feb 2026**
 
 Course **project** predicting **2022–23 NBA** annual **salary (USD)** from **quantitative** performance fields only (**467** players, **52** variables before cleaning). We dropped identifiers (**player name, team, position**) from the modeling frame, used a **correlation matrix** to address **multicollinearity**, and worked with a compact predictor set (**Age, MP, AST., TRB, BPM, TOV.**). **EDA** supported using **log(Salary)** to improve linearity and stabilize variance (e.g., vs. minutes). **KNN** was tuned with **leave-one-out** and **5-fold** cross-validation over **k = 2, …, 50**; we also fit **ridge** and **lasso** (**glmnet**), a pruned **regression tree** (**rpart**), and **bagged** vs **mtry = √p** **random forests** (**randomForest**). Deliverable is a **PDF** report (**knitr** / **ggplot2** / **corrplot**).
 
