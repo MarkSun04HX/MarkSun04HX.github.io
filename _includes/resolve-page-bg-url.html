@@ -1,8 +1,6 @@
 {% comment %}
-  Topic banner image (original SVGs in assets/img/banners/). Optional overrides:
-  - banner_img: explicit path, or false to hide
-  - no_banner: true to hide
-  Skipped on home when home_skyline_bg is set.
+  Outputs nothing but a single line: relative asset path for page background, or empty.
+  Same routing as before; optional banner_img / no_banner / home_skyline_bg.
 {% endcomment %}
 {% assign pb_banner = nil %}
 {% assign pb_skip = false %}
@@ -76,17 +74,4 @@
     {% endif %}
   {% endif %}
 {% endunless %}
-
-{% if pb_banner %}
-<figure class="page-banner" role="presentation">
-  <img
-    class="page-banner__img"
-    src="{{ pb_banner | relative_url }}"
-    alt=""
-    width="1200"
-    height="380"
-    loading="lazy"
-    decoding="async"
-  />
-</figure>
-{% endif %}
+{% if pb_banner %}{{ pb_banner | strip }}{% endif %}

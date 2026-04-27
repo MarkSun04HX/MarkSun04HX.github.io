@@ -902,19 +902,14 @@ body.home-skyline-page .home-feed-hint code {
   font-size: 0.88em;
 }
 
-/* Topic banners (original SVGs — see _includes/page-banner.html) */
-.page-banner {
-  margin: 0 0 1.35rem;
-  border-radius: var(--sun-radius-md);
-  overflow: hidden;
-  border: 1px solid #e5e7eb;
-  box-shadow: var(--sun-shadow-card);
-  background: #f8fafc;
-}
-
-.page-banner__img {
-  display: block;
-  width: 100%;
-  height: auto;
-  vertical-align: middle;
+/* Per-page main background (topic SVGs — see resolve-page-bg-url.html) */
+main.page-main-bg {
+  position: relative;
+  background-color: var(--page-col, #fafafa);
+  background-image:
+    linear-gradient(rgba(250, 250, 250, 0.9), rgba(250, 250, 250, 0.94)),
+    var(--page-main-bg-image);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
 }

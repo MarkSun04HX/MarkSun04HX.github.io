@@ -1,13 +1,14 @@
 ---
 layout: base
 ---
+{% capture page_bg_asset %}{% include resolve-page-bg-url.html %}{% endcapture %}
+{% assign page_bg_asset = page_bg_asset | strip %}
 
 {% include header.html type="post" %}
 
-<main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
+<main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}{% if page_bg_asset != '' %} page-main-bg{% endif %}"{% if page_bg_asset != '' %} style="--page-main-bg-image: url('{{ page_bg_asset | relative_url }}');"{% endif %}>
   <div class="row">
     <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
-      {% include page-banner.html %}
 
       {% if page.gh-repo %}
         {% assign gh_split =  page.gh-repo | split:'/'  %}
