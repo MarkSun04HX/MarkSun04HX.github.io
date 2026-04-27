@@ -127,20 +127,58 @@ body > main.container-md {
   margin-bottom: 0;
 }
 
+/* Layered home hero (varied type sizes — portfolio-style hierarchy) */
+.home-hero__eyebrow {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  color: var(--sun-muted);
+  margin: 0 0 0.65rem;
+}
+
+.home-hero__statement {
+  font-size: clamp(1.22rem, 2.85vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.32;
+  letter-spacing: -0.028em;
+  color: var(--text-col);
+  margin: 0 auto 1.05rem;
+  max-width: 38rem;
+}
+
+.home-hero__statement strong {
+  font-weight: 700;
+  color: var(--sun-accent);
+}
+
+.home-hero__lede {
+  font-size: 1.06rem;
+  line-height: 1.62;
+  color: var(--sun-muted);
+  margin: 0 auto 1rem;
+  max-width: 36rem;
+}
+
+.home-hero__meta {
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #6f6f6f;
+  margin: 0 auto 1.2rem;
+  max-width: 34rem;
+  line-height: 1.45;
+}
+
 /* Slimmer hero when the home page is intentionally minimal */
 .home-intro--minimal {
   padding: 1.75rem 1.35rem 1.5rem;
   margin-bottom: 2rem;
 }
 
-.home-intro--minimal .lead {
-  margin-bottom: 0.6rem;
-}
-
-.home-intro--minimal > p:not(.lead):not(.home-quick-links) {
-  margin-top: 0.45rem;
-  margin-bottom: 1rem;
-  color: var(--sun-muted);
+.home-intro--minimal.home-hero {
+  padding-top: 2rem;
 }
 
 .home-quick-links {
@@ -859,15 +897,19 @@ body.home-skyline-page main .row > [class*="col-"] {
   background: transparent;
 }
 
-/* Title block over the skyline */
+/* Title block over the skyline — slightly restrained so the card “statement” can carry the hero */
 body.home-skyline-page .intro-header:not(.big-img) .page-heading h1 {
   color: rgba(255, 255, 255, 0.97);
   text-shadow: 0 2px 28px rgba(0, 0, 0, 0.45);
+  font-size: clamp(1.55rem, 3vw, 2.05rem);
+  font-weight: 700;
 }
 
 body.home-skyline-page .intro-header:not(.big-img) .page-heading .page-subheading {
   color: rgba(232, 238, 252, 0.9) !important;
   text-shadow: 0 1px 18px rgba(0, 0, 0, 0.35);
+  font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+  line-height: 1.45;
 }
 
 body.home-skyline-page .intro-header:not(.big-img) hr.small {
