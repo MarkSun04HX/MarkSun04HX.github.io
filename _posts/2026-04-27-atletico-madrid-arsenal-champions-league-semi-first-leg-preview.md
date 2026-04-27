@@ -49,9 +49,9 @@ Three scripts feel live:
 
 What you want to avoid is the **in-between**: lots of **possession** between the boxes, few **entries** into the **prime** shooting belt, and a growing sense that **one** set piece could **tilt** the emotional scoreboard.
 
-## Camavinga rumours (still in orbit?)
+## Osimhen rumours (window noise)
 
-Links to **Eduardo Camavinga** remain **speculative**, but the profile still maps onto Arsenal’s long-term need for **line-breaking** midfield minutes. As with the Sporting previews, the **hierarchy** may still favour **wide** investment first; if elite names move early elsewhere, midfield stories like this can **accelerate** late in the window.
+Links to **Victor Osimhen** remain **speculative**, but the profile maps cleanly onto what big clubs want from a **number nine**: **movement**, **penalty-box** presence, and **finishing** under pressure—the sort of player who can decide a **half-chance** in a **knockout** tie. Whether Arsenal **prioritize** that tier of signing this summer depends on **budget**, **seller** timing, and **competition** from elsewhere in Europe. Until something is **concrete**, it is **paper** talk—and Madrid is still the **only** appointment that matters this week.
 
 ## Final thoughts
 
