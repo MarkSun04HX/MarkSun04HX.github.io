@@ -24,7 +24,11 @@ common-js:
 <!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
 {% include head.html %}
 
-<body{% if page.home_skyline_bg %} class="home-skyline-page"{% endif %}>
+{% assign body_classes = '' %}
+{% if page.home_skyline_bg %}
+  {% assign body_classes = body_classes | append: ' home-skyline-page' %}
+{% endif %}
+<body{% if body_classes != '' %} class="{{ body_classes | strip }}"{% endif %}{% if page.home_skyline_image %} style="--home-skyline-bg-image: url('{{ page.home_skyline_image | relative_url }}');"{% endif %}>
   {% include gtm_body.html %}
 
   {% include nav.html %}

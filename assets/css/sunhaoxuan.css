@@ -1013,7 +1013,7 @@ body.home-skyline-page::before {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: url("/assets/img/home-skyline-bg.png") center center / cover no-repeat;
+  background: var(--home-skyline-bg-image, url("/assets/img/home-skyline-bg.png")) center center / cover no-repeat;
   pointer-events: none;
 }
 
