@@ -3,7 +3,7 @@ layout: page
 title: About me
 subtitle: Economics, statistics, and data science
 home_skyline_bg: true
-home_skyline_image: /assets/img/about-singapore-bg-2.png
+home_skyline_image: /assets/img/about-singapore-bg-3.png
 home_skyline_light_text: true
 ---
 
