@@ -1209,6 +1209,40 @@ body.home-skyline-page .home-timeline__links a:hover {
   color: #bfdbfe;
 }
 
+/* Optional per-page variant: force light text over skyline backgrounds (e.g., About page) */
+body.home-skyline-light-text main,
+body.home-skyline-light-text main p,
+body.home-skyline-light-text main li,
+body.home-skyline-light-text main blockquote {
+  color: rgba(238, 243, 252, 0.92);
+}
+
+body.home-skyline-light-text main h1,
+body.home-skyline-light-text main h2,
+body.home-skyline-light-text main h3,
+body.home-skyline-light-text main h4,
+body.home-skyline-light-text main h5,
+body.home-skyline-light-text main h6 {
+  color: rgba(255, 255, 255, 0.98);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.32);
+}
+
+body.home-skyline-light-text main a {
+  color: #a5d8ff;
+}
+
+body.home-skyline-light-text main a:hover {
+  color: #d1eaff;
+}
+
+body.home-skyline-light-text main strong {
+  color: #ffffff;
+}
+
+body.home-skyline-light-text main hr {
+  border-top-color: rgba(255, 255, 255, 0.28);
+}
+
 /* Per-page main background (topic SVGs — see resolve-page-bg-url.html) */
 main.page-main-bg {
   position: relative;

@@ -3,7 +3,8 @@ layout: page
 title: About me
 subtitle: Economics, statistics, and data science
 home_skyline_bg: true
-home_skyline_image: /assets/img/about-singapore-bg.png
+home_skyline_image: /assets/img/about-singapore-bg-2.png
+home_skyline_light_text: true
 ---
 
 I am **Haoxuan (Mark) Sun**, a senior at [Wake Forest University](https://www.wfu.edu/) in Winston-Salem, North Carolina. I am completing a **B.S. in Economics** with minors in **Statistics** and **Mathematics** (May 2026). From **August 2026** I will begin an **M.Sc. in Statistics** at the [National University of Singapore](https://www.nus.edu.sg/). I am interested in roles and projects at the intersection of **economics, econometrics, and data science**.
