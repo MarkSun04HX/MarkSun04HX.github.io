@@ -188,6 +188,27 @@ body > main.container-md {
   line-height: 1.5;
 }
 
+/* Wake Forest Class of 2026 commemorative art (portrait, centered) */
+.home-wfu-art {
+  margin: 0 auto 2rem;
+  max-width: min(22rem, 92vw);
+}
+
+.home-wfu-art img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: var(--sun-radius-md);
+  box-shadow: var(--sun-shadow-soft);
+}
+
+body.home-skyline-page .home-wfu-art img {
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
 /* Homepage: work experience vertical timeline (no card chrome — blends with page) */
 .home-exp {
   max-width: 44rem;
@@ -419,7 +440,7 @@ body > main.container-md {
 }
 
 /* Only the first band after the hero + experience block: avoid a double gap before “Recent writing” */
-.home-intro + section + .home-section-label {
+.home-exp + .home-section-label {
   margin-top: 0.35rem;
 }
 
