@@ -2,6 +2,7 @@
 layout: page
 title: Projects
 subtitle: Research, coursework, and applied data science
+banner_img: /assets/img/home-wfu-class-of-2026.png
 ---
 
 ### DataFest — ER visits & Type 1 diabetes (team Bit Dance)
