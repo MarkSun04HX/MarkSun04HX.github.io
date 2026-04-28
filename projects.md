@@ -35,6 +35,8 @@ Course **prediction competition** on **MEPS** Full-Year Consolidated files (**HC
 
 Course **project** predicting **2022–23 NBA** annual **salary (USD)** from **quantitative** performance fields only (**467** players, **52** variables before cleaning). We dropped identifiers (**player name, team, position**) from the modeling frame, used a **correlation matrix** to address **multicollinearity**, and worked with a compact predictor set (**Age, MP, AST., TRB, BPM, TOV.**). **EDA** supported using **log(Salary)** to improve linearity and stabilize variance (e.g., vs. minutes). **KNN** was tuned with **leave-one-out** and **5-fold** cross-validation over **k = 2, …, 50**; we also fit **ridge** and **lasso** (**glmnet**), a pruned **regression tree** (**rpart**), and **bagged** vs **mtry = √p** **random forests** (**randomForest**). Deliverable is a **PDF** report (**knitr** / **ggplot2** / **corrplot**).
 
+**Write-up:** [research blog post]({% post_url 2026-04-28-sta363-nba-salary-prediction-model-comparison %}).
+
 **Final report:** not posted publicly (coursework policy). If you would like to read the final version, please [contact me]({{ '/contact/' | relative_url }}).
 
 ---
