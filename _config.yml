@@ -22,18 +22,17 @@ author: Haoxuan (Mark) Sun
 navbar-links:
   About Me: "aboutme"
   Contact: "contact"
-  Résumé: "resume"
-  Projects: "projects"
-  Notes:
-    - Overview: "notes"
-    - Class notes: "notes/class-notes"
-    - Personal notes: "notes/personal-notes"
+  Portfolio:
+    - Résumé: "resume"
+    - Projects: "projects"
+    - Blog overview: "blog"
+    - Blog — Research: "blog/research"
+    - Blog — Sports: "blog/sports"
+    - Blog — Journal: "blog/journal"
+    - Notes overview: "notes"
+    - Notes — Class notes: "notes/class-notes"
+    - Notes — Personal notes: "notes/personal-notes"
   Calendar: "calendar"
-  Blog:
-    - Overview: "blog"
-    - Research: "blog/research"
-    - Sports: "blog/sports"
-    - Journal: "blog/journal"
   Resources:
     - GitHub: "https://github.com/MarkSun04HX"
     - LinkedIn: "https://www.linkedin.com/in/haoxuan-sun-129b8b267/"
