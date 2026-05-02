@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Arsenal 3-1 Fulham | Premier League — post-match"
-subtitle: "Fast start, one wobble, then control restored"
+title: "Arsenal 3-0 Fulham | Premier League — post-match"
+subtitle: "A ruthless first-half burst that killed the game early"
 tags: [sports, journal]
 ---
 
@@ -13,38 +13,36 @@ The imagined talking point before kickoff was midfield balance: whether Arsenal 
 
 ## Post-match reaction
 
-**Arsenal 3-1 Fulham** is the kind of result that looks routine on paper and slightly messy in real time. Arsenal were excellent in the opening stretch, dipped around Fulham’s equalizer phase, then regained structure and closed the match with authority.
+**Arsenal 3-0 Fulham** was controlled and clinical, especially before halftime. Arsenal did what title-chasing sides have to do against a compact opponent: score early, punish the next opening, then remove doubt before the break.
 
 ## How the game unfolded
 
-- Arsenal scored early and immediately forced Fulham’s block deeper.
-- Fulham had their best spell after drawing level, mostly through direct transitions and second balls.
-- Arsenal’s second goal changed the temperature of the match and restored control.
-- The third goal killed it before late chaos could arrive.
+- **9'**: **Gyokeres** opened the scoring from close range after sharp work down Arsenal’s right side.
+- **29'**: Arsenal had another effort ruled out (offside after a VAR check), but the pressure stayed high.
+- **40'**: **Saka** made it two and pushed Fulham into damage-control mode.
+- **45+4'**: **Gyokeres** grabbed his second before the whistle, effectively ending the contest as a live game.
 
-This was not flawless football, but it was mature game management.
+The second half became game management: fewer risks, better spacing, and no invitation for momentum swings.
 
 ## What worked
 
-- **Midfield control:** Rice and Zubimendi stabilized the game after Fulham’s momentum swing.
-- **Wide progression:** Arsenal moved the ball cleaner into advanced wide zones than in recent league matches.
-- **Response after adversity:** conceding did not trigger panic; shape stayed mostly intact.
+- **Front-foot opening:** Arsenal attacked with intent from minute one and forced Fulham backward immediately.
+- **Final-third timing:** the wide-to-central combinations were cleaner than in recent league outings.
+- **Defensive concentration:** once ahead, Arsenal protected the box and second balls with real discipline.
 
 ## What still needs work
 
-- **Rest defense in transition:** Fulham found too many moments to attack the space behind the first press.
-- **Box protection timing:** a few clearances and second-ball duels felt half a step late.
-
-In a title run-in, those details matter as much as chance creation.
+- **Chance volume after control:** Arsenal could still be more ruthless in the final half hour when games are already tilted.
+- **Rotation rhythm:** with Europe in the background, maintaining intensity across two competitions remains the key challenge.
 
 ## Standout notes
 
-- **Declan Rice:** tempo-setting and physically dominant in the second half.
-- **Ødegaard:** controlled rhythm when the game threatened to become end-to-end.
-- **Back line:** better in the final 30 minutes than in the middle phase.
+- **Viktor Gyokeres:** decisive, direct, and clinical — two goals that framed the whole night.
+- **Bukayo Saka:** one goal, constant threat, and central to Arsenal’s best attacking sequences.
+- **Declan Rice:** continued to anchor transitions and keep Arsenal’s shape clean between phases.
 
 ## Final thought
 
-This was a **professional league win**: not perfect, but controlled when it had to be. Arsenal earned the three points by correcting in-game rather than waiting for halftime narratives to solve it for them.
+This was a **statement first half** followed by smart control. Arsenal didn’t just win; they removed drama early and protected the result like a side that knows every point matters in May.
 
-If they keep that response pattern, they stay in the race deep into May.
+If this level of sharpness carries into the next stretch, they stay firmly in the title conversation.
