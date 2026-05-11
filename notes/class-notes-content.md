@@ -11,6 +11,12 @@ permalink: /notes/class-notes/content/
 
 Personal lecture and study notes from coursework at Wake Forest. Links open the PDF in the browser or trigger a download depending on your settings.
 
+### ECN 211 — Intermediate Mathematical Macroeconomics
+
+Macroeconomic models and mathematical tools for intermediate macro.
+
+<p class="mb-4"><a class="btn btn-primary" href="{{ '/assets/files/notes/ecn-211-intermediate-mathematical-macroeconomics.pdf' | relative_url }}">Open notes (PDF)</a></p>
+
 ### ECN 321 — Public Finance
 
 Public expenditure, taxation, and fiscal policy.
@@ -28,6 +34,12 @@ Statistical computing (course notes).
 Probability theory (course notes).
 
 <p class="mb-4"><a class="btn btn-primary" href="{{ '/assets/files/notes/sta-310-probability.pdf' | relative_url }}">Open notes (PDF)</a></p>
+
+### MTH 253 — Operations Research
+
+Linear programming, optimization, and related topics (course notes).
+
+<p class="mb-4"><a class="btn btn-primary" href="{{ '/assets/files/notes/mth-253-operations-research.pdf' | relative_url }}">Open notes (PDF)</a></p>
 
 ### ECN 341 — Environmental Economics
 
