@@ -9,6 +9,9 @@
   var UFC_LEAGUE_ID = "4443";
   /** ESPN site API — full schedule + scoreboard range (CORS open). TheSportsDB EPL season feed is incomplete on the free tier. */
   var ARSENAL_ESPN_TEAM_ID = "359";
+  var ARSENAL_TSDB_TEAM_ID = "133604";
+  /** EPL off-season gaps can exceed three weeks; scoreboard window covers pre-season through early fixtures. */
+  var ARSENAL_SCOREBOARD_DAYS = 120;
   var ESPN_ARSENAL_SCHEDULE =
     "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/" + ARSENAL_ESPN_TEAM_ID + "/schedule";
   var F1_NEXT = "https://api.jolpi.ca/ergast/f1/current/next.json";
@@ -36,8 +39,10 @@
   }
 
   function isLikelyPastUfc(ev) {
-    if (ev.strResult && String(ev.strResult).length > 80) return true;
-    return false;
+    var status = String(ev.strStatus || "").toLowerCase();
+    if (/^(ft|aot|finished|complete|cancelled)/.test(status)) return true;
+    var t = parseTsdbInstant(ev);
+    return !!(t && t.getTime() < Date.now() - 24 * 60 * 60 * 1000);
   }
 
   function formatLocal(d) {
@@ -137,9 +142,18 @@
     return wrapped[0] || null;
   }
 
+  function tsdbEventTitle(ev) {
+    if (ev.strHomeTeam && ev.strAwayTeam) return ev.strHomeTeam + " vs " + ev.strAwayTeam;
+    return ev.strEvent || "Arsenal match";
+  }
+
+  function tsdbEventDetail(ev) {
+    return [ev.strLeague, ev.strVenue, ev.strCity, ev.strCountry].filter(Boolean).join(" · ");
+  }
+
   function fetchArsenalScoreboardWindow(nowMs) {
     var start = nowMs;
-    var end = nowMs + 21 * 24 * 60 * 60 * 1000;
+    var end = nowMs + ARSENAL_SCOREBOARD_DAYS * 24 * 60 * 60 * 1000;
     var url =
       "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=" +
       yyyymmddUtc(start) +
@@ -151,21 +165,54 @@
     });
   }
 
+  function setArsenalCardFromEspn(pick) {
+    setCard("su-arsenal", espnEventTitle(pick.ev), "", pick.t, espnEventVenue(pick.ev), "");
+  }
+
+  function setArsenalCardFromTsdb(pick) {
+    setCard("su-arsenal", tsdbEventTitle(pick.ev), "", pick.t, tsdbEventDetail(pick.ev), "");
+  }
+
+  function fetchArsenalFromTsdb(nowMs) {
+    return fetchJson(TSDB + "/eventsnext.php?id=" + ARSENAL_TSDB_TEAM_ID).then(function (data) {
+      var events = data.events || [];
+      var wrapped = events
+        .map(function (ev) {
+          return { ev: ev, t: parseTsdbInstant(ev) };
+        })
+        .filter(function (o) {
+          return o.t && o.t.getTime() > nowMs - 95 * 60 * 1000;
+        });
+      wrapped.sort(function (a, b) {
+        return a.t.getTime() - b.t.getTime();
+      });
+      return wrapped[0] || null;
+    });
+  }
+
   function nextArsenal() {
     var nowMs = Date.now();
     return fetchJson(ESPN_ARSENAL_SCHEDULE)
       .then(function (data) {
         var pick = pickNextArsenalFromEspnEvents(data.events || [], nowMs);
         if (pick) {
-          setCard("su-arsenal", espnEventTitle(pick.ev), "", pick.t, espnEventVenue(pick.ev), "");
-          return null;
+          setArsenalCardFromEspn(pick);
+          return true;
         }
         return fetchArsenalScoreboardWindow(nowMs);
       })
+      .then(function (result) {
+        if (result === true) return;
+        if (result) {
+          setArsenalCardFromEspn(result);
+          return;
+        }
+        return fetchArsenalFromTsdb(nowMs);
+      })
       .then(function (pick) {
-        if (pick === null) return;
+        if (pick === true || pick === undefined) return;
         if (pick) {
-          setCard("su-arsenal", espnEventTitle(pick.ev), "", pick.t, espnEventVenue(pick.ev), "");
+          setArsenalCardFromTsdb(pick);
           return;
         }
         setCard(
@@ -174,12 +221,31 @@
           "",
           null,
           "",
-          "No Arsenal fixture in the next ~3 weeks in the feed.",
+          "No Arsenal fixture in the feeds right now.",
         );
       });
   }
 
-  function nextUfc() {
+  function setUfcCard(ev) {
+    var t = parseTsdbInstant(ev);
+    var detail = [ev.strVenue, ev.strCity, ev.strCountry].filter(Boolean).join(" · ") || "";
+    setCard("su-ufc", ev.strEvent || "UFC", "", t, detail, "");
+  }
+
+  function pickNextUfcFromEvents(events) {
+    var now = Date.now();
+    var candidates = events.filter(isUfcEvent).filter(function (ev) {
+      if (isLikelyPastUfc(ev)) return false;
+      var t = parseTsdbInstant(ev);
+      return t && t.getTime() > now - 30 * 60 * 1000;
+    });
+    candidates.sort(function (a, b) {
+      return parseTsdbInstant(a) - parseTsdbInstant(b);
+    });
+    return candidates[0] || null;
+  }
+
+  function nextUfcFromSeason() {
     var seasons = ["2026", "2027"];
     return Promise.all(
       seasons.map(function (s) {
@@ -192,25 +258,24 @@
       results.forEach(function (r) {
         if (r.events) events = events.concat(r.events);
       });
-      var now = Date.now();
-      var candidates = events.filter(isUfcEvent).filter(function (ev) {
-        if (isLikelyPastUfc(ev)) return false;
-        var t = parseTsdbInstant(ev);
-        return t && t.getTime() > now - 30 * 60 * 1000;
-      });
-      candidates.sort(function (a, b) {
-        return parseTsdbInstant(a) - parseTsdbInstant(b);
-      });
-      var ev = candidates[0];
-      if (!ev) {
-        setCard("su-ufc", "No upcoming event found", "", null, "", "UFC calendar in the public API can lag.");
-        return;
-      }
-      var t = parseTsdbInstant(ev);
-      var detail =
-        [ev.strVenue, ev.strCity, ev.strCountry].filter(Boolean).join(" · ") || "";
-      setCard("su-ufc", ev.strEvent || "UFC", "", t, detail, "");
+      return pickNextUfcFromEvents(events);
     });
+  }
+
+  function nextUfc() {
+    return fetchJson(TSDB + "/eventsnextleague.php?id=" + UFC_LEAGUE_ID)
+      .then(function (data) {
+        var ev = pickNextUfcFromEvents(data.events || []);
+        if (ev) return ev;
+        return nextUfcFromSeason();
+      })
+      .then(function (ev) {
+        if (!ev) {
+          setCard("su-ufc", "No upcoming event found", "", null, "", "UFC calendar in the public API can lag.");
+          return;
+        }
+        setUfcCard(ev);
+      });
   }
 
   function nextF1() {
@@ -252,7 +317,7 @@
     Promise.all([
       nextArsenal().catch(function (e) {
         console.warn("sports-upcoming: Arsenal", e);
-        wireError("su-arsenal", "Could not load fixture data (ESPN).");
+        wireError("su-arsenal", "Could not load fixture data (ESPN / TheSportsDB).");
       }),
       nextUfc().catch(function (e) {
         console.warn("sports-upcoming: UFC", e);
