@@ -11,6 +11,12 @@
   var MAX_HISTORY = 12;
   var TOP_K = 8;
   var MAX_CONTEXT_CHARS = 12000;
+  var RELATIONSHIP_REPLY =
+    "That's personal — I won't share Mark's private life here. If you're curious, ask him yourself or see what you can discover the old-fashioned way. I can help with his public work, projects, and writing instead.";
+
+  var cfg = window.ASK_MARK_CONFIG || {};
+  var NOTIFY_ENABLED = cfg.notifyEnabled !== false;
+  var NOTIFY_EMAIL = cfg.notifyEmail || "sunm80292@gmail.com";
 
   var kb = null;
   var corpusDocs = [];
@@ -61,9 +67,18 @@
       "Be concise (usually 2–5 short sentences). Plain text only — no markdown.",
       "When helpful, mention the page title the fact came from.",
       "",
+      "PERSONAL RELATIONSHIPS (strict): If anyone asks about Mark's dating life, girlfriend/boyfriend, partner, marriage, crush, romantic history, or similar private relationship topics, do NOT answer with facts or speculation. Warmly refuse and encourage them to ask Mark directly or try to discover on their own. Offer to help with public professional topics instead.",
+      "",
       "BIO SUMMARY:",
       data.summary || "Personal site of Haoxuan (Mark) Sun.",
     ].join("\n");
+  }
+
+  function isRelationshipQuestion(query) {
+    var q = String(query || "").toLowerCase();
+    return /\b(girlfriend|boyfriend|fiancee?|fiancé|fiancée|wife|husband|married|marriage|dating|date\s+him|relationship|romantic|partner|crush|significant other|love life|in a relationship|seeing anyone|single\b|ex-?(girl|boy)?friend)\b/.test(
+      q
+    );
   }
 
   function buildSearchIndex(data, corpus) {
@@ -168,6 +183,7 @@
 
   function localAnswer(query) {
     var q = query.toLowerCase().trim();
+    if (isRelationshipQuestion(query)) return RELATIONSHIP_REPLY;
     if (/^(hi|hello|hey|yo|good (morning|afternoon|evening))\b/.test(q) || q.length < 3) {
       return (
         "Hi — I am Ask Mark. Ask about Mark's background, projects, blog posts, notes, or how to get in touch. I search across the public pages on this site."
@@ -286,6 +302,31 @@
     return answer;
   }
 
+  function notifyOwner(question) {
+    if (!NOTIFY_ENABLED || !NOTIFY_EMAIL) return;
+    var payload = {
+      _subject: "Ask Mark — new chat question",
+      name: "Ask Mark chatbot",
+      question: question,
+      page: typeof location !== "undefined" ? location.href : "",
+      when: new Date().toISOString(),
+      userAgent: typeof navigator !== "undefined" ? navigator.userAgent : "",
+      language: typeof navigator !== "undefined" ? navigator.language : "",
+      _template: "table",
+      _captcha: "false",
+    };
+    fetch("https://formsubmit.co/ajax/" + encodeURIComponent(NOTIFY_EMAIL), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    }).catch(function (err) {
+      console.warn("ask-mark: notify email failed", err);
+    });
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     if (busy) return;
@@ -294,11 +335,24 @@
     if (!question) return;
     input.value = "";
     addMsg("user", question);
+    notifyOwner(question);
     setBusy(true);
 
     var botEl = addMsg("bot", "");
     botEl.innerHTML =
       '<span class="ask-mark__typing" aria-label="Thinking"><span></span><span></span><span></span></span>';
+
+    if (isRelationshipQuestion(question)) {
+      await typeLocal(botEl, RELATIONSHIP_REPLY);
+      if (conversation) {
+        conversation.push({ role: "user", content: question });
+        conversation.push({ role: "assistant", content: RELATIONSHIP_REPLY });
+      }
+      setBusy(false);
+      var againRel = $("#ask-mark-input");
+      if (againRel) againRel.focus();
+      return;
+    }
 
     try {
       await streamLlm(question, botEl);

@@ -20,6 +20,12 @@
 {% endif %}
 
 {% if site.site-js %}
+  <script>
+    window.ASK_MARK_CONFIG = {
+      notifyEnabled: {{ site.ask_mark.notify_enabled | default: true | jsonify }},
+      notifyEmail: {{ site.ask_mark.notify_email | default: site.contact.email | jsonify }}
+    };
+  </script>
   {% for js in site.site-js %}
     <script src="{{ js | relative_url }}"></script>
   {% endfor %}

@@ -123,6 +123,11 @@ contact:
   email_school: "sunhaoxuan@u.nus.edu"
   formspree_form_id: ""
 
+# Ask Mark chatbot — email alert for every visitor question (via FormSubmit; confirm once in Gmail)
+ask_mark:
+  notify_enabled: true
+  notify_email: "sunm80292@gmail.com"
+
 # Add the website title to the title of every page
 title-on-all-pages: true
 
