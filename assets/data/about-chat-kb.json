@@ -1,0 +1,57 @@
+{
+  "name": "Haoxuan (Mark) Sun",
+  "short_name": "Mark",
+  "site": "https://marksun04hx.github.io",
+  "updated": "2026-07",
+  "summary": "Haoxuan (Mark) Sun earned a B.S. in Economics with minors in Statistics and Mathematics from Wake Forest University (May 2026). From August 2026 he begins an M.Sc. in Statistics at the National University of Singapore (NUS). He works at the intersection of economics, econometrics, and data science.",
+  "sections": [
+    {
+      "id": "education",
+      "title": "Education",
+      "keywords": ["school", "university", "degree", "education", "gpa", "graduate", "nus", "wake forest", "wfu", "masters", "bachelor", "minor", "ode", "dean"],
+      "text": "Wake Forest University: B.S. Economics; minors in Statistics and Mathematics (Aug 2023 – May 2026). Cumulative GPA 3.83/4.00; Dean's List each semester; member of Omicron Delta Epsilon (economics honor society). National University of Singapore: M.Sc. in Statistics beginning August 2026."
+    },
+    {
+      "id": "experience",
+      "title": "Experience",
+      "keywords": ["job", "work", "intern", "internship", "experience", "research assistant", "ra", "dell", "schenker", "strumpf", "employment"],
+      "text": "Research assistant, Wake Forest Economics with Professor Koleman Strumpf (Sept 2025 – May 2026): Python pipelines on multi-terabyte TV advertising data; Jupyter/Colab extraction and consolidation. Project intern, Dell Technologies Global Production Planning, Xiamen (June–Aug 2025): XGBoost-centered estimated ship date (ESD) simulation with CFS/non-CFS and friction splits; improved weekly accuracy toward the 98–105% target band and large runtime gains. Field sales and operations support intern, DB Schenker Greater China, Shanghai (July–Aug 2024)."
+    },
+    {
+      "id": "projects",
+      "title": "Projects",
+      "keywords": ["project", "datafest", "meps", "nba", "salary", "tbde", "ensemble", "xgboost", "competition", "github", "portfolio", "ecn 372", "sta 363"],
+      "text": "Featured projects: (1) DataFest 2026 — Type 1 diabetes ER visits / care fragmentation / quasi-Poisson (team Bit Dance). (2) ECN 372 MEPS healthcare expenditure prediction competition — R/Make/XGBoost pipeline (GitHub: MarkSun04HX/372-prediction-competition). (3) STA 363 NBA salary prediction — KNN, ridge/lasso, trees, random forests. (4) Threshold-Based Dynamic Ensemble (TBDE) — open-source AutoML-style ensemble (GitHub: MarkSun04HX/Threshold-Based-Dynamic-Ensemble-Model). (5) Dell GPP ESD simulation. (6) TV advertising RA pipelines. More on /projects/."
+    },
+    {
+      "id": "skills",
+      "title": "Skills and languages",
+      "keywords": ["skill", "language", "python", "r", "sql", "java", "programming", "code", "mandarin", "english", "german", "software"],
+      "text": "Skills: R, Python, Java, SQL, data visualization, machine learning, Microsoft Office. Languages: Mandarin (native), English (native), German (basic)."
+    },
+    {
+      "id": "interests",
+      "title": "Interests",
+      "keywords": ["hobby", "interest", "soccer", "football", "arsenal", "ufc", "f1", "formula", "basketball", "jiu-jitsu", "bjj", "sports"],
+      "text": "Interests include soccer (Arsenal fan), Brazilian jiu-jitsu, Formula 1, and basketball. He also writes sports posts on the site under /blog/sports/."
+    },
+    {
+      "id": "contact",
+      "title": "Contact",
+      "keywords": ["contact", "email", "reach", "linkedin", "github", "hire", "resume", "cv", "phone", "message"],
+      "text": "Best contact: email sunh23@wfu.edu, LinkedIn https://www.linkedin.com/in/haoxuan-sun-129b8b267/, GitHub https://github.com/MarkSun04HX, or the contact form at /contact/. A PDF résumé is available via /resume/ (short gate for visitors who know him). Prefer not to invent other contact details."
+    },
+    {
+      "id": "site",
+      "title": "This website",
+      "keywords": ["website", "site", "blog", "built", "jekyll", "pages"],
+      "text": "Personal site built with Beautiful Jekyll on GitHub Pages. Sections include About, Projects, Résumé, Blog (research / sports / journal), Notes, Research visuals, and Calendar archive."
+    }
+  ],
+  "suggested": [
+    "What is Mark studying next?",
+    "Where did he intern?",
+    "What projects has he done?",
+    "How can I contact him?"
+  ]
+}
