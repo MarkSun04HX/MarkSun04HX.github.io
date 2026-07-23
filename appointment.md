@@ -6,16 +6,20 @@ permalink: /appointment/
 ---
 
 {% assign notify_email = site.ask_mark.notify_email | default: site.contact.email %}
+{% assign w3_key = site.web3forms_access_key | default: "" | strip %}
 
-<p class="mb-4">Use this form to propose a meeting — coffee chat, career conversation, project discussion, or collaboration. Include preferred <strong>time</strong>, <strong>location</strong> (or video link preference), and how to reach you. Submissions go to <strong>{{ notify_email }}</strong>.</p>
+<p class="mb-4">Use this form to propose a meeting — coffee chat, career conversation, project discussion, or collaboration. Include preferred <strong>time</strong>, <strong>location</strong> (or video link preference), and how to reach you. Requests go to <strong>{{ notify_email }}</strong>.</p>
 
 <p class="small text-muted border rounded p-3 mb-4" style="border-color:#dde4ec;background:#f8fafc;">This is a <strong>request</strong>, not a confirmed booking. Mark will reply to confirm or suggest another slot. Response time varies with coursework and travel.</p>
 
-<form id="appointment-form" class="appointment-form contact-form" novalidate>
-  <input type="hidden" name="_subject" value="Appointment request — Mark Sun site" />
-  <input type="hidden" name="_template" value="table" />
-  <input type="hidden" name="_captcha" value="false" />
+{% if w3_key == "" %}
+<p class="small border rounded p-3 mb-4" style="border-color:#fde68a;background:#fffbeb;">
+  <strong>Email delivery setup:</strong> FormSubmit activation links often break. This site now uses <a href="https://web3forms.com" target="_blank" rel="noopener noreferrer">Web3Forms</a> instead.
+  Until an access key is added in <code>_config.yml</code> (<code>web3forms_access_key</code>), <strong>Submit</strong> will open your email app with a pre-filled message (still works).
+</p>
+{% endif %}
 
+<form id="appointment-form" class="appointment-form contact-form" novalidate>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="appt-name">Your name <span class="text-danger">*</span></label>
@@ -73,7 +77,7 @@ permalink: /appointment/
 
   <div class="d-none" aria-hidden="true">
     <label for="appt-gotcha">Leave this empty</label>
-    <input type="text" id="appt-gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
+    <input type="text" id="appt-gotcha" name="botcheck" tabindex="-1" autocomplete="off" />
   </div>
 
   <p id="appt-error" class="small text-danger d-none" role="alert"></p>
@@ -99,6 +103,40 @@ permalink: /appointment/
     errEl.classList.toggle('d-none', !msg);
   }
 
+  function collect() {
+    return {
+      name: document.getElementById('appt-name').value.trim(),
+      email: document.getElementById('appt-email').value.trim(),
+      phone_or_wechat: document.getElementById('appt-phone').value.trim() || '(none)',
+      people: document.getElementById('appt-people').value.trim(),
+      preferred_datetime: document.getElementById('appt-datetime').value,
+      duration: document.getElementById('appt-duration').value,
+      location: document.getElementById('appt-location').value.trim(),
+      topic: document.getElementById('appt-topic').value.trim(),
+      notes: document.getElementById('appt-notes').value.trim() || '(none)',
+      page: window.location.href,
+      submitted_at: new Date().toISOString()
+    };
+  }
+
+  function toMailtoBody(data) {
+    return [
+      'Appointment request',
+      '',
+      'Name: ' + data.name,
+      'Email: ' + data.email,
+      'Phone/WeChat: ' + data.phone_or_wechat,
+      'People: ' + data.people,
+      'Preferred datetime: ' + data.preferred_datetime,
+      'Duration: ' + data.duration,
+      'Location: ' + data.location,
+      'Topic: ' + data.topic,
+      'Notes: ' + data.notes,
+      '',
+      'Page: ' + data.page
+    ].join('\n');
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     showError('');
@@ -112,45 +150,28 @@ permalink: /appointment/
       return;
     }
 
-    var data = {
-      _subject: 'Appointment request — Mark Sun site',
-      _template: 'table',
-      _captcha: 'false',
-      name: document.getElementById('appt-name').value.trim(),
-      email: document.getElementById('appt-email').value.trim(),
-      phone_or_wechat: document.getElementById('appt-phone').value.trim() || '(none)',
-      people: document.getElementById('appt-people').value.trim(),
-      preferred_datetime: document.getElementById('appt-datetime').value,
-      duration: document.getElementById('appt-duration').value,
-      location: document.getElementById('appt-location').value.trim(),
-      topic: document.getElementById('appt-topic').value.trim(),
-      notes: document.getElementById('appt-notes').value.trim() || '(none)',
-      page: window.location.href,
-      submitted_at: new Date().toISOString()
-    };
+    var data = collect();
+    var subject = 'Appointment request — ' + data.name;
+
+    if (!window.SiteMail || !window.SiteMail.hasAccessKey()) {
+      if (window.SiteMail && window.SiteMail.mailtoFallback) {
+        window.SiteMail.mailtoFallback(notifyEmail, subject, toMailtoBody(data));
+      } else {
+        window.location.href =
+          'mailto:' + notifyEmail +
+          '?subject=' + encodeURIComponent(subject) +
+          '&body=' + encodeURIComponent(toMailtoBody(data));
+      }
+      return;
+    }
 
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
     }
 
-    fetch('https://formsubmit.co/ajax/' + encodeURIComponent(notifyEmail), {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then(function (r) {
-        return r.json().then(function (body) {
-          return { ok: r.ok, body: body };
-        });
-      })
-      .then(function (res) {
-        if (!res.ok && res.body && res.body.success === 'false') {
-          throw new Error(res.body.message || 'Could not send request');
-        }
+    window.SiteMail.send(data, { subject: subject, from_name: 'Appointment form' })
+      .then(function () {
         form.reset();
         if (okEl) {
           okEl.classList.remove('d-none');
@@ -159,11 +180,12 @@ permalink: /appointment/
       })
       .catch(function (err) {
         console.warn('appointment form', err);
-        showError(
-          'Could not send automatically. Please email ' +
-            notifyEmail +
-            ' directly, or try again after confirming FormSubmit in your inbox.'
-        );
+        showError('Automatic send failed — opening your email app as a backup.');
+        setTimeout(function () {
+          if (window.SiteMail && window.SiteMail.mailtoFallback) {
+            window.SiteMail.mailtoFallback(notifyEmail, subject, toMailtoBody(data));
+          }
+        }, 400);
       })
       .finally(function () {
         if (submitBtn) {

@@ -303,26 +303,22 @@
   }
 
   function notifyOwner(question) {
-    if (!NOTIFY_ENABLED || !NOTIFY_EMAIL) return;
-    var payload = {
-      _subject: "Ask Mark — new chat question",
-      name: "Ask Mark chatbot",
-      question: question,
-      page: typeof location !== "undefined" ? location.href : "",
-      when: new Date().toISOString(),
-      userAgent: typeof navigator !== "undefined" ? navigator.userAgent : "",
-      language: typeof navigator !== "undefined" ? navigator.language : "",
-      _template: "table",
-      _captcha: "false",
-    };
-    fetch("https://formsubmit.co/ajax/" + encodeURIComponent(NOTIFY_EMAIL), {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+    if (!NOTIFY_ENABLED) return;
+    if (!window.SiteMail || !window.SiteMail.hasAccessKey()) {
+      console.warn("ask-mark: skip notify — add web3forms_access_key in _config.yml");
+      return;
+    }
+    window.SiteMail.send(
+      {
+        question: question,
+        page: typeof location !== "undefined" ? location.href : "",
+        when: new Date().toISOString(),
+        userAgent: typeof navigator !== "undefined" ? navigator.userAgent : "",
+        language: typeof navigator !== "undefined" ? navigator.language : "",
+        notify_to: NOTIFY_EMAIL,
       },
-      body: JSON.stringify(payload),
-    }).catch(function (err) {
+      { subject: "Ask Mark — new chat question", from_name: "Ask Mark chatbot" }
+    ).catch(function (err) {
       console.warn("ask-mark: notify email failed", err);
     });
   }

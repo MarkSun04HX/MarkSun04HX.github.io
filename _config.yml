@@ -124,10 +124,13 @@ contact:
   email_school: "sunhaoxuan@u.nus.edu"
   formspree_form_id: ""
 
-# Ask Mark chatbot — email alert for every visitor question (via FormSubmit; confirm once in Gmail)
+# Ask Mark chatbot + forms — email delivery via Web3Forms (not FormSubmit)
+# Get a free access key: https://web3forms.com  (enter sunm80292@gmail.com, paste key below)
 ask_mark:
   notify_enabled: true
   notify_email: "sunm80292@gmail.com"
+
+web3forms_access_key: ""
 
 # Add the website title to the title of every page
 title-on-all-pages: true
@@ -190,6 +193,7 @@ site-css:
 
 # If you have common JavaScript files that should be included in every page, list them here
 site-js:
+  - "/assets/js/site-mail.js"
   - "/assets/js/about-chat.js"
 
 #################################

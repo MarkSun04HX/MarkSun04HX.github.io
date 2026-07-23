@@ -21,6 +21,10 @@
 
 {% if site.site-js %}
   <script>
+    window.SITE_MAIL_CONFIG = {
+      accessKey: {{ site.web3forms_access_key | default: "" | jsonify }},
+      notifyEmail: {{ site.ask_mark.notify_email | default: site.contact.email | jsonify }}
+    };
     window.ASK_MARK_CONFIG = {
       notifyEnabled: {{ site.ask_mark.notify_enabled | default: true | jsonify }},
       notifyEmail: {{ site.ask_mark.notify_email | default: site.contact.email | jsonify }}
