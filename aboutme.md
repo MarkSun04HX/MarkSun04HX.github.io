@@ -41,7 +41,7 @@ Brief summaries (aligned with **[Projects]({{ '/projects' | relative_url }})**):
 
 ### Contact
 
-Reach me by email at **[sunm80292@gmail.com](mailto:sunm80292@gmail.com)** (personal), **[San216_Sun16@126.com](mailto:San216_Sun16@126.com)** (personal), or **[sunhaoxuan@u.nus.edu](mailto:sunhaoxuan@u.nus.edu)** (NUS), or through LinkedIn / GitHub in the footer. You can also use **(+86) 138-1744-1278** or **(+1) 704-502-9225**. A **PDF résumé** is on the [Résumé]({{ '/resume' | relative_url }}) page. I completed my undergraduate work in the [Wake Forest Department of Economics](https://economics.wfu.edu/).
+Reach me by email at **[sunm80292@gmail.com](mailto:sunm80292@gmail.com)** (personal), **[San216_Sun16@126.com](mailto:San216_Sun16@126.com)** (personal), or **[sunhaoxuan@u.nus.edu](mailto:sunhaoxuan@u.nus.edu)** (NUS), or through LinkedIn / GitHub in the footer. To propose a meeting, use **[Book an appointment]({{ '/appointment/' | relative_url }})**. You can also use **(+86) 138-1744-1278** or **(+1) 704-502-9225**. A **PDF résumé** is on the [Résumé]({{ '/resume' | relative_url }}) page. I completed my undergraduate work in the [Wake Forest Department of Economics](https://economics.wfu.edu/).
 
 ### This site
 
