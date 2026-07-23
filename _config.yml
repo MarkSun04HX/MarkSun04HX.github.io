@@ -130,7 +130,7 @@ ask_mark:
   notify_enabled: true
   notify_email: "sunm80292@gmail.com"
 
-web3forms_access_key: ""
+web3forms_access_key: "946923cc-6724-4c6a-8a0b-9f69983d7d17"
 
 # Add the website title to the title of every page
 title-on-all-pages: true
