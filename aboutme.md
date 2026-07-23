@@ -4,12 +4,12 @@ title: About me
 subtitle: Economics, statistics, and data science
 ---
 
-I am **Haoxuan (Mark) Sun**, a senior at [Wake Forest University](https://www.wfu.edu/) in Winston-Salem, North Carolina. I am completing a **B.S. in Economics** with minors in **Statistics** and **Mathematics** (May 2026). From **August 2026** I will begin an **M.Sc. in Statistics** at the [National University of Singapore](https://www.nus.edu.sg/). I am interested in roles and projects at the intersection of **economics, econometrics, and data science**.
+I am **Haoxuan (Mark) Sun**. I earned a **B.S. in Economics** with minors in **Statistics** and **Mathematics** from [Wake Forest University](https://www.wfu.edu/) (**May 2026**). From **August 2026** I begin an **M.Sc. in Statistics** at the [National University of Singapore](https://www.nus.edu.sg/). I am interested in roles and projects at the intersection of **economics, econometrics, and data science**.
 
 ### Education
 
 - **National University of Singapore** — M.Sc. in Statistics (beginning Aug 2026), Singapore.
-- **Wake Forest University** — B.S. Economics; minors in Statistics and Mathematics (Aug 2023 – May 2026). Cumulative GPA **3.83/4.00**; **Dean’s List** each semester; member of **Omicron Delta Epsilon** (economics honor society). Major coursework includes econometrics, machine learning, computer programming, optimization theories, and microeconomics.
+- **Wake Forest University** — B.S. Economics; minors in Statistics and Mathematics (Aug 2023 – May 2026). Cumulative GPA **3.83/4.00**; **Dean’s List** each semester; member of **Omicron Delta Epsilon** (economics honor society). Major coursework included econometrics, machine learning, computer programming, optimization theories, and microeconomics.
 
 ### Experience
 
@@ -39,7 +39,7 @@ Brief summaries (aligned with **[Projects]({{ '/projects' | relative_url }})**):
 
 ### Contact
 
-Reach me through the links in the footer (email, LinkedIn, GitHub, U.S. phone). You can also use **(+86) 138-1744-1278** or **(+1) 704-502-9225**. A **PDF résumé** is on the [Résumé]({{ '/resume' | relative_url }}) page (March 2026). For **Wake Forest Economics**, I am affiliated with the [Department of Economics](https://economics.wfu.edu/).
+Reach me through the links in the footer (email, LinkedIn, GitHub, U.S. phone). You can also use **(+86) 138-1744-1278** or **(+1) 704-502-9225**. A **PDF résumé** is on the [Résumé]({{ '/resume' | relative_url }}) page. I completed my undergraduate work in the [Wake Forest Department of Economics](https://economics.wfu.edu/).
 
 ### This site
 

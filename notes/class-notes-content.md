@@ -107,7 +107,7 @@ Below is a semester-by-semester list of courses on my **unofficial** Wake Forest
 - STA 279 Topics in Statistics: Statistical Computing
 - STA 310 Probability
 
-#### 2026 Spring *(in progress)*
+#### 2026 Spring
 
 - ECN 211 Intermediate Mathematical Macroeconomics
 - ECN 318 Advanced Topics in Mathematical Economics
@@ -116,6 +116,6 @@ Below is a semester-by-semester list of courses on my **unofficial** Wake Forest
 - STA 175 Competitions
 - STA 363 Introduction to Statistical Learning
 
-<p class="text-muted small mt-3">Course titles and terms reflect my unofficial transcript as of December 2025; the 2026 spring term was still in progress when that transcript was generated.</p>
+<p class="text-muted small mt-3">Course titles and terms follow my Wake Forest transcript through Spring 2026 (B.S. Economics, May 2026).</p>
 
 {% include private-section-leave.html storage_key="sunWfuClassNotesV1" redirect_path="/notes/" link_id="class-notes-leave" link_label="Lock class notes on this browser" hint="(clears access until you answer the question again). On shared computers, use this when you are done." %}

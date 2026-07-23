@@ -6,7 +6,7 @@ tags: [research]
 share-description: "Notes on my RA work with Professor Koleman Strumpf — TV advertising data pipelines, Python, and exploratory outputs — with a link to my overview PDF."
 ---
 
-From **September 2025** through **May 2026** I work as a **research assistant** in the **Wake Forest Department of Economics**, supporting empirical projects with **Professor Koleman Strumpf**. The research uses **large-scale TV advertising and programming data**: national panels that are **multi-terabyte** in raw form, with strict needs around **extraction, filtering, and reproducibility** before anything reaches estimation code.
+From **September 2025** through **May 2026** I worked as a **research assistant** in the **Wake Forest Department of Economics**, supporting empirical projects with **Professor Koleman Strumpf**. The research used **large-scale TV advertising and programming data**: national panels that are **multi-terabyte** in raw form, with strict needs around **extraction, filtering, and reproducibility** before anything reaches estimation code.
 
 ## What the job actually is
 
