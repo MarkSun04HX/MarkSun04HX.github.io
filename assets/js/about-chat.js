@@ -1,15 +1,20 @@
 /**
- * Ask Mark — sitewide bio chatbot (Puter.js LLM + local grounded fallback).
+ * Ask Mark — sitewide chatbot (Puter.js LLM + RAG over Jekyll corpus + local fallback).
  */
 (function () {
   "use strict";
 
   var KB_URL = "/assets/data/about-chat-kb.json";
+  var CORPUS_URL = "/assets/data/site-chat-corpus.json";
   var PUTER_SRC = "https://js.puter.com/v2/";
   var MODEL = "gpt-5.4-nano";
   var MAX_HISTORY = 12;
+  var TOP_K = 8;
+  var MAX_CONTEXT_CHARS = 12000;
 
   var kb = null;
+  var corpusDocs = [];
+  var searchDocs = [];
   var conversation = null;
   var busy = false;
   var puterReady = null;
@@ -47,61 +52,83 @@
     return puterReady;
   }
 
-  function buildSystemPrompt(data) {
-    var parts = [
+  function baseSystemPrompt(data) {
+    return [
       "You are Ask Mark, a friendly assistant on Haoxuan (Mark) Sun's personal website.",
-      "Answer ONLY using the BIO CONTEXT below. If the answer is not in the context, say you do not know and suggest the Contact page or email sunm80292@gmail.com / sunhaoxuan@u.nus.edu.",
+      "Answer ONLY using the SITE EXCERPTS provided with each user message (plus this bio summary).",
+      "If the answer is not in the excerpts, say you do not know and suggest the Contact page or email sunm80292@gmail.com / sunhaoxuan@u.nus.edu.",
       "Do not invent degrees, jobs, GPAs, dates, phone numbers, or achievements.",
       "Be concise (usually 2–5 short sentences). Plain text only — no markdown.",
-      "Speak about Mark in the third person unless the visitor clearly wants a first-person voice; either is fine if consistent.",
+      "When helpful, mention the page title the fact came from.",
       "",
-      "BIO CONTEXT:",
-      data.summary,
-      "",
-    ];
+      "BIO SUMMARY:",
+      data.summary || "Personal site of Haoxuan (Mark) Sun.",
+    ].join("\n");
+  }
+
+  function buildSearchIndex(data, corpus) {
+    var docs = [];
     (data.sections || []).forEach(function (sec) {
-      parts.push(sec.title + ": " + sec.text);
-      parts.push("");
+      docs.push({
+        id: "kb:" + sec.id,
+        title: sec.title,
+        url: "/aboutme/",
+        type: "bio",
+        tags: sec.keywords || [],
+        text: sec.text || "",
+        boost: 2,
+      });
     });
-    return parts.join("\n");
+    (corpus.documents || []).forEach(function (doc) {
+      docs.push({
+        id: doc.id,
+        title: doc.title || "Untitled",
+        url: doc.url || "",
+        type: doc.type || "page",
+        tags: doc.tags || [],
+        text: doc.text || "",
+        boost: 1,
+      });
+    });
+    return docs;
   }
 
-  function scoreSection(query, sec) {
+  function tokenize(query) {
+    return query
+      .toLowerCase()
+      .replace(/[^\w\s]/g, " ")
+      .split(/\s+/)
+      .filter(function (w) {
+        return w.length > 2;
+      });
+  }
+
+  function scoreDoc(query, doc) {
     var q = query.toLowerCase();
+    var words = tokenize(query);
     var score = 0;
-    var words = q.replace(/[^\w\s]/g, " ").split(/\s+/).filter(function (w) {
-      return w.length > 2;
-    });
-    (sec.keywords || []).forEach(function (kw) {
-      if (q.indexOf(kw.toLowerCase()) !== -1) score += 3;
-    });
+    var title = (doc.title || "").toLowerCase();
+    var text = (doc.text || "").toLowerCase();
+    var tags = (doc.tags || []).join(" ").toLowerCase();
+
     words.forEach(function (w) {
-      if ((sec.text || "").toLowerCase().indexOf(w) !== -1) score += 1;
-      if ((sec.title || "").toLowerCase().indexOf(w) !== -1) score += 2;
+      if (title.indexOf(w) !== -1) score += 4;
+      if (tags.indexOf(w) !== -1) score += 3;
+      if (text.indexOf(w) !== -1) score += 1;
     });
-    return score;
+
+    (doc.tags || []).forEach(function (kw) {
+      if (q.indexOf(String(kw).toLowerCase()) !== -1) score += 3;
+    });
+
+    if (doc.type === "bio") score += 1;
+    return score * (doc.boost || 1);
   }
 
-  function localAnswer(query, data) {
-    var q = query.toLowerCase().trim();
-    if (/^(hi|hello|hey|yo|good (morning|afternoon|evening))\b/.test(q) || q.length < 3) {
-      return (
-        "Hi — I am Ask Mark, a helper for questions about " +
-        data.name +
-        ". Ask about education, experience, projects, skills, or how to get in touch."
-      );
-    }
-    if (/who (are you|is (this|ask mark|the bot|the chatbot))/.test(q)) {
-      return (
-        "I am Ask Mark, a small assistant on this site. I answer questions about " +
-        data.name +
-        " using his public bio. For anything sensitive or missing, use the Contact page."
-      );
-    }
-
-    var ranked = (data.sections || [])
-      .map(function (sec) {
-        return { sec: sec, score: scoreSection(query, sec) };
+  function retrieve(query) {
+    var ranked = searchDocs
+      .map(function (doc) {
+        return { doc: doc, score: scoreDoc(query, doc) };
       })
       .filter(function (x) {
         return x.score > 0;
@@ -110,19 +137,63 @@
         return b.score - a.score;
       });
 
-    if (!ranked.length) {
+    var picked = [];
+    var used = 0;
+    for (var i = 0; i < ranked.length && picked.length < TOP_K; i++) {
+      var d = ranked[i].doc;
+      var chunk = (d.text || "").slice(0, 1800);
+      var block =
+        "[" +
+        (d.type || "page") +
+        "] " +
+        d.title +
+        (d.url ? " (" + d.url + ")" : "") +
+        "\n" +
+        chunk;
+      if (used + block.length > MAX_CONTEXT_CHARS && picked.length > 0) break;
+      picked.push({ doc: d, score: ranked[i].score, block: block });
+      used += block.length;
+    }
+    return picked;
+  }
+
+  function formatExcerpts(picked) {
+    if (!picked.length) return "(No matching site excerpts found.)";
+    return picked
+      .map(function (x, i) {
+        return "Excerpt " + (i + 1) + ":\n" + x.block;
+      })
+      .join("\n\n");
+  }
+
+  function localAnswer(query) {
+    var q = query.toLowerCase().trim();
+    if (/^(hi|hello|hey|yo|good (morning|afternoon|evening))\b/.test(q) || q.length < 3) {
       return (
-        "I am not sure from Mark's public bio. Try the About or Projects pages, or email sunm80292@gmail.com / sunhaoxuan@u.nus.edu via Contact."
+        "Hi — I am Ask Mark. Ask about Mark's background, projects, blog posts, notes, or how to get in touch. I search across the public pages on this site."
+      );
+    }
+    if (/who (are you|is (this|ask mark|the bot|the chatbot))/.test(q)) {
+      return (
+        "I am Ask Mark, a helper on this site. I answer from Mark's public pages and posts (not private résumé or class-notes sections)."
       );
     }
 
-    var top = ranked.slice(0, 2);
-    var out = top
+    var picked = retrieve(query);
+    if (!picked.length) {
+      return (
+        "I could not find that on the public site pages. Try About, Projects, or Blog — or email sunm80292@gmail.com / sunhaoxuan@u.nus.edu."
+      );
+    }
+
+    var out = picked
+      .slice(0, 2)
       .map(function (x) {
-        return x.sec.text;
+        var t = x.doc.text || "";
+        if (t.length > 420) t = t.slice(0, 417) + "…";
+        return x.doc.title + ": " + t;
       })
-      .join(" ");
-    if (out.length > 700) out = out.slice(0, 697) + "…";
+      .join("\n\n");
     return out;
   }
 
@@ -181,9 +252,20 @@
     }
   }
 
+  function userMessageWithContext(question) {
+    var excerpts = formatExcerpts(retrieve(question));
+    return (
+      "SITE EXCERPTS (use only these):\n" +
+      excerpts +
+      "\n\nVISITOR QUESTION:\n" +
+      question
+    );
+  }
+
   async function streamLlm(question, botEl) {
     var puter = await ensurePuter();
-    var response = await puter.ai.chat(conversation.concat([{ role: "user", content: question }]), false, {
+    var grounded = userMessageWithContext(question);
+    var response = await puter.ai.chat(conversation.concat([{ role: "user", content: grounded }]), false, {
       model: MODEL,
       stream: true,
     });
@@ -196,10 +278,10 @@
       }
     }
     if (!answer) throw new Error("Empty model response");
-    conversation.push({ role: "user", content: question });
+    conversation.push({ role: "user", content: grounded });
     conversation.push({ role: "assistant", content: answer });
     while (conversation.length > MAX_HISTORY + 1) {
-      conversation.splice(1, 1);
+      conversation.splice(1, 2);
     }
     return answer;
   }
@@ -222,9 +304,9 @@
       await streamLlm(question, botEl);
     } catch (err) {
       console.warn("ask-mark: LLM unavailable, using local fallback", err);
-      var text = localAnswer(question, kb);
+      var text = localAnswer(question);
       var note =
-        "\n\n(Answered from Mark's site bio — full AI chat may ask you to sign in with Puter once.)";
+        "\n\n(Answered from site pages — full AI chat may ask you to sign in with Puter once.)";
       await typeLocal(botEl, text + note);
       if (conversation) {
         conversation.push({ role: "user", content: question });
@@ -241,7 +323,11 @@
     var row = $("#ask-mark-suggestions");
     if (!row) return;
     row.innerHTML = "";
-    (data.suggested || []).forEach(function (label) {
+    var suggestions = (data.suggested || []).slice();
+    if (suggestions.indexOf("What did he write about Arsenal?") === -1) {
+      suggestions.push("What did he write about Arsenal?");
+    }
+    suggestions.forEach(function (label) {
       var b = document.createElement("button");
       b.type = "button";
       b.className = "ask-mark__chip";
@@ -269,7 +355,7 @@
       '<div class="ask-mark__header">' +
       '<div class="ask-mark__header-text">' +
       '<p class="ask-mark__title">Ask Mark</p>' +
-      '<p class="ask-mark__subtitle">Questions about education, work, projects, and contact</p>' +
+      '<p class="ask-mark__subtitle">Answers from Mark’s public pages, posts, and notes</p>' +
       "</div>" +
       '<button type="button" id="ask-mark-close" class="ask-mark__close" aria-label="Close chat">&times;</button>' +
       "</div>" +
@@ -277,10 +363,10 @@
       '<div id="ask-mark-suggestions" class="ask-mark__suggestions"></div>' +
       '<form id="ask-mark-form" class="ask-mark__form">' +
       '<label class="sr-only" for="ask-mark-input">Your question</label>' +
-      '<input id="ask-mark-input" class="ask-mark__input" type="text" maxlength="500" autocomplete="off" placeholder="Ask about Mark…" />' +
+      '<input id="ask-mark-input" class="ask-mark__input" type="text" maxlength="500" autocomplete="off" placeholder="Ask about Mark or this site…" />' +
       '<button id="ask-mark-send" class="ask-mark__send" type="submit">Send</button>' +
       "</form>" +
-      '<p class="ask-mark__footnote">AI answers use Mark\'s public bio. First LLM reply may prompt a free Puter sign-in.</p>' +
+      '<p class="ask-mark__footnote">Searches public site content each time you ask. First LLM reply may prompt a free Puter sign-in.</p>' +
       "</div>";
     document.body.appendChild(root);
 
@@ -298,29 +384,35 @@
 
   function init() {
     buildUi();
-    loadJson(KB_URL)
-      .catch(function () {
+    Promise.all([
+      loadJson(KB_URL).catch(function () {
         return {
           name: "Haoxuan (Mark) Sun",
           summary: "Personal site of Haoxuan (Mark) Sun.",
           sections: [],
           suggested: ["How can I contact him?"],
         };
-      })
-      .then(function (data) {
-        kb = data;
-        conversation = [{ role: "system", content: buildSystemPrompt(data) }];
-        mountChips(data);
-        addMsg(
-          "bot",
-          "Hi — ask me about " +
-            (data.short_name || "Mark") +
-            "'s education, experience, projects, or how to get in touch."
-        );
-        ensurePuter().catch(function () {
-          /* optional until first send */
-        });
-      });
+      }),
+      loadJson(CORPUS_URL).catch(function () {
+        return { documents: [] };
+      }),
+    ]).then(function (pair) {
+      kb = pair[0];
+      corpusDocs = pair[1].documents || [];
+      searchDocs = buildSearchIndex(kb, pair[1]);
+      conversation = [{ role: "system", content: baseSystemPrompt(kb) }];
+      mountChips(kb);
+      var n = searchDocs.length;
+      addMsg(
+        "bot",
+        "Hi — ask me about " +
+          (kb.short_name || "Mark") +
+          " or anything on this site. I search " +
+          n +
+          " public pages/posts for each question."
+      );
+      ensurePuter().catch(function () {});
+    });
   }
 
   if (document.readyState === "loading") {

@@ -1,0 +1,64 @@
+---
+layout: null
+permalink: /assets/data/site-chat-corpus.json
+---
+{%- comment -%}
+  Built at Jekyll compile time from public pages + posts.
+  Excludes gated resume/class-notes content and the corpus endpoint itself.
+{%- endcomment -%}
+{%- assign skip_urls = "/assets/data/site-chat-corpus.json|/resume/content/|/notes/class-notes/content/|/404.html|/404/" | split: "|" -%}
+{
+  "generated": {{ site.time | date_to_xmlschema | jsonify }},
+  "site": {{ site.url | jsonify }},
+  "documents": [
+{%- assign first = true -%}
+{%- for post in site.posts -%}
+  {%- assign body = post.content | strip_html | strip_newlines | strip -%}
+  {%- if body.size > 40 -%}
+  {%- unless first -%},{%- endunless -%}
+  {%- assign first = false -%}
+    {
+      "id": {{ post.url | jsonify }},
+      "title": {{ post.title | default: post.name | strip_html | jsonify }},
+      "url": {{ post.url | relative_url | jsonify }},
+      "type": "post",
+      "tags": {{ post.tags | jsonify }},
+      "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
+      "text": {{ body | truncate: 3500 | jsonify }}
+    }
+  {%- endif -%}
+{%- endfor -%}
+{%- for page in site.pages -%}
+  {%- assign page_url = page.url -%}
+  {%- assign skip = false -%}
+  {%- for s in skip_urls -%}
+    {%- if page_url == s or page_url contains "site-chat-corpus" -%}
+      {%- assign skip = true -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if page_url contains "/resume/content" or page_url contains "/notes/class-notes/content" -%}
+    {%- assign skip = true -%}
+  {%- endif -%}
+  {%- if page.name == "404.html" or page.name == "feed.xml" -%}
+    {%- assign skip = true -%}
+  {%- endif -%}
+  {%- unless skip -%}
+    {%- assign body = page.content | strip_html | strip_newlines | strip -%}
+    {%- assign title = page.title | default: page.name | strip_html -%}
+    {%- if body.size > 60 and title != blank -%}
+  {%- unless first -%},{%- endunless -%}
+  {%- assign first = false -%}
+    {
+      "id": {{ page.url | jsonify }},
+      "title": {{ title | jsonify }},
+      "url": {{ page.url | relative_url | jsonify }},
+      "type": "page",
+      "tags": [],
+      "date": null,
+      "text": {{ body | truncate: 3500 | jsonify }}
+    }
+    {%- endif -%}
+  {%- endunless -%}
+{%- endfor -%}
+  ]
+}

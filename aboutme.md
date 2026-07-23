@@ -6,7 +6,7 @@ subtitle: Economics, statistics, and data science
 
 I am **Haoxuan (Mark) Sun**. I earned a **B.S. in Economics** with minors in **Statistics** and **Mathematics** from [Wake Forest University](https://www.wfu.edu/) (**May 2026**). From **August 2026** I begin an **M.Sc. in Statistics** at the [National University of Singapore](https://www.nus.edu.sg/). I am interested in roles and projects at the intersection of **economics, econometrics, and data science**.
 
-<p class="small text-muted mb-4">Curious visitors can use the <strong>Ask Mark</strong> button (bottom right on every page) for a quick chat about my background — answers are grounded in this public bio.</p>
+<p class="small text-muted mb-4">Curious visitors can use the <strong>Ask Mark</strong> button (bottom right on every page) for a quick chat — answers are retrieved from the public pages and posts across this site.</p>
 
 ### Education
 
