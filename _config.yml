@@ -62,7 +62,7 @@ round-avatar: true
 # You can change the order that they show up on the page by changing the order here.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "sunh23@wfu.edu"
+  email: "sunm80292@gmail.com"
   rss: true  # remove this line if you don't want to show an RSS link at the bottom
   github: MarkSun04HX
   instagram: shx1604mk
@@ -118,7 +118,9 @@ url: "https://marksun04hx.github.io"
 # create a free form at https://formspree.io, set the notification email to contact.email, and paste the form id.
 # Leave formspree_form_id empty to use a mailto: fallback instead.
 contact:
-  email: "sunh23@wfu.edu"
+  email: "sunm80292@gmail.com"
+  email_personal_cn: "San216_Sun16@126.com"
+  email_school: "sunhaoxuan@u.nus.edu"
   formspree_form_id: ""
 
 # Add the website title to the title of every page

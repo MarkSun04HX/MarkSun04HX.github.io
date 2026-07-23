@@ -9,6 +9,13 @@ permalink: /contact/
 
 <p class="mb-4">Use this form for <strong>questions</strong>, <strong>collaboration ideas</strong>, or <strong>résumé / materials requests</strong>. I read everything; response time varies with coursework and travel.</p>
 
+<p class="mb-4">You can also email me directly:</p>
+<ul class="mb-4">
+  <li><strong>Personal:</strong> <a href="mailto:sunm80292@gmail.com">sunm80292@gmail.com</a></li>
+  <li><strong>Personal:</strong> <a href="mailto:San216_Sun16@126.com">San216_Sun16@126.com</a></li>
+  <li><strong>NUS:</strong> <a href="mailto:sunhaoxuan@u.nus.edu">sunhaoxuan@u.nus.edu</a></li>
+</ul>
+
 {% if formspree_id == "" %}
 <p class="small text-muted border rounded p-3 mb-4" style="border-color:#dde4ec;background:#f8fafc;">This site is not yet wired to a form backend, so <strong>Send</strong> will open your email app with a pre-filled message to <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>. To deliver straight from the page, add a <a href="https://formspree.io" target="_blank" rel="noopener noreferrer">Formspree</a> form id in <code>_config.yml</code> under <code>contact.formspree_form_id</code> (see README).</p>
 {% endif %}

@@ -50,7 +50,7 @@
   function buildSystemPrompt(data) {
     var parts = [
       "You are Ask Mark, a friendly assistant on Haoxuan (Mark) Sun's personal website.",
-      "Answer ONLY using the BIO CONTEXT below. If the answer is not in the context, say you do not know and suggest the Contact page or email sunh23@wfu.edu.",
+      "Answer ONLY using the BIO CONTEXT below. If the answer is not in the context, say you do not know and suggest the Contact page or email sunm80292@gmail.com / sunhaoxuan@u.nus.edu.",
       "Do not invent degrees, jobs, GPAs, dates, phone numbers, or achievements.",
       "Be concise (usually 2–5 short sentences). Plain text only — no markdown.",
       "Speak about Mark in the third person unless the visitor clearly wants a first-person voice; either is fine if consistent.",
@@ -112,7 +112,7 @@
 
     if (!ranked.length) {
       return (
-        "I am not sure from Mark's public bio. Try the About or Projects pages, or email sunh23@wfu.edu via Contact."
+        "I am not sure from Mark's public bio. Try the About or Projects pages, or email sunm80292@gmail.com / sunhaoxuan@u.nus.edu via Contact."
       );
     }
 
