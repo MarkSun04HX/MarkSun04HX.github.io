@@ -21,8 +21,9 @@ author: Haoxuan (Mark) Sun
 
 navbar-links:
   About Me: "aboutme"
-  Book an appointment: "appointment"
-  Contact: "contact"
+  Contact:
+    - Contact: "contact"
+    - Book an appointment: "appointment"
   Portfolio:
     - Résumé: "resume"
     - Projects: "projects"
