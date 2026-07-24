@@ -3,19 +3,19 @@
   "short_name": "Mark",
   "site": "https://marksun04hx.github.io",
   "updated": "2026-07",
-  "summary": "Haoxuan (Mark) Sun earned a B.S. in Economics with minors in Statistics and Mathematics from Wake Forest University (May 2026). From August 2026 he begins an M.Sc. in Statistics at the National University of Singapore (NUS). He works at the intersection of economics, econometrics, and data science.",
+  "summary": "Haoxuan (Mark) Sun earned a B.S. in Economics with minors in Statistics and Mathematics from Wake Forest University (May 2026, Cum Laude; Deacon Math Econ Prize). From August 2026 he begins an M.Sc. in Statistics at the National University of Singapore (NUS). He is currently a Graduate Intern at Dell Technologies in Xiamen. He works at the intersection of economics, econometrics, and data science.",
   "sections": [
     {
       "id": "education",
       "title": "Education",
-      "keywords": ["school", "university", "degree", "education", "gpa", "graduate", "nus", "wake forest", "wfu", "masters", "bachelor", "minor", "ode", "dean"],
-      "text": "Wake Forest University: B.S. Economics; minors in Statistics and Mathematics (Aug 2023 – May 2026). Cumulative GPA 3.83/4.00; Dean's List each semester; member of Omicron Delta Epsilon (economics honor society). National University of Singapore: M.Sc. in Statistics beginning August 2026."
+      "keywords": ["school", "university", "degree", "education", "gpa", "graduate", "nus", "wake forest", "wfu", "masters", "bachelor", "minor", "ode", "dean", "cum laude", "prize", "deacon"],
+      "text": "Wake Forest University: B.S. Economics; minors in Statistics and Mathematics (Aug 2023 – May 2026). Cumulative GPA 3.83/4.00; Dean's List each semester; Cum Laude; Deacon Math Econ Prize (May 2026); member of Omicron Delta Epsilon. National University of Singapore: M.Sc. in Statistics beginning August 2026 (expected 2026–2027)."
     },
     {
       "id": "experience",
       "title": "Experience",
-      "keywords": ["job", "work", "intern", "internship", "experience", "research assistant", "ra", "dell", "schenker", "strumpf", "employment"],
-      "text": "Research assistant, Wake Forest Economics with Professor Koleman Strumpf (Sept 2025 – May 2026): Python pipelines on multi-terabyte TV advertising data; Jupyter/Colab extraction and consolidation. Project intern, Dell Technologies Global Production Planning, Xiamen (June–Aug 2025): XGBoost-centered estimated ship date (ESD) simulation with CFS/non-CFS and friction splits; improved weekly accuracy toward the 98–105% target band and large runtime gains. Field sales and operations support intern, DB Schenker Greater China, Shanghai (July–Aug 2024)."
+      "keywords": ["job", "work", "intern", "internship", "experience", "research assistant", "ra", "dell", "schenker", "strumpf", "employment", "tpv", "graduate intern"],
+      "text": "Graduate Intern, Dell Technologies, Xiamen (June 2026 – present). Research assistant, Wake Forest Economics with Professor Koleman Strumpf (Aug 2025 – May 2026): Python pipelines on multi-terabyte TV advertising data; Jupyter/Colab extraction and consolidation. Project intern, Dell Technologies Global Production Planning, Xiamen (June–Aug 2025): XGBoost-centered estimated ship date (ESD) simulation with CFS/non-CFS and friction splits. Field sales and operations support, DB Schenker Greater China, Shanghai (June–Aug 2024). Finance support intern, TPV, Shanghai (May–June 2024)."
     },
     {
       "id": "projects",
@@ -26,8 +26,8 @@
     {
       "id": "skills",
       "title": "Skills and languages",
-      "keywords": ["skill", "language", "python", "r", "sql", "java", "programming", "code", "mandarin", "english", "german", "software"],
-      "text": "Skills: R, Python, Java, SQL, data visualization, machine learning, Microsoft Office. Languages: Mandarin (native), English (native), German (basic)."
+      "keywords": ["skill", "language", "python", "r", "sql", "java", "programming", "code", "mandarin", "english", "german", "software", "pandas", "excel"],
+      "text": "Skills: R, Python, Java, SQL, pandas, data visualization, machine learning (including XGBoost), Microsoft Excel / Office. Languages: Mandarin (native), English (native), German (basic)."
     },
     {
       "id": "interests",
@@ -39,7 +39,7 @@
       "id": "contact",
       "title": "Contact",
       "keywords": ["contact", "email", "reach", "linkedin", "github", "hire", "resume", "cv", "phone", "message"],
-      "text": "Best contact emails: sunm80292@gmail.com (personal), San216_Sun16@126.com (personal), and sunhaoxuan@u.nus.edu (NUS school). Also LinkedIn https://www.linkedin.com/in/haoxuan-sun-129b8b267/, GitHub https://github.com/MarkSun04HX, or the contact form at /contact/. A PDF résumé is available via /resume/ (short gate for visitors who know him). Prefer not to invent other contact details."
+      "text": "Best contact emails: sunm80292@gmail.com (personal), San216_Sun16@126.com (personal), and sunhaoxuan@u.nus.edu (NUS school). Also LinkedIn https://www.linkedin.com/in/haoxuan-sun-040918i/, GitHub https://github.com/MarkSun04HX, or the contact form at /contact/. A PDF résumé is available via /resume/ (short gate for visitors who know him). Prefer not to invent other contact details."
     },
     {
       "id": "site",
@@ -50,7 +50,7 @@
   ],
   "suggested": [
     "What is Mark studying next?",
-    "Where did he intern?",
+    "Where does he work now?",
     "What projects has he done?",
     "How can I contact him?"
   ]
