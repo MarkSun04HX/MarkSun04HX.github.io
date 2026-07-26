@@ -3,7 +3,7 @@
   "short_name": "Mark",
   "site": "https://marksun04hx.github.io",
   "updated": "2026-07",
-  "summary": "Haoxuan (Mark) Sun earned a B.S. in Economics with minors in Statistics and Mathematics from Wake Forest University (May 2026, Cum Laude; Deacon Math Econ Prize). From August 2026 he begins an M.Sc. in Statistics at the National University of Singapore (NUS). He is currently a Graduate Intern at Dell Technologies in Xiamen. He works at the intersection of economics, econometrics, and data science.",
+  "summary": "Haoxuan (Mark) Sun earned a B.S. in Economics with minors in Statistics and Mathematics from Wake Forest University (May 2026, Cum Laude; Deacon Math Econ Prize). He is now based in Singapore and begins an M.Sc. in Statistics at the National University of Singapore (NUS) in August 2026. He works at the intersection of economics, econometrics, and data science.",
   "sections": [
     {
       "id": "education",
@@ -15,7 +15,7 @@
       "id": "experience",
       "title": "Experience",
       "keywords": ["job", "work", "intern", "internship", "experience", "research assistant", "ra", "dell", "schenker", "strumpf", "employment", "tpv", "graduate intern"],
-      "text": "Graduate Intern, Dell Technologies, Xiamen (June 2026 – present). Research assistant, Wake Forest Economics with Professor Koleman Strumpf (Aug 2025 – May 2026): Python pipelines on multi-terabyte TV advertising data; Jupyter/Colab extraction and consolidation. Project intern, Dell Technologies Global Production Planning, Xiamen (June–Aug 2025): XGBoost-centered estimated ship date (ESD) simulation with CFS/non-CFS and friction splits. Field sales and operations support, DB Schenker Greater China, Shanghai (June–Aug 2024). Finance support intern, TPV, Shanghai (May–June 2024)."
+      "text": "Graduate Intern, Dell Technologies, Xiamen (June – July 2026; internship completed, now in Singapore for NUS). Research assistant, Wake Forest Economics with Professor Koleman Strumpf (Aug 2025 – May 2026): Python pipelines on multi-terabyte TV advertising data; Jupyter/Colab extraction and consolidation. Project intern, Dell Technologies Global Production Planning, Xiamen (June–Aug 2025): XGBoost-centered estimated ship date (ESD) simulation with CFS/non-CFS and friction splits. Field sales and operations support, DB Schenker Greater China, Shanghai (June–Aug 2024). Finance support intern, TPV, Shanghai (May–June 2024)."
     },
     {
       "id": "projects",

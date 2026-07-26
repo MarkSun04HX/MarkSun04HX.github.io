@@ -4,7 +4,7 @@ title: About me
 subtitle: Economics, statistics, and data science
 ---
 
-I am **Haoxuan (Mark) Sun**. I earned a **B.S. in Economics** with minors in **Statistics** and **Mathematics** from [Wake Forest University](https://www.wfu.edu/) (**May 2026**, *Cum Laude*). From **August 2026** I begin an **M.Sc. in Statistics** at the [National University of Singapore](https://www.nus.edu.sg/). I am currently a **Graduate Intern** at **Dell Technologies** in Xiamen. I am interested in roles and projects at the intersection of **economics, econometrics, and data science**.
+I am **Haoxuan (Mark) Sun**, currently based in **Singapore**. I earned a **B.S. in Economics** with minors in **Statistics** and **Mathematics** from [Wake Forest University](https://www.wfu.edu/) (**May 2026**, *Cum Laude*). From **August 2026** I begin an **M.Sc. in Statistics** at the [National University of Singapore](https://www.nus.edu.sg/). I am interested in roles and projects at the intersection of **economics, econometrics, and data science**.
 
 <p class="small text-muted mb-4">Curious visitors can use the <strong>Ask Mark</strong> button (bottom right on every page) for a quick chat — answers are retrieved from the public pages and posts across this site.</p>
 
@@ -15,7 +15,7 @@ I am **Haoxuan (Mark) Sun**. I earned a **B.S. in Economics** with minors in **S
 
 ### Experience
 
-- **Graduate Intern** — Dell Technologies (June 2026 – present), Xiamen, China. Continuing work with Global Production Planning after the 2025 undergraduate internship.
+- **Graduate Intern** — Dell Technologies (June – July 2026), Xiamen, China. Continued work with Global Production Planning after the 2025 undergraduate internship.
 - **Research assistant** — Wake Forest Department of Economics, with Professor Koleman Strumpf (Aug 2025 – May 2026), Winston-Salem, NC. Supported econometric research by building automated **Python** pipelines to process and filter multi-terabyte TV advertising datasets; managed data extraction and consolidation in **Jupyter/Colab** (and **R** where needed for checks) for analysis of advertising markets. [Sample figures](/ra-visuals/); [overview PDF]({{ '/assets/files/ra/data-pipeline-tv-advertising-content-analysis.pdf' | relative_url }}) · [research note]({% post_url 2026-04-16-research-assistant-tv-advertising-data-pipeline %}).
 - **Project intern, Global Production Planning** — Dell Technologies (June – Aug 2025), Xiamen, China. **ESD / lead-time** simulation for factory ship planning: **XGBoost** pipeline with **CFS vs. non-CFS** splits for shippable orders and **friction** segmentation (customer vs. supply vs. other). Presentation metrics: average weekly "attention" from about **109%** toward **~102%**, more weeks inside the **98–105%** target band, and large gains in simulation runtime. [Write-up]({% post_url 2025-08-20-dell-gpp-esd-simulation-internship %}).
 - **Field sales and operations support intern** — DB Schenker Greater China (June – Aug 2024), Shanghai. Sales support (quotes, proposals, CRM) and operations liaison for customer shipments and service issues.
