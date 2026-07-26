@@ -54,7 +54,7 @@
       ": " +
       (onGrid
         ? "dark outline on the calendar matches this date."
-        : "this date is outside April–May 2026 on this page, so no day cell is highlighted.");
+        : "this date is outside August–September 2026 on this page, so no day cell is highlighted.");
 
     msg.hidden = false;
   }
