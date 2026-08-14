@@ -11,7 +11,7 @@ Use this section for **PDF notes from coursework** and for **longer personal exp
   <div class="col-md-6 mb-4">
     <div class="project-card">
       <h2 class="h4 mt-0"><a href="{{ '/notes/class-notes/' | relative_url }}">Class notes</a></h2>
-      <p class="mb-3 small">Course PDFs (economics, statistics) and a semester-by-semester list of Wake Forest coursework.</p>
+      <p class="mb-3 small">Current NUS M.Sc. module list, Wake Forest course PDFs, and a semester-by-semester undergraduate transcript.</p>
       <a class="btn btn-outline-primary btn-sm" href="{{ '/notes/class-notes/' | relative_url }}">Open class notes</a>
     </div>
   </div>

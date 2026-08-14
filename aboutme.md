@@ -4,18 +4,19 @@ title: About me
 subtitle: Economics, statistics, and data science
 ---
 
-I am **Haoxuan (Mark) Sun**, currently based in **Singapore**. I earned a **B.S. in Economics** with minors in **Statistics** and **Mathematics** from [Wake Forest University](https://www.wfu.edu/) (**May 2026**, *Cum Laude*). From **August 2026** I begin an **M.Sc. in Statistics** at the [National University of Singapore](https://www.nus.edu.sg/). I am interested in roles and projects at the intersection of **economics, econometrics, and data science**.
+I am **Haoxuan (Mark) Sun**, an **M.Sc. in Statistics** student at the [National University of Singapore](https://www.nus.edu.sg/), based in **Singapore**. I earned a **B.S. in Economics** with minors in **Statistics** and **Mathematics** from [Wake Forest University](https://www.wfu.edu/) (**May 2026**, *Cum Laude*). I am interested in roles and projects at the intersection of **economics, econometrics, and data science**.
 
 <p class="small text-muted mb-4">Curious visitors can use the <strong>Ask Mark</strong> button (bottom right on every page) for a quick chat — answers are retrieved from the public pages and posts across this site.</p>
 
 ### Education
 
-- **National University of Singapore** — M.Sc. in Statistics (beginning Aug 2026; expected 2026–2027), Singapore.
+- **National University of Singapore** — M.Sc. in Statistics (Aug 2026 – expected 2027), Singapore.
+- **Current coursework (Sem 1, AY2026/27):** **ST5201X** Statistical Foundations of Data Science · **ST5202X** Applied Regression Analysis · **ST5227** Applied Statistical Learning · **ST5229** Deep Learning in Data Analytics.
 - **Wake Forest University** — B.S. Economics; minors in Statistics and Mathematics (Aug 2023 – May 2026). Cumulative GPA **3.83/4.00**; **Dean’s List** each semester; **Cum Laude**; **Deacon Math Econ Prize** (Wake Forest Department of Economics, May 2026); member of **Omicron Delta Epsilon** (economics honor society). Major coursework included econometrics, machine learning, computer programming, optimization theories, and microeconomics.
 
 ### Experience
 
-- **Graduate Intern** — Dell Technologies (June – July 2026), Xiamen, China. Continued work with Global Production Planning after the 2025 undergraduate internship.
+- **Graduate Intern** — Dell Technologies (June – end of July 2026), Xiamen, China. Continued work with Global Production Planning after the 2025 undergraduate internship; internship completed before relocating to Singapore for NUS.
 - **Research assistant** — Wake Forest Department of Economics, with Professor Koleman Strumpf (Aug 2025 – May 2026), Winston-Salem, NC. Supported econometric research by building automated **Python** pipelines to process and filter multi-terabyte TV advertising datasets; managed data extraction and consolidation in **Jupyter/Colab** (and **R** where needed for checks) for analysis of advertising markets. [Sample figures](/ra-visuals/); [overview PDF]({{ '/assets/files/ra/data-pipeline-tv-advertising-content-analysis.pdf' | relative_url }}) · [research note]({% post_url 2026-04-16-research-assistant-tv-advertising-data-pipeline %}).
 - **Project intern, Global Production Planning** — Dell Technologies (June – Aug 2025), Xiamen, China. **ESD / lead-time** simulation for factory ship planning: **XGBoost** pipeline with **CFS vs. non-CFS** splits for shippable orders and **friction** segmentation (customer vs. supply vs. other). Presentation metrics: average weekly "attention" from about **109%** toward **~102%**, more weeks inside the **98–105%** target band, and large gains in simulation runtime. [Write-up]({% post_url 2025-08-20-dell-gpp-esd-simulation-internship %}).
 - **Field sales and operations support intern** — DB Schenker Greater China (June – Aug 2024), Shanghai. Sales support (quotes, proposals, CRM) and operations liaison for customer shipments and service issues.

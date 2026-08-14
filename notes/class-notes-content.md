@@ -9,7 +9,22 @@ permalink: /notes/class-notes/content/
 
 <p class="mb-4"><a href="{{ '/notes/' | relative_url }}">← Back to Notes</a></p>
 
-Personal lecture and study notes from coursework at Wake Forest. Links open the PDF in the browser or trigger a download depending on your settings.
+Personal lecture and study notes from coursework at **NUS** (current) and **Wake Forest** (undergraduate). Links open the PDF in the browser or trigger a download depending on your settings.
+
+### Coursework at NUS
+
+Semester 1, **AY2026/27** — M.Sc. in Statistics ([Department of Statistics &amp; Data Science](https://www.stat.nus.edu.sg/)). Lectures begin **17 Aug 2026** per the graduate [CourseReg schedule](https://www.nus.edu.sg/coursereg/docs/GD_CourseRegSchedule.pdf).
+
+- **ST5201X** — Statistical Foundations of Data Science
+- **ST5202X** — Applied Regression Analysis
+- **ST5227** — Applied Statistical Learning
+- **ST5229** — Deep Learning in Data Analytics
+
+<p class="text-muted small">Module list follows my current NUS enrolment (also reflected on LinkedIn). Confirm official registration in EduRec.</p>
+
+---
+
+### Wake Forest — course PDFs
 
 ### ECN 211 — Intermediate Mathematical Macroeconomics
 

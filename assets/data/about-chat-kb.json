@@ -2,20 +2,20 @@
   "name": "Haoxuan (Mark) Sun",
   "short_name": "Mark",
   "site": "https://marksun04hx.github.io",
-  "updated": "2026-07",
-  "summary": "Haoxuan (Mark) Sun earned a B.S. in Economics with minors in Statistics and Mathematics from Wake Forest University (May 2026, Cum Laude; Deacon Math Econ Prize). He is now based in Singapore and begins an M.Sc. in Statistics at the National University of Singapore (NUS) in August 2026. He works at the intersection of economics, econometrics, and data science.",
+  "updated": "2026-08",
+  "summary": "Haoxuan (Mark) Sun is an M.Sc. in Statistics student at the National University of Singapore (NUS), based in Singapore (AY2026/27). He earned a B.S. in Economics with minors in Statistics and Mathematics from Wake Forest University (May 2026, Cum Laude; Deacon Math Econ Prize). His Dell Technologies graduate internship (Xiamen) ended at the end of July 2026. He works at the intersection of economics, econometrics, and data science.",
   "sections": [
     {
       "id": "education",
       "title": "Education",
-      "keywords": ["school", "university", "degree", "education", "gpa", "graduate", "nus", "wake forest", "wfu", "masters", "bachelor", "minor", "ode", "dean", "cum laude", "prize", "deacon"],
-      "text": "Wake Forest University: B.S. Economics; minors in Statistics and Mathematics (Aug 2023 – May 2026). Cumulative GPA 3.83/4.00; Dean's List each semester; Cum Laude; Deacon Math Econ Prize (May 2026); member of Omicron Delta Epsilon. National University of Singapore: M.Sc. in Statistics beginning August 2026 (expected 2026–2027)."
+      "keywords": ["school", "university", "degree", "education", "gpa", "graduate", "nus", "wake forest", "wfu", "masters", "bachelor", "minor", "ode", "dean", "cum laude", "prize", "deacon", "course", "module", "st5201", "st5227", "st5229"],
+      "text": "Wake Forest University: B.S. Economics; minors in Statistics and Mathematics (Aug 2023 – May 2026). Cumulative GPA 3.83/4.00; Dean's List each semester; Cum Laude; Deacon Math Econ Prize (May 2026); member of Omicron Delta Epsilon. National University of Singapore: M.Sc. in Statistics (Aug 2026 – expected 2027), in progress in Singapore. Current Sem 1 AY2026/27 modules: ST5201X Statistical Foundations of Data Science, ST5202X Applied Regression Analysis, ST5227 Applied Statistical Learning, ST5229 Deep Learning in Data Analytics."
     },
     {
       "id": "experience",
       "title": "Experience",
       "keywords": ["job", "work", "intern", "internship", "experience", "research assistant", "ra", "dell", "schenker", "strumpf", "employment", "tpv", "graduate intern"],
-      "text": "Graduate Intern, Dell Technologies, Xiamen (June – July 2026; internship completed, now in Singapore for NUS). Research assistant, Wake Forest Economics with Professor Koleman Strumpf (Aug 2025 – May 2026): Python pipelines on multi-terabyte TV advertising data; Jupyter/Colab extraction and consolidation. Project intern, Dell Technologies Global Production Planning, Xiamen (June–Aug 2025): XGBoost-centered estimated ship date (ESD) simulation with CFS/non-CFS and friction splits. Field sales and operations support, DB Schenker Greater China, Shanghai (June–Aug 2024). Finance support intern, TPV, Shanghai (May–June 2024)."
+      "text": "Graduate Intern, Dell Technologies, Xiamen (June – end of July 2026; internship completed before NUS). Research assistant, Wake Forest Economics with Professor Koleman Strumpf (Aug 2025 – May 2026): Python pipelines on multi-terabyte TV advertising data; Jupyter/Colab extraction and consolidation. Project intern, Dell Technologies Global Production Planning, Xiamen (June–Aug 2025): XGBoost-centered estimated ship date (ESD) simulation with CFS/non-CFS and friction splits. Field sales and operations support, DB Schenker Greater China, Shanghai (June–Aug 2024). Finance support intern, TPV, Shanghai (May–June 2024)."
     },
     {
       "id": "projects",
